@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    Olá SI!
+    Homepage do Cliente
+
+    <script src="../JS/script.js"></script>
 </body>
 </html>
