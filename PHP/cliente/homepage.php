@@ -8,8 +8,8 @@
 <body>
     Homepage do Cliente
 
-
-
+    ola 
+    
     <script src="../JS/script.js"></script>
 </body>
 </html>
