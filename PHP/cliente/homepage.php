@@ -8,6 +8,7 @@
 <body>
     Homepage do Cliente
 
+    Olá Maria!
 
     <script src="../JS/script.js"></script>
 </body>
