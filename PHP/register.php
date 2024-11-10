@@ -27,7 +27,7 @@
                         </div>
                         <div>
                             <label for="pwd">Password</label>
-                            <input type="password" id="pwd" name="pwd" required>
+                            <input type="password" id="pwd" name="pwd" placeholder=". . . . . . . . . ." required>
                         </div>
 <!-- 
                         <div>
