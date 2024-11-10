@@ -31,6 +31,9 @@
                 <input type="tel" id="phone" name="phone" placeholder="+(239)9123917916" required>
             </div>
 -->
+            <div>
+                <input type="submit" value="Submeter">
+            </div>
         </form>
     </main>
 </body>
