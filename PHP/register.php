@@ -41,7 +41,7 @@
 -->
                         <div class="checkbox">
                             <input type="checkbox" id="is_admin" name="is_admin" value="1">
-                            <label for="is_admin">Sou administrador</label>
+                            <label for="is_admin">Aministrator</label>
                             
                         </div>
                         <div>
