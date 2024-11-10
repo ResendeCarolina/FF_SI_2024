@@ -32,7 +32,7 @@
 }
 
 #titulo{
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   font-size: 30pt;
 }
 
@@ -55,9 +55,9 @@
 .register_form{ margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza os campos do formulário */
-  width: 100%; /* Faz o formulário ocupar toda a largura do container */
-  max-width: 500px; /* Limita a largura do formulário para uma medida razoável */
+  align-items: center; /*Centraliza os campos do formulário*/
+  width: 100%; /*Faz o formulário ocupar toda a largura do container*/
+  max-width: 500px; 
 
 }
 
@@ -68,16 +68,26 @@
 }
 
 .register_form label {
-  display: block; /* Faz o rótulo ocupar toda a linha e ficar acima do input */
-  margin-bottom: 5px; /* Adiciona espaço entre o rótulo e a caixa de entrada */
+  display: block; /*Caixa texto ocupa toda a linha e fica acima*/
+  margin-bottom: 5px; /* Adiciona espaço entre o texto e a caixa*/
 }
 
 .register_form input {
-  width: 100%; /* Faz com que os inputs ocupem toda a largura disponível */
-  padding: 10px; /* Adiciona preenchimento dentro das caixas de texto */
+  width: 100%; /* Faz com que os inputs ocupem toda a largura*/
+  padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
   background-color: #ededed;
   border: 1px solid #ccc; /* Borda padrão para os inputs */
   border-radius: 3px; /* Bordas arredondadas */
+}
+
+.checkbox{
+  display: flex;
+  align-items: center;
+}
+
+.register_form input[type="checkbox"] {
+    width: auto; /* Deixa o checkbox com tamanho padrão */
+    margin-right: 10px; /* Espaço entre o checkbox e o texto */
 }
 
 #botao{
@@ -86,7 +96,7 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 30px;
   background-color: darkred;
   border: none;
 }

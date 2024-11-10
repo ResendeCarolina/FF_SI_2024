@@ -9,9 +9,9 @@
 <body>
     <main>
       <div class="wrapper">
-        <div class="imgSignUp">
-            <img id="imgSU" src="carro.jpg" alt="imagem_signUp" >
-        </div>
+         <div class="imgSignUp">
+             <img id="imgSU" src="carro.jpg" alt="imagem_signUp" >
+         </div>
         <div class="outContainer">
             <div class="container">  
                 <h2 id="titulo">Sign Up</h2>
@@ -30,15 +30,20 @@
                             <input type="password" id="pwd" name="pwd" placeholder=". . . . . . . . . ." required>
                         </div>
 <!-- 
-                        <div>
-                            <label for="nome">Birth Date</label>
-                            <input type="date" id="data" name="data" required>
-                        </div>
-                        <div>
-                            <label for="phone">Contacto telefónico:</label> 
-                            <input type="tel" id="phone" name="phone" placeholder="+(239)9123917916" required>
-                        </div>
+            <div>
+                <label for="nome">Birth Date</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            <div>
+                <label for="phone">Contacto telefónico:</label> 
+                <input type="tel" id="phone" name="phone" placeholder="+(239)9123917916" required>
+            </div>
 -->
+                        <div class="checkbox">
+                            <input type="checkbox" id="is_admin" name="is_admin" value="1">
+                            <label for="is_admin">Sou administrador</label>
+                            
+                        </div>
                         <div>
                             <input id="botao" type="submit" value="Submit">
                         </div>
