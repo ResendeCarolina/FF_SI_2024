@@ -1,9 +1,114 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
+/*download da fonte*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper { /*contentor que engloba a imagem e o form*/
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.imgSignUp {
+  height: 100%; /*coloca a altura da janela do ecrã do pc*/
+  width: 50%;
+  display: flex;
+  align-items: center; /*centraliza o texto verticalmente*/
+  justify-content: flex-start;
+  z-index: 1;
+}
+
+#imgSU {
+  width: 100%; /*o contentor terá sempre a largura de metade do valor do ecrã*/
+  height: 100%; /*o contentor terá sempre a largura de metade do valor do ecrã*/
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+}
+
+#titulo {
+  margin-bottom: 0px;
+  font-size: 30pt;
+}
+
+.outContainer {
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%; /*o contentor terá sempre a largura de metade do valor do ecrã*/
+  background: black;
+  padding: 40px 30px;
+}
+
+.register_form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*Centraliza os campos do formulário*/
+  width: 100%; /*Faz o formulário ocupar toda a largura do container*/
+  max-width: 500px;
+}
+
+/*todos os div afetados pelo contentor que envolve apenas o form*/
+.register_form div {
+  margin-bottom: 30px; /* Espaço entre os campos a preencher*/
+  width: 30vw;
+}
+
+.register_form label {
+  display: block; /*Caixa texto ocupa toda a linha e fica acima*/
+  margin-bottom: 5px; /* Adiciona espaço entre o texto e a caixa*/
+}
+
+.register_form input {
+  width: 100%; /* Faz com que os inputs ocupem toda a largura*/
+  padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
+  background-color: #ededed;
+  border: 1px solid #ccc; /* Borda padrão para os inputs */
+  border-radius: 3px; /* Bordas arredondadas */
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.register_form input[type=checkbox] {
+  width: auto; /* Deixa o checkbox com tamanho padrão */
+  margin-right: 10px; /* Espaço entre o checkbox e o texto */
+}
+
+#botao {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  background-color: darkred;
+  border: none;
+}
+
+/* Esta folha CSS é apenas para conteúdo editado da página do Register*/
 .login {
   padding: 10px;
 }/*# sourceMappingURL=main.css.map */

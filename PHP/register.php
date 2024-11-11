@@ -10,7 +10,7 @@
     <main>
       <div class="wrapper">
          <div class="imgSignUp">
-             <img id="imgSU" src="carro.jpg" alt="imagem_signUp" >
+             <img id="imgSU" src="./ASSETS/images/carro.jpg" alt="imagem_signUp" >
          </div>
         <div class="outContainer">
             <div class="container">  
