@@ -45,7 +45,7 @@
                             
                         </div>
                         <div>
-                            <input id="botao" type="submit" value="Submit">
+                            <input id="botao" type="submit" value="SUBMIT">
                         </div>
                     </form>
                 </div>
