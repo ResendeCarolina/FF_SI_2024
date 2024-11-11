@@ -1,12 +1,13 @@
 /*download da fonte*/
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap');
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   color: white;
-  font-family: "Antonio", sans-serif;
+  font-family: "Archivo Narrow", sans-serif;
 }
 
 .wrapper{/*contentor que engloba a imagem e o form*/
@@ -32,7 +33,8 @@
 }
 
 #titulo{
-  margin-bottom: 0px;
+  margin-bottom: 5px;
+  font-family: "Antonio", sans-serif;
   font-size: 30pt;
 }
 
@@ -63,7 +65,8 @@
 
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
-  margin-bottom: 30px; /* Espaço entre os campos a preencher*/
+  margin-top: 10px;
+  margin-bottom: 25px; /* Espaço entre os campos a preencher*/
   width: 30vw;
 }
 
@@ -73,6 +76,7 @@
 }
 
 .register_form input {
+  font-family: "Archivo Narrow", sans-serif;
   width: 100%; /* Faz com que os inputs ocupem toda a largura*/
   padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
   background-color: #ededed;
@@ -96,7 +100,7 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
+  margin-top: 35px;
   background-color: darkred;
   border: none;
 }
