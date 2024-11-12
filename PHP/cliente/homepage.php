@@ -24,7 +24,7 @@
 
         <div class="icones">
             <a>
-              <img id="perfil" src="../IMAGENS/pictogramaPerfil.png" alt="perfil">
+              <img id="perfil" src=".../IMAGENS/pictogramaPerfil.png" alt="perfil">
             </a>
         </div>
     </header>
