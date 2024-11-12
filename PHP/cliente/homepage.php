@@ -10,7 +10,7 @@
     <header>
         <div class="logotipo">
             <a href="https://1a85f23f-77e0-4c25-8384-d87848e462e6-00-2wdwtsjhuyghq.worf.replit.dev/">
-              <img id="logo" href="#firstSection" src="IMAGENS/LogoBranco.png" alt="logotipo">
+              <img id="logo" href="#firstSection" src="../IMAGENS/LogoBranco.png" alt="logotipo">
             </a>
         </div>
         
