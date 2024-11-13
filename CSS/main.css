@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
@@ -111,3 +112,194 @@
   border: none;
 }
 
+/* Esta folha CSS é apenas para conteúdo editado da página do Register*/
+.login {
+  padding: 10px;
+}
+
+/*download da fonte*/
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Archivo Narrow", sans-serif;
+}
+
+header {
+  background-color: black;
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.logotipo {
+  position: absolute;
+  left: 150px;
+}
+
+#logo {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.menu > a {
+  color: white;
+  font-family: "Antonio", sans-serif;
+  display: inline-block;
+  margin: 20px;
+  text-decoration: none;
+}
+
+.menu > a:hover { /*quando o rato está sobre os botões*/
+  color: darkred;
+}
+
+.icones {
+  position: absolute;
+  right: 150px;
+}
+
+#perfil {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.firstSection {
+  width: 100%;
+  height: 100vh;
+}
+
+.videoInicial {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; /*centraliza o texto verticalmente*/
+  justify-content: flex-start;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+
+.sloganInicial {
+  position: absolute; /*Posiciona o slogan sobre o vídeo*/
+  top: 55%; /*Centraliza verticalmente*/
+  left: 150px;
+  transform: translateY(-50%); /* Centraliza verticalmente*/
+  z-index: 1; /* Garante que o slogan fique acima da imagem */
+}
+
+#slogan {
+  color: white; /* Define a cor do slogan */
+  font-family: "Antonio", sans-serif;
+  font-size: 90pt;
+  font-weight: bold;
+  line-height: 100pt;
+}
+
+.secondSection {
+  height: 130vh;
+}
+
+.textContainer, .checkthisout {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.text {
+  margin-top: 180px;
+  margin-left: 150px;
+  width: 50%;
+}
+
+.titulo {
+  font-family: "Antonio", sans-serif;
+  font-size: 25pt;
+  margin-bottom: 30px;
+}
+
+footer {
+  position: relative;
+  background-color: black;
+  height: 30vh;
+  width: 100%;
+  color: white;
+}
+
+.conteudoFooter {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.conteudoFooter > ul {
+  margin-left: 180px;
+  font-size: 15px;
+  list-style-type: none;
+  line-height: 30px;
+}
+
+.iconesContact {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px; /* Espaço entre os ícones */
+  left: 150px;
+}
+
+.icoC {
+  width: 15px;
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.iconesMedia {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  right: 150px;
+  gap: 10px;
+  margin-top: 60px;
+}
+
+.icoM {
+  width: 25px;
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.thirdSection {
+  height: 80vh;
+}
+
+.containerPainel {
+  margin-left: 150px;
+  width: 100%;
+}
+
+.imgPainel {
+  width: 480px;
+  height: 300px;
+  margin-right: 10px;
+  margin-top: 20px;
+}/*# sourceMappingURL=main.css.map */
