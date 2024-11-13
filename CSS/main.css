@@ -12,8 +12,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: white;
-  font-family: "Archivo Narrow", sans-serif;
 }
 
 .wrapper { /*contentor que engloba a imagem e o form*/
@@ -40,6 +38,7 @@
 }
 
 #titulo {
+  color: white;
   margin-bottom: 5px;
   font-family: "Antonio", sans-serif;
   font-size: 30pt;
@@ -78,6 +77,8 @@
 }
 
 .register_form label {
+  color: white;
+  font-family: "Archivo Narrow", sans-serif;
   display: block; /*Caixa texto ocupa toda a linha e fica acima*/
   margin-bottom: 5px; /* Adiciona espaço entre o texto e a caixa*/
 }
@@ -102,6 +103,7 @@
 }
 
 #botao {
+  color: white;
   width: 45%;
   display: flex;
   justify-content: center;
