@@ -127,6 +127,7 @@ html {
   padding: 0;
   margin: 0;
   font-family: "Archivo Narrow", sans-serif;
+  color: blacK;
 }
 
 header {
@@ -258,6 +259,10 @@ footer {
   font-size: 15px;
   list-style-type: none;
   line-height: 30px;
+}
+
+.conteudoFooter > ul > li {
+  color: white;
 }
 
 .iconesContact {
