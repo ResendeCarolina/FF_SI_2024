@@ -1,3 +1,14 @@
+console.log("ola");
+
+let registationForm = document.getElementById("registationForm");
+
+/* registationForm.addEventListener("submit", () => console.log("cenas")) */
+
+let handleSubmit = () => {
+  console.log(registationForm)
+}
+
+
 let video = document.querySelector('.firstSection');
 
 window.addEventListener('scroll', function() {
