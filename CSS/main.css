@@ -12,7 +12,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Archivo Narrow", sans-serif;
 }
 
 .wrapper { /*contentor que engloba a imagem e o form*/
@@ -174,13 +173,10 @@ html {
 }
 
 .text {
+  font-family: "Archivo Narrow", sans-serif;
   margin-top: 180px;
   margin-left: 150px;
   width: 50%;
-}
-
-.textoAboutUs {
-  font-family: "Archivo Narrow", sans-serif;
 }
 
 .titulo {
