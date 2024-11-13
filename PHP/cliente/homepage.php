@@ -10,7 +10,7 @@
     <header>
         <div class="logotipo">
             <a href="https://1a85f23f-77e0-4c25-8384-d87848e462e6-00-2wdwtsjhuyghq.worf.replit.dev/">
-              <img id="logo" href="#firstSection" src="../IMAGENS/LogoBranco.png" alt="logotipo">
+              <img id="logo" href="#firstSection" src="/IMAGENS/LogoBranco.png" alt="logotipo">
             </a>
         </div>
         
@@ -24,7 +24,7 @@
 
         <div class="icones">
             <a>
-              <img id="perfil" src="../IMAGENS/pictogramaPerfil.png" alt="perfil">
+              <img id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
             </a>
         </div>
     </header>
@@ -32,7 +32,7 @@
         <article>
             <section class="firstSection">
                 <div class="videoInicial">
-                    <img class="video" src="../IMAGENS/carro.jpg" alt="videoInicial">
+                    <img class="video" src="/IMAGENS/carro.jpg" alt="videoInicial">
                 </div>
                 <div class="sloganInicial">
                     <p id="slogan">
@@ -71,9 +71,9 @@
                 <div class="checkthisout">
                     <div class="containerPainel">
                         <h2 class="titulo">CHECK THIS OUT</h2>
-                            <img class="imgPainel" src="../IMAGENS/ctocarro1.jpg" alt="iconeMail">
+                            <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="iconeMail">
                           
-                            <img class="imgPainel" src="../IMAGENS/ctocarro3.jpg" alt="iconeMail">
+                            <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="iconeMail">
                     </div>
                 </div>
             </section>
@@ -82,9 +82,9 @@
     <footer class="fourthSection" id="fourthSection">
         <div class="conteudoFooter" id="aluno">
             <div class="iconesContact">
-                <img class="icoC" id="mail" src="../IMAGENS/pictogramaMail.jpg" alt="iconeMail">
-                <img class="icoC" id="phone" src="../IMAGENS/pictogramaTelefone.jpg" alt="iconePhone">
-                <img class="icoC" id="local" src="../IMAGENS/pictogramaLocalizacao.jpg" alt="iconeLocal">
+                <img class="icoC" id="mail" src="/IMAGENS/pictogramaMail.jpg" alt="iconeMail">
+                <img class="icoC" id="phone" src="/IMAGENS/pictogramaTelefone.jpg" alt="iconePhone">
+                <img class="icoC" id="local" src="/IMAGENS/pictogramaLocalizacao.jpg" alt="iconeLocal">
             </div>
             <ul>
                 <li>fastandfurious@gmail.com</li>
@@ -92,9 +92,9 @@
                 <li>Rua Quinta da Beira, lote 3, nº 25, 3030-240, Coimbra</li>
             </ul>
             <div class="iconesMedia">
-                <img class="icoM" id="face" src="../IMAGENS/pictogramaFace.png" alt="iconeFacebook">
-                <img class="icoM" id="insta" src="../IMAGENS/pictogramaInsta.png" alt="iconeInsta">
-                <img class="icoM" id="twitter" src="../IMAGENS/pictogramaTwitter.png" alt="iconeTwitter">
+                <img class="icoM" id="face" src="/IMAGENS/pictogramaFace.png" alt="iconeFacebook">
+                <img class="icoM" id="insta" src="/IMAGENS/pictogramaInsta.png" alt="iconeInsta">
+                <img class="icoM" id="twitter" src="/IMAGENS/pictogramaTwitter.png" alt="iconeTwitter">
             </div>
         </div>        
     </footer>
