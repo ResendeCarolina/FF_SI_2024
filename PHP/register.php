@@ -107,10 +107,5 @@
 
     <script src="../JS/script.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
 
-=======
-
-</html>
->>>>>>> parent of 5875b7a (Update register.php)
