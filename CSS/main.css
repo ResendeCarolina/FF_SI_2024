@@ -1,6 +1,12 @@
 @charset "UTF-8";
+/*download da fonte*/
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -13,6 +19,21 @@
 }
 .link:hover {
   color: darkred;
+}
+
+.text {
+  font-family: "Archivo Narrow", sans-serif;
+  font-weight: 400;
+  margin-top: 180px;
+  margin-left: 150px;
+  width: 50%;
+}
+
+.titulo {
+  font-family: "Antonio", sans-serif;
+  font-size: 25pt;
+  margin-bottom: 30px;
+  color: black;
 }
 
 /*download da fonte*/
