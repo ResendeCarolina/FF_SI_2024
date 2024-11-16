@@ -6,7 +6,5 @@
     //Verifica conectividade
     if (!$connection) {
         echo 'Erro: Não foi possível conectar ao banco de dados.';
-    }else{
-        echo "sucessoConexao";
     }
 ?>

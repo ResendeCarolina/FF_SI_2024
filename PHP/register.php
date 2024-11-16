@@ -29,7 +29,6 @@
             // Enviar a QUERY
             $resultados = pg_query($connection, $query);
 
-        
             // Redirecionar se o registro foi bem-sucedido
             if ($resultados) {
                 header("Location: /PHP/login.php");
@@ -39,8 +38,7 @@
                 <h3>Erro ao registrar. Tente novamente.</h3><br/>
                 <p class='link'>Clique aqui para <a href='registration.php'>registrar-se</a> novamente.</p>
               </div>";
-            
-            
+            }
         } else {
 
         ?>
@@ -77,15 +75,21 @@
                                         <input type="number" name="cc" id="cc">
                                     </div>
                                 </div>
-
-
+                                <!-- 
+            <div>
+                <label for="nome">Birth Date</label>
+                <input type="date" id="data" name="data" required>
+            </div>
+            <div>
+                <label for="phone">Contacto telefónico:</label> 
+                <input type="tel" id="phone" name="phone" placeholder="+(239)9123917916" required>
+            </div>
+-->
                                 <div class="checkbox">
                                     <input type="checkbox" id="is_admin" name="is_admin" value="1">
                                     <label for="is_admin">Aministrator</label>
+
                                 </div>
-
-                                <a class="link" href="login.php">I already have an Account.</a>
-
                                 <div>
                                     <button id="botao" type="submit">SUBMIT</button>
                                 </div>
@@ -96,7 +100,7 @@
             </div>
 
         <?php
-}
+        }
         ?>
 
     </main>
