@@ -29,16 +29,18 @@
             // Enviar a QUERY
             $resultados = pg_query($connection, $query);
 
+        
             // Redirecionar se o registro foi bem-sucedido
             if ($resultados) {
-                header("Location: login.php");
+                header("Location: http://localhost:3000/PHP/login.php");
                 exit(); // Encerrar o script após o redirecionamento
             } else {
                 echo "<div class='form'>
                 <h3>Erro ao registrar. Tente novamente.</h3><br/>
                 <p class='link'>Clique aqui para <a href='registration.php'>registrar-se</a> novamente.</p>
               </div>";
-            }
+            
+            
         } else {
 
         ?>
@@ -51,7 +53,7 @@
                     <div class="container">
                         <h2 id="titulo">Sign Up</h2>
                         <div class="register_form">
-                            <form id="registationForm" action="/login.php">
+                            <form id="registationForm">
                                 <div>
                                     <label for="nome">Name</label>
                                     <input type="text" id="nome" name="nome" placeholder="Name" required>
@@ -75,21 +77,15 @@
                                         <input type="number" name="cc" id="cc">
                                     </div>
                                 </div>
-                                <!-- 
-            <div>
-                <label for="nome">Birth Date</label>
-                <input type="date" id="data" name="data" required>
-            </div>
-            <div>
-                <label for="phone">Contacto telefónico:</label> 
-                <input type="tel" id="phone" name="phone" placeholder="+(239)9123917916" required>
-            </div>
--->
+
+
                                 <div class="checkbox">
                                     <input type="checkbox" id="is_admin" name="is_admin" value="1">
                                     <label for="is_admin">Aministrator</label>
-
                                 </div>
+
+                                <a class="link" href="login.php">I already have an Account.</a>
+
                                 <div>
                                     <button id="botao" type="submit">SUBMIT</button>
                                 </div>
@@ -100,7 +96,7 @@
             </div>
 
         <?php
-        }
+}
         ?>
 
     </main>

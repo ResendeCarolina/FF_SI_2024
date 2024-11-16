@@ -7,6 +7,14 @@
   margin: 0;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
+.link:hover {
+  color: darkred;
+}
+
 /*download da fonte*/
 * {
   box-sizing: border-box;
