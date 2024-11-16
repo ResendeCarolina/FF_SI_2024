@@ -31,7 +31,7 @@
 
             // Redirecionar se o registro foi bem-sucedido
             if ($resultados) {
-                header("Location: login.php");
+                header("Location: /PHP/login.php");
                 exit(); // Encerrar o script após o redirecionamento
             } else {
                 echo "<div class='form'>
@@ -51,7 +51,7 @@
                     <div class="container">
                         <h2 id="titulo">Sign Up</h2>
                         <div class="register_form">
-                            <form id="registationForm" action="/login.php">
+                            <form id="registationForm">
                                 <div>
                                     <label for="nome">Name</label>
                                     <input type="text" id="nome" name="nome" placeholder="Name" required>
