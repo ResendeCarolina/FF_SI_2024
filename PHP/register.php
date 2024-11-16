@@ -32,7 +32,7 @@
         
             // Redirecionar se o registro foi bem-sucedido
             if ($resultados) {
-                header("Location: http://localhost:3000/PHP/login.php");
+                header("Location: /PHP/login.php");
                 exit(); // Encerrar o script após o redirecionamento
             } else {
                 echo "<div class='form'>
@@ -103,5 +103,5 @@
 
     <script src="../JS/script.js"></script>
 </body>
-
 </html>
+
