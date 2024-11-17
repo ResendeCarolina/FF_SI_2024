@@ -54,9 +54,9 @@
                 </div>
                 <div class="outContainer">
                     <div class="container">
-                        <h2 id="titulo">Login</h2>
+                        <h2 class="tituloGeral" id="titulo">Login</h2>
                         <div class="register_form">
-                            <form id="registationForm" action="/login.php">
+                            <form  class="textoGeral" id="registationForm" action="/login.php">
                                 <div>
                                     <label for="mail">Email</label>
                                     <input type="email" id="mail" name="mail" placeholder="fastfurious@gmail.com" required>
@@ -66,7 +66,7 @@
                                     <input type="password" id="pwd" name="pwd" placeholder=". . . . . . . . . ." required>
                                 </div>
 
-                                <a class="link" href="register.php">You don't have an Account?</a>
+                                <a class="link" href="register.php">Don't you have an Account?</a>
 
                                 <div>
                                     <button id="botao" type="submit">SUBMIT</button>

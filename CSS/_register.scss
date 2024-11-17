@@ -23,7 +23,6 @@
 #titulo{
   color: white;
   margin-bottom: 5px;
-  font-family: "Antonio", sans-serif;
   font-size: 30pt;
 }
 
@@ -62,13 +61,11 @@
 
 .register_form label {
   color: white;
-  font-family: "Archivo Narrow", sans-serif;
   display: block; /*Caixa texto ocupa toda a linha e fica acima*/
   margin-bottom: 5px; /* Adiciona espaço entre o texto e a caixa*/
 }
 
 .register_form input {
-  font-family: "Archivo Narrow", sans-serif;
   width: 100%; /* Faz com que os inputs ocupem toda a largura*/
   height: 35px;
   padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
@@ -83,8 +80,8 @@
 }
 
 .register_form input[type="checkbox"] {
-    width: auto; /* Deixa o checkbox com tamanho padrão */
-    margin-right: 10px; /* Espaço entre o checkbox e o texto */
+  width: auto; /* Deixa o checkbox com tamanho padrão */
+  margin-right: 10px; /* Espaço entre o checkbox e o texto */
 }
 
 .inline-fields {

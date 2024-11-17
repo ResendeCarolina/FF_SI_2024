@@ -49,9 +49,9 @@
                 </div>
                 <div class="outContainer">
                     <div class="container">
-                        <h2 id="titulo">Sign Up</h2>
+                        <h2 class="tituloGeral" id="titulo">Sign Up</h2>
                         <div class="register_form">
-                            <form id="registationForm">
+                            <form class="textoGeral" id="registationForm">
                                 <div>
                                     <label for="nome">Name</label>
                                     <input type="text" id="nome" name="nome" placeholder="Name" required>

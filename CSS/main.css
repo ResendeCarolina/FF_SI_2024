@@ -11,11 +11,16 @@ html {
   margin: 0;
 }
 
-.link {
-  text-decoration: none;
-  color: white;
+.textoGeral {
+  font-family: "Archivo Narrow", sans-serif;
 }
-.link:hover {
+
+.tituloGeral {
+  font-family: "Antonio", sans-serif;
+  font-weight: bold;
+}
+
+.sobreEfeito:hover {
   color: darkred;
 }
 
@@ -45,7 +50,6 @@ html {
 #titulo {
   color: white;
   margin-bottom: 5px;
-  font-family: "Antonio", sans-serif;
   font-size: 30pt;
 }
 
@@ -84,13 +88,11 @@ html {
 
 .register_form label {
   color: white;
-  font-family: "Archivo Narrow", sans-serif;
   display: block; /*Caixa texto ocupa toda a linha e fica acima*/
   margin-bottom: 5px; /* Adiciona espaço entre o texto e a caixa*/
 }
 
 .register_form input {
-  font-family: "Archivo Narrow", sans-serif;
   width: 100%; /* Faz com que os inputs ocupem toda a largura*/
   height: 35px;
   padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
@@ -139,6 +141,11 @@ html {
   padding: 10px;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
+
 .firstSection {
   width: 100%;
   height: 100vh;
@@ -168,9 +175,8 @@ html {
   z-index: 1; /* Garante que o slogan fique acima da imagem */
 }
 
-#slogan {
+.slogan {
   color: white; /* Define a cor do slogan */
-  font-family: "Antonio", sans-serif;
   font-size: 90pt;
   font-weight: bold;
   line-height: 100pt;
@@ -188,15 +194,13 @@ html {
 }
 
 .text {
-  font-family: "Archivo Narrow", sans-serif;
   font-weight: 400;
   margin-top: 180px;
   margin-left: 150px;
   width: 50%;
 }
 
-.titulo {
-  font-family: "Antonio", sans-serif;
+.title {
   font-size: 25pt;
   margin-bottom: 30px;
   color: black;
@@ -243,14 +247,9 @@ header {
 
 .menu > a {
   color: white;
-  font-family: "Antonio", sans-serif;
   display: inline-block;
   margin: 20px;
   text-decoration: none;
-}
-
-.menu > a:hover { /*quando o rato está sobre os botões*/
-  color: darkred;
 }
 
 .icones {

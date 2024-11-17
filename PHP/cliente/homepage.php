@@ -16,9 +16,9 @@
         
         <div class="menuContainer">
             <nav class="menu">
-                <a class="seccao" id="secao1" href="#secondSection">ABOUT US</a>
-                <a class="seccao" id="secao2" href="#thirddSection">PRODUCTS</a>
-                <a class="seccao" id="secao3" href="#fourthSection">CONTACTS</a>
+                <a class="tituloGeral sobreEfeito" id="secao1" href="#secondSection">ABOUT US</a>
+                <a class="tituloGeral sobreEfeito" id="secao2" href="#thirddSection">PRODUCTS</a>
+                <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
             </nav>
         </div>
 
@@ -35,7 +35,7 @@
                     <img class="video" src="/IMAGENS/carro.jpg" alt="videoInicial">
                 </div>
                 <div class="sloganInicial">
-                    <p id="slogan">
+                    <p class="tituloGeral slogan">
                          GO FAST<br>
                          AND FURIOUS.
                     </p>
@@ -43,8 +43,8 @@
             </section>
             <section class="secondSection" id="secondSection">
                 <div class="textContainer">
-                    <div class="text">
-                        <h2 class="titulo">ABOUT US</h2>
+                    <div class="textoGeral text">
+                        <h2 class="tituloGeral title">ABOUT US</h2>
                         <p>Pop art has had an indelible influence on the visual landscape of art and design in the 20th and 21st
                       centuries. This movement, which emerged in the 1950s and 1960s, was heavily inspired by graphic design
                       elements and techniques, and is still a major influence in the world of art and design today. From its
@@ -70,7 +70,7 @@
             <section class="thirdSection" id="thirdSection">
                 <div class="checkthisout">
                     <div class="containerPainel">
-                        <h2 class="titulo">CHECK THIS OUT</h2>
+                        <h2 class="tituloGeral title">CHECK THIS OUT</h2>
                             <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="iconeMail">
                           
                             <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="iconeMail">
@@ -79,7 +79,7 @@
             </section>
         </article>
     </main>
-    <footer class="fourthSection" id="fourthSection">
+    <footer class="textoGeral fourthSection" id="fourthSection">
         <div class="conteudoFooter" id="aluno">
             <div class="iconesContact">
                 <img class="icoC" id="mail" src="/IMAGENS/pictogramaMail.jpg" alt="iconeMail">
