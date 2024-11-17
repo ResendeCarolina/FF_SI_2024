@@ -122,14 +122,14 @@ html {
 .textContainer, .checkthisout {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  text-align: center;
 }
 
 .text {
   font-weight: 400;
   margin-top: 180px;
+  margin-left: 150px;
   width: 50%;
 }
 
