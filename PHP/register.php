@@ -79,7 +79,7 @@
                                     <label for="is_admin">Aministrator</label>
                                 </div>
                                 <div>
-                                    <button id="botao" type="submit">SUBMIT</button>
+                                    <button class="botao" id="botaoRegister" type="submit">SUBMIT</button>
                                 </div>
                             </form>
                         </div>

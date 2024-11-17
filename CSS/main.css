@@ -53,6 +53,10 @@ html {
   margin-right: 10px; /* Espaço entre o checkbox e o texto */
 }
 
+#botaoRegister {
+  margin-top: 35px;
+}
+
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .login_form form > div {
   margin-top: 10px;
@@ -63,12 +67,16 @@ html {
 .linkContainer {
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 100px;
 }
 
 .link {
   text-decoration: none;
   color: white;
+}
+
+#botaoLogin {
+  margin-top: 50px;
 }
 
 .firstSection {
@@ -314,14 +322,13 @@ footer {
   border-radius: 3px; /* Bordas arredondadas */
 }
 
-#botao {
+.botao {
   color: white;
   width: 45%;
   display: flex;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 35px;
   background-color: darkred;
   border: none;
   padding: 10px;

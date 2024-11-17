@@ -66,7 +66,7 @@
                                     <input type="password" id="pwd" name="pwd" placeholder=". . . . . . . . . ." required>
                                 </div>
                                 <div>
-                                    <button id="botao" type="submit">SUBMIT</button>
+                                    <button class="botao" id="botaoLogin" type="submit">SUBMIT</button>
                                 </div>
                                 <div>
                                     <div class="linkContainer">
