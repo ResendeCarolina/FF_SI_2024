@@ -1,8 +1,6 @@
 @charset "UTF-8";
 /*download da fonte*/
 @import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&display=swap");
 html {
   scroll-behavior: smooth;
 }
@@ -19,28 +17,6 @@ html {
 }
 .link:hover {
   color: darkred;
-}
-
-.text {
-  font-family: "Archivo Narrow", sans-serif;
-  font-weight: 400;
-  margin-top: 180px;
-  margin-left: 150px;
-  width: 50%;
-}
-
-.titulo {
-  font-family: "Antonio", sans-serif;
-  font-size: 25pt;
-  margin-bottom: 30px;
-  color: black;
-}
-
-/*download da fonte*/
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 .wrapper { /*contentor que engloba a imagem e o form*/
@@ -74,6 +50,7 @@ html {
 }
 
 .outContainer {
+  background: black;
   width: 50%;
 }
 
@@ -83,9 +60,8 @@ html {
   flex-direction: column;
   align-items: center;
   position: relative;
-  height: 100%;
   width: 100%; /*o contentor terá sempre a largura de metade do valor do ecrã*/
-  background: black;
+  height: 100%;
   padding: 40px 30px;
 }
 
@@ -96,12 +72,13 @@ html {
   align-items: center; /*Centraliza os campos do formulário*/
   width: 100%; /*Faz o formulário ocupar toda a largura do container*/
   max-width: 500px;
+  max-height: 90%;
 }
 
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;
-  margin-bottom: 25px; /* Espaço entre os campos a preencher*/
+  margin-bottom: 20px; /* Espaço entre os campos a preencher*/
   width: 30vw;
 }
 
@@ -115,6 +92,7 @@ html {
 .register_form input {
   font-family: "Archivo Narrow", sans-serif;
   width: 100%; /* Faz com que os inputs ocupem toda a largura*/
+  height: 35px;
   padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
   background-color: #ededed;
   border: 1px solid #ccc; /* Borda padrão para os inputs */
@@ -131,6 +109,18 @@ html {
   margin-right: 10px; /* Espaço entre o checkbox e o texto */
 }
 
+.inline-fields {
+  display: flex; /* Alinha os elementos lado a lado */
+  justify-content: space-between; /* Espaça os campos uniformemente */
+  gap: 20px; /* Espaço entre os campos (opcional) */
+  width: 100%; /* Faz com que ocupem a largura total do formulário */
+}
+
+.inline-fields div {
+  margin: 0px;
+  width: 50%;
+}
+
 #botao {
   color: white;
   width: 45%;
@@ -145,14 +135,8 @@ html {
   border-radius: 3px; /* Bordas arredondadas */
 }
 
-/* Esta folha CSS é apenas para conteúdo editado da página do Register*/
 .login {
   padding: 10px;
-}
-
-/*download da fonte*/
-html {
-  scroll-behavior: smooth;
 }
 
 .firstSection {
