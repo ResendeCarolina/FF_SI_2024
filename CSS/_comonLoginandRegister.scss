@@ -1,0 +1,83 @@
+.wrapper{/*contentor que engloba a imagem e o form*/
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .imgSignUp{
+    height: 100%;/*coloca a altura da janela do ecrã do pc*/
+    width: 50%;
+    display: flex;
+    align-items: center;/*centraliza o texto verticalmente*/
+    justify-content: flex-start;
+    z-index: 1;
+  }
+  
+  #imgSU{
+    width: 100%;/*o contentor terá sempre a largura de metade do valor do ecrã*/
+    height: 100%;/*o contentor terá sempre a largura de metade do valor do ecrã*/
+    object-fit: cover;
+    z-index: 1;
+  }
+  
+  #titulo{
+    color: white;
+    margin-bottom: 5px;
+    font-size: 30pt;
+  }
+  
+  .outContainer{//fundo  
+    background: black;
+    width: 50%;  
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;/*o contentor terá sempre a largura de metade do valor do ecrã*/
+    height: 100%;
+    padding: 40px 30px;
+  }
+  
+  .register_form, .login_form{ 
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*Centraliza os campos do formulário*/
+    width: 100%; /*Faz o formulário ocupar toda a largura do container*/
+    max-width: 500px; 
+    max-height: 90%;
+  }
+  
+  .register_form label, .login_form label {
+    color: white;
+    display: block; /*Caixa texto ocupa toda a linha e fica acima*/
+    margin-bottom: 5px; /* Adiciona espaço entre o texto e a caixa*/
+  }
+  
+  .register_form input, .login_form input {
+    width: 100%; /* Faz com que os inputs ocupem toda a largura*/
+    height: 35px;
+    padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
+    background-color: #ededed;
+    border: 1px solid #ccc; /* Borda padrão para os inputs */
+    border-radius: 3px; /* Bordas arredondadas */
+  }
+
+  
+#botao{
+    color: white;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    background-color: darkred;
+    border: none;
+    padding: 10px;
+    border-radius: 3px; /* Bordas arredondadas */
+  }

@@ -69,7 +69,7 @@ html {
   padding: 40px 30px;
 }
 
-.register_form {
+.register_form, .login_form {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -86,13 +86,13 @@ html {
   width: 30vw;
 }
 
-.register_form label {
+.register_form label, .login_form label {
   color: white;
   display: block; /*Caixa texto ocupa toda a linha e fica acima*/
   margin-bottom: 5px; /* Adiciona espaço entre o texto e a caixa*/
 }
 
-.register_form input {
+.register_form input, .login_form input {
   width: 100%; /* Faz com que os inputs ocupem toda a largura*/
   height: 35px;
   padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
@@ -139,6 +139,19 @@ html {
 
 .login {
   padding: 10px;
+}
+
+/*todos os div afetados pelo contentor que envolve apenas o form*/
+.login_form form > div {
+  margin-top: 10px;
+  margin-bottom: 20px; /* Espaço entre os campos a preencher*/
+  width: 30vw;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
 }
 
 .link {

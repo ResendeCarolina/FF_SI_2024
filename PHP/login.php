@@ -55,7 +55,7 @@
                 <div class="outContainer">
                     <div class="container">
                         <h2 class="tituloGeral" id="titulo">Login</h2>
-                        <div class="register_form">
+                        <div class="login_form">
                             <form  class="textoGeral" id="registationForm" action="/login.php">
                                 <div>
                                     <label for="mail">Email</label>
@@ -65,11 +65,13 @@
                                     <label for="pwd">Password</label>
                                     <input type="password" id="pwd" name="pwd" placeholder=". . . . . . . . . ." required>
                                 </div>
-
-                                <a class="link" href="register.php">Don't you have an Account?</a>
-
                                 <div>
                                     <button id="botao" type="submit">SUBMIT</button>
+                                </div>
+                                <div>
+                                    <div class="linkContainer">
+                                        <a class="sobreEfeito link" href="register.php">Don't have an account yet? Sign up</a>
+                                    </div>    
                                 </div>
                             </form>
                         </div>

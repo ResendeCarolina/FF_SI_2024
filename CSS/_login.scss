@@ -1,5 +1,14 @@
-.login {
-    padding: 10px;
+/*todos os div afetados pelo contentor que envolve apenas o form*/
+.login_form form > div {
+    margin-top: 10px;
+    margin-bottom: 20px; /* Espaço entre os campos a preencher*/
+    width: 30vw;
+  }
+
+.linkContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
 }
 
 .link {
