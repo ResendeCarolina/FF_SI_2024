@@ -32,7 +32,7 @@
         <article>
             <section class="firstSection">
                 <div class="videoInicial">
-                    <video class="video" src="/IMAGENS/videoInicial.mp4" alt="videoInicial">
+                    <video class="video" muted autoplay loop src="/IMAGENS/videoInicial.mp4" alt="videoInicial"></video>
                 </div>
                 <div class="sloganInicial">
                     <p class="tituloGeral slogan">
