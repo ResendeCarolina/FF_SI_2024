@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="checkbox">
                                     <input type="checkbox" id="is_admin" name="is_admin" value="1">
-                                    <label for="is_admin">Aministrator</label>
+                                    <label for="is_admin">Administrator</label>
                                 </div>
                                 <div>
                                     <button class="botao" id="botaoRegister" type="submit">SUBMIT</button>
