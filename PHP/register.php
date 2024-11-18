@@ -49,7 +49,7 @@
                 </div>
                 <div class="outContainer">
                     <div class="container">
-                        <h2 class="tituloGeral" id="titulo">Sign Up</h2>
+                        <h2 class="tituloGeral" id="titulo">SIGN UP</h2>
                         <div class="register_form">
                             <form class="textoGeral" id="registationForm">
                                 <div>

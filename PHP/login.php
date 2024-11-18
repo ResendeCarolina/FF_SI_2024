@@ -54,7 +54,7 @@
                 </div>
                 <div class="outContainer">
                     <div class="container">
-                        <h2 class="tituloGeral" id="titulo">Login</h2>
+                        <h2 class="tituloGeral" id="titulo">LOGIN</h2>
                         <div class="login_form">
                             <form  class="textoGeral" id="registationForm" action="/login.php">
                                 <div>
