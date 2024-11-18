@@ -32,7 +32,7 @@
         <article>
             <section class="firstSection">
                 <div class="videoInicial">
-                    <img class="video" src="/IMAGENS/carro.jpg" alt="videoInicial">
+                    <video class="video" src="/IMAGENS/videoInicial.mp4" alt="videoInicial">
                 </div>
                 <div class="sloganInicial">
                     <p class="tituloGeral slogan">
