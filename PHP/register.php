@@ -12,35 +12,64 @@
     <main>
 
         <?php
-        // conexão à bd
-        require('baseDados.php');
+        // Conexão com a base de dados
+        require 'baseDados.php';
 
-        // PHP para submeter os dados para a bd
+        // Processamento do formulário
         if (isset($_REQUEST['nome'], $_REQUEST['mail'], $_REQUEST['pwd'], $_REQUEST['cc'], $_REQUEST['birth'])) {
             $username = $_REQUEST['nome'];
             $email = $_REQUEST['mail'];
             $password = $_REQUEST['pwd'];
             $identification = $_REQUEST['cc'];
             $birthday = $_REQUEST['birth'];
+            $is_admin = isset($_REQUEST['is_admin']) ? 1 : 0;
 
-            // QUERY para guardar na bd 
-            $query = "INSERT into pessoa (nome, cc, data_nasc, email, password) VALUES ('$username','$identification','$birthday','$email','$password')";
+            // Começa a transação
+            pg_query($connection, "BEGIN");
 
-            // Enviar a QUERY
-            $resultados = pg_query($connection, $query);
+            // Insere na tabela pessoa
+            $queryPessoa = "INSERT INTO pessoa (nome, cc, data_nasc, email, password) 
+                    VALUES ('$username', '$identification', '$birthday', '$email', '$password')";
 
-            // Redirecionar se o registro foi bem-sucedido
-            if ($resultados) {
-                header("Location: /PHP/login.php");
-                exit(); // Encerrar o script após o redirecionamento
+            $resultPessoa = pg_query($connection, $queryPessoa);
+
+            if ($resultPessoa) {
+                if ($is_admin) {
+                    // Insere na tabela administrador
+                    $queryAdmin = "INSERT INTO administrador (id, cargo, pessoa_nome) 
+                           VALUES (DEFAULT, 'Admin', '$username')";
+                    $resultAdmin = pg_query($connection, $queryAdmin);
+                    if ($resultAdmin) {
+                        pg_query($connection, "COMMIT");
+                        header("Location: /PHP/login.php");
+                        exit();
+                    } else {
+                        pg_query($connection, "ROLLBACK");
+                        echo "<div class='form'><h3>Erro ao registrar administrador.</h3></div>";
+                    }
+                } else {
+                    // Insere na tabela cliente
+                    // Gera um saldo aleatório entre 100 e 100000
+                    $saldoAleatorio = rand(100, 100000);
+
+                    // Insere na tabela cliente com saldo aleatório
+                    $queryCliente = "INSERT INTO cliente (saldo, pessoa_nome) 
+                             VALUES ($saldoAleatorio, '$username')";
+                    $resultCliente = pg_query($connection, $queryCliente);
+                    if ($resultCliente) {
+                        pg_query($connection, "COMMIT");
+                        header("Location: /PHP/login.php");
+                        exit();
+                    } else {
+                        pg_query($connection, "ROLLBACK");
+                        echo "<div class='form'><h3>Erro ao registrar cliente.</h3></div>";
+                    }
+                }
             } else {
-                echo "<div class='form'>
-                <h3>Erro ao registrar. Tente novamente.</h3><br/>
-                <p class='link'>Clique aqui para <a href='registration.php'>registrar-se</a> novamente.</p>
-              </div>";
+                pg_query($connection, "ROLLBACK");
+                echo "<div class='form'><h3>Erro ao registrar na tabela pessoa.</h3></div>";
             }
         } else {
-
         ?>
 
             <div class="wrapper">
@@ -95,5 +124,5 @@
 
     <script src="../JS/script.js"></script>
 </body>
-</html>
 
+</html>

@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="/CSS/main.css">
 </head>
+
 <body>
     <header>
         <div class="logotipo">
             <a href="#firstSection">
-              <img id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
+                <img id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
             </a>
         </div>
-        
+
         <div class="menuContainer">
             <nav class="menu">
                 <a class="tituloGeral sobreEfeito" id="secao1" href="#secondSection">ABOUT US</a>
@@ -24,7 +26,7 @@
 
         <div class="icones">
             <a>
-              <img id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+                <img id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
             </a>
         </div>
     </header>
@@ -36,8 +38,8 @@
                 </div>
                 <div class="sloganInicial">
                     <p class="tituloGeral slogan">
-                         GO FAST<br>
-                         AND FURIOUS.
+                        GO FAST<br>
+                        AND FURIOUS.
                     </p>
                 </div>
             </section>
@@ -45,25 +47,18 @@
                 <div class="textContainer">
                     <div class="textoGeral text">
                         <h2 class="tituloGeral title">ABOUT US</h2>
-                        <p>Pop art has had an indelible influence on the visual landscape of art and design in the 20th and 21st
-                      centuries. This movement, which emerged in the 1950s and 1960s, was heavily inspired by graphic design
-                      elements and techniques, and is still a major influence in the world of art and design today. From its
-                      roots in advertising and the commercialization of everyday objects to its bold, vibrant, and often
-                      humorous visuals, pop art has been an integral part of graphic design for decades.</p>
-                        <p>Andy Warhol, Roy Lichtenstein, and James Rosenquist are just a few of the many American pop artists who
-                      worked in the commercial art industry prior to becoming famous. As a result, they were capable of
-                      combining both high art and popular culture. Pop art in modern graphic design is represented by a work
-                      created by a designer who was heavily influenced by the movement.</p>
-                        <br>The term “pop art” refers to an art movement that advocated and chastised the commercial arts. Pop art
-                    has been incorporated into the design and advertising of graphic art and advertising in recent years.</br>
-                        <p>Pop art is heavily influenced by graphic design because it relies heavily on the use of recognizable
-                      shapes, colors, and typography. Pop art also utilizes a variety of visual elements, including photography,
-                      text, and illustration, to create an artistic epresentation of popular culture. Graphic design is used to
-                      bridge the gap between the physical and the digital, enabling artists to create visual messages that are
-                      more engaging and memorable. Graphic design allows the artist to craft a message that is more easily
-                      identifiable and can be used to communicate a message in a more interesting manner. By utilizing the
-                      principles of graphic design, pop art can express a message more clearly, making it more impactful and
-                      memorable.</p>
+                        <p>A <strong>Fast & Furious Cars Inc.</strong> é uma empresa de referência no mercado de aluguel de carros de luxo, oferecendo uma experiência única para clientes que buscam elegância, conforto e desempenho.
+                            Com uma frota composta pelos veículos mais sofisticados do mercado, desde sedans executivos até supercarros esportivos, a empresa se destaca por atender às mais altas expectativas de qualidade e exclusividade.
+                            Cada carro é cuidadosamente selecionado para proporcionar uma experiência premium, seja para uma viagem de negócios, uma ocasião especial ou simplesmente para aproveitar a adrenalina de dirigir um veículo de alto desempenho.
+                            Nosso compromisso é unir luxo e praticidade, permitindo que nossos clientes desfrutem de uma experiência memorável a cada reserva.
+                        </p>
+                        <br>
+                        <p>
+                            Além da excelência na frota, a <strong>Fast & Furious Cars Inc.</strong> investe em tecnologia de ponta para oferecer um sistema de reservas online simples e eficiente.
+                            A plataforma permite que os clientes pesquisem e escolham o carro ideal com base em critérios como marca, estilo e preço, agendando o período desejado em poucos cliques.
+                            Para os administradores, o sistema fornece ferramentas avançadas de gestão, como controle de visibilidade de veículos e estatísticas em tempo real, otimizando a operação do negócio.
+                            Nosso objetivo é redefinir o setor de aluguel de carros de luxo, combinando uma frota exclusiva com serviços personalizados que priorizam a satisfação do cliente.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -71,9 +66,9 @@
                 <div class="checkthisout">
                     <div class="containerPainel">
                         <h2 class="tituloGeral title">CHECK THIS OUT</h2>
-                            <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="iconeMail">
-                          
-                            <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="iconeMail">
+                        <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="iconeMail">
+
+                        <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="iconeMail">
                     </div>
                 </div>
             </section>
@@ -96,8 +91,9 @@
                 <img class="icoM" id="insta" src="/IMAGENS/pictogramaInsta.png" alt="iconeInsta">
                 <img class="icoM" id="twitter" src="/IMAGENS/pictogramaTwitter.png" alt="iconeTwitter">
             </div>
-        </div>        
+        </div>
     </footer>
     <script src="/JS/script.js"></script>
 </body>
+
 </html>

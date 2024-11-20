@@ -12,37 +12,45 @@
     <main>
 
         <?php
-        
-        // conexão à bd
+
+        // conexão à base de dados
         require('baseDados.php');
 
-        // PHP para submeter os dados para a bd
+        // PHP para submeter os dados para a base de dados
         if (isset($_REQUEST['mail'], $_REQUEST['pwd'])) {
-            $email = $_REQUEST['mail'];
-            $password = $_REQUEST['pwd'];
-
-            // QUERY para verificar os dados na tabela pessoa
-            $query = "SELECT * FROM pessoa WHERE email = $email AND password = $password";
-
-            // Prepara e executa a QUERY
-            $resultados = pg_query_params($connection, $query, array($email, $password));
-
-            // Verifica se encontrou algum resultado
-            if (pg_num_rows($resultados) > 0) {
-                // Login bem-sucedido
+            $email = $_REQUEST['mail'];  // String fornecida pelo usuário
+            $password = $_REQUEST['pwd'];  // Senha fornecida pelo usuário
+        
+            // Escape o email e a senha para garantir que estão corretos e seguros
+            $escaped_email = pg_escape_string($connection, $email);
+            $escaped_password = pg_escape_string($connection, $password);
+        
+            // Query para verificar o login na tabela pessoa
+            $query = "SELECT * FROM pessoa WHERE email = '$escaped_email' AND password = '$escaped_password'";
+        
+            // Executa a query
+            $resultados = pg_query($connection, $query);
+        
+            // Verifica se a consulta foi bem-sucedida e se encontrou resultados
+            if ($resultados && pg_num_rows($resultados) > 0) {
                 session_start();
                 $_SESSION['user'] = $email;
 
-                echo "<div class='form'>
-                <h3>Login efetuado com sucesso!</h3><br/>
-                <p class='link'>Clique aqui para acessar a <a href='home.php'>Homepage</a></p>
-              </div>";
+                // Verifica se o usuário é administrador
+                $queryRole = "SELECT * FROM administrador WHERE pessoa_nome = (SELECT nome FROM pessoa WHERE email = '$escaped_email')";
+                $resultRole = pg_query($connection, $queryRole);
+
+                // Se encontrar um resultado, significa que é um administrador
+                if (pg_num_rows($resultRole) > 0) {
+                    // Redireciona para a página do administrador
+                    header('Location: /PHP/admin/homepage.php');
+                } else {
+                    // Caso contrário, é um cliente
+                    header('Location: /PHP/cliente/homepage.php');
+                }
+                exit();
             } else {
-                // Login falhou
-                echo "<div class='form'>
-                <h3>Email ou senha incorretos.</h3><br/>
-                <p class='link'>Clique aqui para <a href='login.php'>tentar novamente</a></p>
-              </div>";
+                echo "<h1>Email ou senha inválidos</h1>";
             }
         } else {
 
@@ -56,7 +64,7 @@
                     <div class="container">
                         <h2 class="tituloGeral" id="titulo">LOGIN</h2>
                         <div class="login_form">
-                            <form  class="textoGeral" id="registationForm" action="/login.php">
+                            <form class="textoGeral" id="registationForm">
                                 <div>
                                     <label for="mail">Email</label>
                                     <input type="email" id="mail" name="mail" placeholder="fastfurious@gmail.com" required>
@@ -71,7 +79,7 @@
                                 <div>
                                     <div class="linkContainer">
                                         <a class="sobreEfeito link" href="register.php">Don't have an account yet? Sign up</a>
-                                    </div>    
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -81,7 +89,7 @@
 
         <?php
         }
-    
+
         ?>
 
     </main>
