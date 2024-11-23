@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="logotipo">
-            <a href="#firstSection">
+            <a href="homepage.php">
                 <img id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
             </a>
         </div>
@@ -19,7 +19,7 @@
         <div class="menuContainer">
             <nav class="menu">
                 <a class="tituloGeral sobreEfeito" id="secao1" href="#secondSection">ABOUT US</a>
-                <a class="tituloGeral sobreEfeito" id="secao2" href="#thirddSection">PRODUCTS</a>
+                <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
                 <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
             </nav>
         </div>
