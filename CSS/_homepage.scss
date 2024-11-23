@@ -34,21 +34,22 @@
 }
 
 .secondSection{
-  height: 130vh;
+  height: 650px;
+  margin-top: 150px;
 }
 
-.textContainer, .checkthisout{
+.textContainer{
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.text{  
-  font-weight: 400;
-  margin-top: 180px;
+.text{
   margin-left: 150px;
-  width: 50%;
+  width: 580px;
+  height: 100%
 }
 
 .title{
@@ -58,12 +59,23 @@
 }
 
 .thirdSection{
-  height: 80vh;
+  height: 400px;
+  margin-bottom: 130px;
 }
 
-.containerPainel{
-  margin-left: 150px;
+
+.checkthisout{
   width: 100%;
+  height: 100%;
+}
+
+#titleTS{
+  margin-left: 150px;
+}
+
+.painel{
+display: flex;
+justify-content: center;
 }
 
 .imgPainel{

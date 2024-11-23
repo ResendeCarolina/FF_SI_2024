@@ -64,12 +64,11 @@
             </section>
             <section class="thirdSection" id="thirdSection">
                 <div class="checkthisout">
-                    <div class="containerPainel">
-                        <h2 class="tituloGeral title">CHECK THIS OUT</h2>
-                        <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="iconeMail">
-
-                        <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="iconeMail">
-                    </div>
+                        <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
+                        <div class="painel">
+                            <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="iconeMail">
+                            <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="iconeMail">
+                        </div>
                 </div>
             </section>
         </article>
