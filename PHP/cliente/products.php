@@ -29,8 +29,17 @@
         </div>
     </header>
     <main>
-        <article>
-            
+    <article>
+            <section class="secondPage">
+                <div class="secondPageContainer"">
+                    <h2 class="tituloGeral title">Models</h2>
+                    <div class="gallery">
+                        <img class="imgGallery" src="/IMAGENS/ctocarro1.jpg" alt="carro1">
+
+                        <img class="imgGallery" src="/IMAGENS/ctocarro3.jpg" alt="carro2">
+                    </div>
+                </div>
+            </section>
         </article>
     </main>
     <footer class="textoGeral fourthSection" id="fourthSection">

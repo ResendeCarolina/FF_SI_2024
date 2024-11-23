@@ -70,8 +70,8 @@
                 <div class="checkthisout">
                         <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
                         <div class="painel">
-                            <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="iconeMail">
-                            <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="iconeMail">
+                            <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="carro1">
+                            <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="carro2">
                         </div>
                 </div>
             </section>
