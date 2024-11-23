@@ -33,8 +33,12 @@
   line-height: 100pt;
 }
 
+#secondSection {//controla o sítio onde inicia a esta secção quando carregamos nela
+  scroll-margin-top: 150px; 
+}
+
 .secondSection{
-  height: 650px;
+  height: 580px;
   margin-top: 150px;
 }
 
@@ -50,11 +54,6 @@
   margin-left: 150px;
   width: 580px;
   height: 100%
-}
-
-.sentence{
-  color: black;
-  text-decoration: none;
 }
 
 .title{

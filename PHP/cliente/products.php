@@ -32,10 +32,10 @@
     <article>
             <section class="secondPage">
                 <div class="secondPageContainer"">
-                    <h2 class="tituloGeral title">Models</h2>
+                    <!--titleSP - titleSecondPage-->
+                    <h2 class="tituloGeral title" id="titleSP">Models</h2>
                     <div class="gallery">
                         <img class="imgGallery" src="/IMAGENS/ctocarro1.jpg" alt="carro1">
-
                         <img class="imgGallery" src="/IMAGENS/ctocarro3.jpg" alt="carro2">
                     </div>
                 </div>
@@ -43,7 +43,7 @@
         </article>
     </main>
     <footer class="textoGeral fourthSection" id="fourthSection">
-        <div class="conteudoFooter" id="aluno">
+        <div class="conteudoFooter">
             <div class="iconesContact">
                 <img class="icoC" id="mail" src="/IMAGENS/pictogramaMail.jpg" alt="iconeMail">
                 <img class="icoC" id="phone" src="/IMAGENS/pictogramaTelefone.jpg" alt="iconePhone">

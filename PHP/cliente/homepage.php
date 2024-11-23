@@ -46,7 +46,8 @@
             <section class="secondSection" id="secondSection">
                 <div class="textContainer">
                     <div class="textoGeral text">
-                        <h2 class="tituloGeral title">ABOUT US</h2>
+                        <!--titleSS - titleSecondSection-->
+                        <h2 class="tituloGeral title" id="titleSS">ABOUT US</h2>
                         <p><strong>Fast & Furious Cars Inc.</strong>  is a leading company in the luxury car rental market. We offer a unique experience for clients seeking elegance, comfort, and quality.
                         Our fleet consists of the most sophisticated vehicles on the market, from executive sedans to sports cars, and we stand out for our exclusivity.
                         </p>
@@ -61,13 +62,12 @@
                         For administrators, the system provides advanced management tools, such as vehicle visibility controls and real-time statistics, optimizing business operations.
                         Our goal is to redefine the luxury car rental sector by combining exclusivity with personalized services that prioritize customer satisfaction.
                         </p>
-                        <br>
-                        <p><a class="sobreEfeito sentence" href="products.php">Click now and rent your new car for a few days!</a></p>
                     </div>
                 </div>
             </section>
             <section class="thirdSection" id="thirdSection">
                 <div class="checkthisout">
+                        <!--titleTS - titleThirdSection-->
                         <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
                         <div class="painel">
                             <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="carro1">
@@ -78,7 +78,7 @@
         </article>
     </main>
     <footer class="textoGeral fourthSection" id="fourthSection">
-        <div class="conteudoFooter" id="aluno">
+        <div class="conteudoFooter">
             <div class="iconesContact">
                 <img class="icoC" id="mail" src="/IMAGENS/pictogramaMail.jpg" alt="iconeMail">
                 <img class="icoC" id="phone" src="/IMAGENS/pictogramaTelefone.jpg" alt="iconePhone">
