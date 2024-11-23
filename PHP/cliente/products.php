@@ -16,7 +16,7 @@
 
         <div class="menuContainer">
             <nav class="menu">
-                <a class="tituloGeral sobreEfeito" id="secao1" href="#secondSection">ABOUT US</a>
+                <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
                 <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
             </nav>

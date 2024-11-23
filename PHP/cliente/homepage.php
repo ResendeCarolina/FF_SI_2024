@@ -18,7 +18,7 @@
 
         <div class="menuContainer">
             <nav class="menu">
-                <a class="tituloGeral sobreEfeito" id="secao1" href="#secondSection">ABOUT US</a>
+                <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
                 <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
             </nav>
@@ -62,7 +62,7 @@
                         Our goal is to redefine the luxury car rental sector by combining exclusivity with personalized services that prioritize customer satisfaction.
                         </p>
                         <br>
-                        <p><a class="sobreEfeito sentence" href="paginadosprodutos">Click now and rent your new car for a few days!</a></p>
+                        <p><a class="sobreEfeito sentence" href="products.php">Click now and rent your new car for a few days!</a></p>
                     </div>
                 </div>
             </section>
