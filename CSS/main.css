@@ -19,6 +19,13 @@ html {
   font-family: "Antonio", sans-serif;
 }
 
+/*este title é comum aos títulos das secções da homepage e products*/
+.title {
+  font-size: 30pt;
+  margin-bottom: 30px;
+  color: black;
+}
+
 .sobreEfeito:hover {
   color: darkred;
 }
@@ -137,12 +144,6 @@ html {
   height: 100%;
 }
 
-.title {
-  font-size: 30pt;
-  margin-bottom: 30px;
-  color: black;
-}
-
 .thirdSection {
   height: 400px;
   margin-bottom: 130px;
@@ -171,7 +172,6 @@ html {
 
 .secondPage {
   margin-top: 200px;
-  height: 400px;
   width: 100%;
   margin-bottom: 130px;
 }
@@ -181,24 +181,48 @@ html {
   height: 100%;
 }
 
-.title {
-  font-size: 30pt;
-  margin-bottom: 30px;
-  color: black;
-}
-
 #titleSP {
   margin-left: 150px;
 }
 
+/*define os itens que vão ocupar a grelha*/
+.carro1 {
+  grid-area: primeiro;
+}
+
+.carro2 {
+  grid-area: segundo;
+}
+
+.carro3 {
+  grid-area: terceiro;
+}
+
+.carro4 {
+  grid-area: quarto;
+}
+
+.carro5 {
+  grid-area: quinto;
+}
+
+.carro6 {
+  grid-area: sexto;
+}
+
 .gallery {
-  display: flex;
+  display: grid;
   justify-content: center;
+  grid-template-rows: 450px 300px 450px 300px;
+  grid-template-columns: repeat(2, 480px); /*repete 2 colunas cada uma com 480 de largura*/
+  grid-template-areas: "primeiro primeiro" "segundo terceiro" "quarto quarto" "quinto sexto";
+  gap: 30px;
 }
 
 .imgGallery {
-  width: 480px;
-  height: 300px;
+  /*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
+  width: 100%;
+  height: 100%;
   margin-right: 10px;
   margin-top: 20px;
 }

@@ -35,8 +35,12 @@
                     <!--titleSP - titleSecondPage-->
                     <h2 class="tituloGeral title" id="titleSP">Models</h2>
                     <div class="gallery">
-                        <img class="imgGallery" src="/IMAGENS/ctocarro1.jpg" alt="carro1">
-                        <img class="imgGallery" src="/IMAGENS/ctocarro3.jpg" alt="carro2">
+                        <img class="imgGallery carro1" src="/IMAGENS/ctocarro1.jpg" alt="carro1">
+                        <img class="imgGallery carro2" src="/IMAGENS/ctocarro3.jpg" alt="carro2">
+                        <img class="imgGallery carro3" src="/IMAGENS/ctocarro1.jpg" alt="carro3">
+                        <img class="imgGallery carro4" src="/IMAGENS/ctocarro3.jpg" alt="carro4">
+                        <img class="imgGallery carro5" src="/IMAGENS/ctocarro1.jpg" alt="carro5">
+                        <img class="imgGallery carro6" src="/IMAGENS/ctocarro3.jpg" alt="carro6">
                     </div>
                 </div>
             </section>

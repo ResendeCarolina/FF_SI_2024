@@ -20,6 +20,13 @@ html {
   font-family: "Antonio", sans-serif;
 }
 
+/*este title é comum aos títulos das secções da homepage e products*/
+.title{
+  font-size: 30pt;    
+  margin-bottom: 30px;  
+  color: black;
+}
+
 .sobreEfeito:hover{
   color: darkred;
 }
