@@ -47,18 +47,22 @@
                 <div class="textContainer">
                     <div class="textoGeral text">
                         <h2 class="tituloGeral title">ABOUT US</h2>
-                        <p>A <strong>Fast & Furious Cars Inc.</strong> é uma empresa de referência no mercado de aluguel de carros de luxo, oferecendo uma experiência única para clientes que buscam elegância, conforto e desempenho.
-                            Com uma frota composta pelos veículos mais sofisticados do mercado, desde sedans executivos até supercarros esportivos, a empresa se destaca por atender às mais altas expectativas de qualidade e exclusividade.
-                            Cada carro é cuidadosamente selecionado para proporcionar uma experiência premium, seja para uma viagem de negócios, uma ocasião especial ou simplesmente para aproveitar a adrenalina de dirigir um veículo de alto desempenho.
-                            Nosso compromisso é unir luxo e praticidade, permitindo que nossos clientes desfrutem de uma experiência memorável a cada reserva.
+                        <p><strong>Fast & Furious Cars Inc.</strong>  is a leading company in the luxury car rental market. We offer a unique experience for clients seeking elegance, comfort, and quality.
+                        Our fleet consists of the most sophisticated vehicles on the market, from executive sedans to sports cars, and we stand out for our exclusivity.
+                        </p>
+                        <br>
+                        <p>Each car is carefully selected to provide an unforgettable experience, whether for a business trip, a special occasion, or simply enjoying the thrill of driving.
+                        Our greatest commitment is to unite luxury and practicality, allowing our clients to enjoy a memorable experience with every booking.
                         </p>
                         <br>
                         <p>
-                            Além da excelência na frota, a <strong>Fast & Furious Cars Inc.</strong> investe em tecnologia de ponta para oferecer um sistema de reservas online simples e eficiente.
-                            A plataforma permite que os clientes pesquisem e escolham o carro ideal com base em critérios como marca, estilo e preço, agendando o período desejado em poucos cliques.
-                            Para os administradores, o sistema fornece ferramentas avançadas de gestão, como controle de visibilidade de veículos e estatísticas em tempo real, otimizando a operação do negócio.
-                            Nosso objetivo é redefinir o setor de aluguel de carros de luxo, combinando uma frota exclusiva com serviços personalizados que priorizam a satisfação do cliente.
+                        In addition to our exceptional fleet, we invest in cutting-edge technology to offer a simple and efficient online booking system.
+                        The platform allows clients to search for and select the perfect car based on criteria such as brand, style, and price, scheduling the desired rental period in just a few clicks.
+                        For administrators, the system provides advanced management tools, such as vehicle visibility controls and real-time statistics, optimizing business operations.
+                        Our goal is to redefine the luxury car rental sector by combining exclusivity with personalized services that prioritize customer satisfaction.
                         </p>
+                        <br>
+                        <p><a class="sobreEfeito sentence" href="paginadosprodutos">Click now and rent your new car for a few days!</a></p>
                     </div>
                 </div>
             </section>
