@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="cabecalhoHP">
         <div class="logotipo">
             <a href="homepage.php">
                 <img id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">

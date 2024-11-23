@@ -1,5 +1,12 @@
+ .cabecalhoHP{
+  background: rbga(0,0,0,1);
+ }
+
+ .cabecalhoGeral{
+  background-color: black;
+ }
+ 
  header {
-    background: rbga(0,0,0,1);
     height: 80px;
     position: fixed;
     width: 100%;

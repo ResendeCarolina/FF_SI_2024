@@ -20,7 +20,7 @@ window.addEventListener('scroll', function() {
 });
 
 //aumenta suavemente a opacidade do header através do scroll
-let header = document.querySelector('header');
+let header = document.querySelector('.cabecalhoHP');
 
 window.addEventListener('scroll', function () {
   // Calcula a opacidade com base no scroll, variando entre 1 (no topo) e 0 (após 600px de scroll)
