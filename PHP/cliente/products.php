@@ -30,17 +30,45 @@
     </header>
     <main>
     <article>
-            <section class="secondPage">
+    <section class="secondPage">
                 <div class="secondPageContainer"">
-                    <!--titleSP - titleSecondPage-->
                     <h2 class="tituloGeral title" id="titleSP">Models</h2>
                     <div class="gallery">
-                        <img class="imgGallery carro1" src="/IMAGENS/ctocarro1.jpg" alt="carro1">
-                        <img class="imgGallery carro2" src="/IMAGENS/ctocarro3.jpg" alt="carro2">
-                        <img class="imgGallery carro3" src="/IMAGENS/ctocarro1.jpg" alt="carro3">
-                        <img class="imgGallery carro4" src="/IMAGENS/ctocarro3.jpg" alt="carro4">
-                        <img class="imgGallery carro5" src="/IMAGENS/ctocarro1.jpg" alt="carro5">
-                        <img class="imgGallery carro6" src="/IMAGENS/ctocarro3.jpg" alt="carro6">
+                        <div class="carro1">
+                            <h3 class="legend altGC">Modelo XPTO</h3>
+                            <button class="tituloGeral data altGB">data</button>
+                            <img class="imgPlus altGP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro1">
+                        </div>
+                        <div class="carro2">
+                            <h3 class="legend altCC">Modelo XPTO</h3>
+                            <button class="tituloGeral data altCB">data</button>
+                            <img class="imgPlus altCP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro2">  
+                        </div>
+                        <div class="carro3">
+                            <h3 class="legend altCC">Modelo XPTO</h3> 
+                            <button class="tituloGeral data altCB">data</button>
+                            <img class="imgPlus altCP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro3">   
+                        </div>
+                        <div class="carro4">
+                            <h3 class="legend altGC">Modelo XPTO</h3>
+                            <button class="tituloGeral data altGB">data</button>
+                            <img class="imgPlus altGP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro4">                                 </div>
+                        <div class="carro5">
+                            <h3 class="legend altCC">Modelo XPTO</h3>      
+                            <button class="tituloGeral data altCB">data</button>
+                            <img class="imgPlus altCP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro5">
+                        </div>
+                        <div class="carro6">
+                            <h3 class="legend altCC">Modelo XPTO</h3>  
+                            <button class="tituloGeral data altCB">data</button>
+                            <img class="imgPlus altCP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro6">
+                        </div>
                     </div>
                 </div>
             </section>
