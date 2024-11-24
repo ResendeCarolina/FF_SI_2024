@@ -29,50 +29,128 @@
         </div>
     </header>
     <main>
-    <article>
-    <section class="secondPage">
-                <div class="secondPageContainer"">
-                    <h2 class="tituloGeral title" id="titleSP">Models</h2>
-                    <div class="gallery">
-                        <div class="carro1">
-                            <h3 class="legend altGC">Modelo XPTO</h3>
-                            <button class="tituloGeral data altGB">data</button>
-                            <img class="imgPlus altGP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
-                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro1">
+        <section class="secondPage">
+            <div class="secondPageContainer">
+                <h2 class="tituloGeral title" id="titleSP">Models</h2>
+                <div class="gallery" id="gallery">
+                    
+                    <div class="carro1">
+                        <div class="legenda">
+                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
-                        <div class="carro2">
-                            <h3 class="legend altCC">Modelo XPTO</h3>
-                            <button class="tituloGeral data altCB">data</button>
-                            <img class="imgPlus altCP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
-                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro2">  
+                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro1">
+                        <div class="element">
+                            <div class="wrapbutton">
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date startBtn">START</button>
+                                    <input class="dateInput startDate" type="date">
+                                </div>
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date endBtn">END</button>
+                                    <input class="dateInput endDate" type="date">
+                                </div>
+                            </div>
+                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
                         </div>
-                        <div class="carro3">
-                            <h3 class="legend altCC">Modelo XPTO</h3> 
-                            <button class="tituloGeral data altCB">data</button>
-                            <img class="imgPlus altCP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
-                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro3">   
+                    </div>
+                    <div class="carro2">
+                        <div class="legenda">
+                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
-                        <div class="carro4">
-                            <h3 class="legend altGC">Modelo XPTO</h3>
-                            <button class="tituloGeral data altGB">data</button>
-                            <img class="imgPlus altGP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
-                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro4">                                 </div>
-                        <div class="carro5">
-                            <h3 class="legend altCC">Modelo XPTO</h3>      
-                            <button class="tituloGeral data altCB">data</button>
-                            <img class="imgPlus altCP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
-                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro5">
+                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro2">
+                        <div class="element">
+                            <div class="wrapbutton">
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date startBtn">START</button>
+                                    <input class="dateInput startDate" type="date">
+                                </div>
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date endBtn">END</button>
+                                    <input class="dateInput endDate" type="date">
+                                </div>
+                            </div>
+                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
                         </div>
-                        <div class="carro6">
-                            <h3 class="legend altCC">Modelo XPTO</h3>  
-                            <button class="tituloGeral data altCB">data</button>
-                            <img class="imgPlus altCP" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
-                            <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro6">
+                    </div>                    
+                    <div class="carro3">
+                        <div class="legenda">
+                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
+                        </div>
+                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro3">
+                        <div class="element">
+                            <div class="wrapbutton">
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date startBtn">START</button>
+                                    <input class="dateInput startDate" type="date">
+                                </div>
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date endBtn">END</button>
+                                    <input class="dateInput endDate" type="date">
+                                </div>
+                            </div>
+                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                        </div>
+                    </div>
+                    <div class="carro4">
+                        <div class="legenda">
+                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
+                        </div>
+                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro4">
+                        <div class="element">
+                            <div class="wrapbutton">
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date startBtn">START</button>
+                                    <input class="dateInput startDate" type="date">
+                                </div>
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date endBtn">END</button>
+                                    <input class="dateInput endDate" type="date">
+                                </div>
+                            </div>
+                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                        </div>
+                    </div>
+                    <div class="carro5">
+                        <div class="legenda">
+                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
+                        </div>
+                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro5">
+                        <div class="element">
+                            <div class="wrapbutton">
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date startBtn">START</button>
+                                    <input class="dateInput startDate" type="date">
+                                </div>
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date endBtn">END</button>
+                                    <input class="dateInput endDate" type="date">
+                                </div>
+                            </div>
+                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                        </div>
+                    </div>
+                    <div class="carro6">
+                        <div class="legenda">
+                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
+                        </div>
+                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro6">
+                        <div class="element">
+                            <div class="wrapbutton">
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date startBtn">START</button>
+                                    <input class="dateInput startDate" type="date">
+                                </div>
+                                <div class="dateContainer">
+                                    <button class="tituloGeral date endBtn">END</button>
+                                    <input class="dateInput endDate" type="date">
+                                </div>
+                            </div>
+                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
                         </div>
                     </div>
                 </div>
-            </section>
-        </article>
+            </div>
+        </section>
     </main>
     <footer class="textoGeral fourthSection" id="fourthSection">
         <div class="conteudoFooter">

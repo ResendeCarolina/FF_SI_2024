@@ -185,7 +185,6 @@ html {
   margin-left: 150px;
 }
 
-/*define os itens que vão ocupar a grelha*/
 .carro1 {
   grid-area: primeiro;
 }
@@ -211,78 +210,87 @@ html {
 }
 
 .gallery {
-  padding-left: 150px;
-  padding-right: 150px;
   display: grid;
+  position: relative;
   justify-content: center;
-  grid-template-rows: 300px 300px 300px 300px;
-  grid-template-columns: repeat(2, 47.5%); /*repete 2 colunas*/
+  grid-template-rows: 450px 300px 450px 300px;
+  grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Colunas responsivas */
   grid-template-areas: "primeiro primeiro" "segundo terceiro" "quarto quarto" "quinto sexto";
   gap: 40px;
+  padding-right: 150px;
+  padding-left: 150px;
 }
 
 .imgGallery {
   /*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
   width: 100%;
   height: 100%;
-  margin-right: 10px;
+}
+
+.legenda {
+  position: absolute;
   margin-top: 20px;
-  border: 1px solid black;
+  margin-left: 20px;
 }
 
 .legend {
-  position: absolute;
-  z-index: 2;
-  font-family: "Antonio", sans-serif;
   font-size: 20pt;
 }
 
-/* o segundo C é de Carro*/
-.altCC {
-  margin-top: 30px;
-} /*antigo valor 255px*/
-.altGC {
-  margin-top: 70px;
-} /*antigo valor 405px*/
+.element {
+  display: flex;
+  justify-content: end;
+  flex-direction: row-reverse;
+  margin-top: -50px;
+  margin-right: 20px;
+  gap: 10px; /* Espaço entre o botão de data e o ícone */
+}
+
 .imgPlus {
-  position: absolute;
-  z-index: 2;
   width: 27px;
   height: 27px;
 }
 
-/*P de Plus*/
-.altCP {
-  margin-top: 290px;
-  margin-left: 360px;
-}
-
-.altGP {
-  margin-top: 440px;
-  margin-left: 857px;
-}
-
-.data {
-  position: absolute;
-  width: 65px;
+.dateContainer {
+  display: inline-block;
+  position: relative;
+  width: 85px;
   height: 27px;
-  color: black;
-  background-color: white;
+}
+
+.date {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   font-size: 14px;
   font-weight: 600;
-  border-radius: 15px;
-  border: 3px solid black;
+  background-color: white;
+  border: 3px solid black; /* Borda padrão para os inputs */
+  border-radius: 15px; /* Bordas arredondadas */
 }
 
-/*B de Botão*/
-.altCB {
-  margin-top: 290px;
-  margin-left: 390px;
+.dateInput {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
-.altGB {
-  margin-top: 440px;
-  margin-left: 890px;
+.dateInput::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .cabecalhoHP {
