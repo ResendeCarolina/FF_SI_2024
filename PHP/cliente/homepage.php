@@ -96,7 +96,6 @@
             </div>
         </div>
     </footer>
-    <script src="/JS/script.js"></script>
+    <script src="/JS/homepage.js"></script>
 </body>
-
 </html>

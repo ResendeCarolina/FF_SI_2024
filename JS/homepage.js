@@ -8,6 +8,7 @@ let handleSubmit = () => {
   console.log(registationForm)
 }
 
+
 //reduz suavemente a opacidade do videoInicial através do scroll
 let video = document.querySelector('.firstSection');
 
@@ -18,6 +19,7 @@ window.addEventListener('scroll', function() {
   value = Math.max(0, Math.min(1, value)); 
   video.style.opacity = value;
 });
+
 
 //aumenta suavemente a opacidade do header através do scroll
 let header = document.querySelector('.cabecalhoHP');
