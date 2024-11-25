@@ -40,7 +40,7 @@ html {
 
 .legenda {
   position: absolute;
-  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .legend {
@@ -271,8 +271,8 @@ html {
   z-index: -5;
 }
 
-#legenda {
-  margin-top: 20px;
+#legendaP {
+  margin-left: 20px;
 }
 
 .element {
