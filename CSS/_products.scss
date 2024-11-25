@@ -20,7 +20,7 @@
   margin-bottom: 30px;
 }
 
-#tituloSP{ 
+#titleSP{ 
   line-height: 30pt;
 }
 
@@ -107,9 +107,20 @@ input[type="search"]:focus {
   gap: 10px; /* Espaço entre o botão de data e o ícone */
 }
 
-.imgPlus{
+.botaoPlus{
+  background-color: transparent;
+  border: none;
   width: 27px;
   height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.imgPlus{
+  width: 27px;
+  height: 27px; 
 }
 
 .dateContainer {

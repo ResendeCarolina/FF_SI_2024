@@ -64,7 +64,7 @@
                                     <input class="dateInput endDate" type="date">
                                 </div>
                             </div>
-                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
                         </div>
                     </div>
                     <div class="carro carro2">
@@ -83,7 +83,7 @@
                                     <input class="dateInput endDate" type="date">
                                 </div>
                             </div>
-                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
                         </div>
                     </div>                    
                     <div class="carro carro3">
@@ -102,7 +102,7 @@
                                     <input class="dateInput endDate" type="date">
                                 </div>
                             </div>
-                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
                         </div>
                     </div>
                     <div class="carro carro4">
@@ -121,7 +121,7 @@
                                     <input class="dateInput endDate" type="date">
                                 </div>
                             </div>
-                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
                         </div>
                     </div>
                     <div class="carro carro5">
@@ -140,7 +140,7 @@
                                     <input class="dateInput endDate" type="date">
                                 </div>
                             </div>
-                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
                         </div>
                     </div>
                     <div class="carro carro6">
@@ -159,7 +159,7 @@
                                     <input class="dateInput endDate" type="date">
                                 </div>
                             </div>
-                            <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
+                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
                         </div>
                     </div>
                 </div>
