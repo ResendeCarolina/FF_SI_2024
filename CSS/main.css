@@ -30,6 +30,23 @@ html {
   color: darkred;
 }
 
+/*esta parte é comum aos carros expostos na homepage e no products*/
+.imgCarro {
+  position: relative;
+  /*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
+  width: 100%;
+  height: 100%;
+}
+
+.legenda {
+  position: absolute;
+  margin-left: 20px;
+}
+
+.legend {
+  font-size: 20pt;
+}
+
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;
@@ -146,7 +163,7 @@ html {
 
 .thirdSection {
   height: 400px;
-  margin-bottom: 130px;
+  margin-bottom: 50px;
 }
 
 .checkthisout {
@@ -158,16 +175,25 @@ html {
   margin-left: 150px;
 }
 
-.painel {
-  display: flex;
-  justify-content: center;
+.car1 {
+  grid-area: primeiro;
 }
 
-.imgPainel {
-  width: 480px;
-  height: 300px;
-  margin-right: 10px;
-  margin-top: 20px;
+.car2 {
+  grid-area: segundo;
+}
+
+.painel {
+  z-index: 5;
+  display: grid;
+  position: relative;
+  justify-content: center;
+  grid-template-rows: 300px;
+  grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Colunas responsivas */
+  grid-template-areas: "primeiro segundo";
+  gap: 40px;
+  padding-right: 150px;
+  padding-left: 150px;
 }
 
 .secondPage {
@@ -227,30 +253,26 @@ html {
   transition: background-color 0.3s ease, opacity 0.3s ease; 
 }
 
+.carro:hover .legenda, .carro:hover .element {
+    opacity: 0.07;
+}
+
+.carro:hover .imgGallery {
+    opacity: 0.07;
+}
+
 .carro:hover {
-  .legenda, .element {opacity: 0.07;}
-  .imgGallery { opacity: 0.07;}
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, opacity 0.3s ease; 
 }
 */
-.imgGallery {
+#imgGallery {
   z-index: -5;
-  position: relative;
-  /*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
-  width: 100%;
-  height: 100%;
 }
 
-.legenda {
-  position: absolute;
+#legenda {
   margin-top: 20px;
-  margin-left: 20px;
-}
-
-.legend {
-  font-size: 20pt;
 }
 
 .element {

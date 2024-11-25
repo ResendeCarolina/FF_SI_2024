@@ -31,6 +31,24 @@ html {
   color: darkred;
 }
 
+
+/*esta parte é comum aos carros expostos na homepage e no products*/
+.imgCarro{
+  position: relative;
+/*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
+  width: 100%; 
+  height: 100%;
+}
+
+.legenda{
+  position: absolute;
+  margin-left: 20px;
+}
+
+.legend{
+  font-size: 20pt;
+}
+
 @import './_register';
 @import './_login';
 @import './_homepage';

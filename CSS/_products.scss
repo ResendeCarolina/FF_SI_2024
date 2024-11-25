@@ -57,23 +57,12 @@
 }
 */
 
-.imgGallery{
+#imgGallery{
   z-index: -5;
-  position: relative;
-/*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
-  width: 100%; 
-  height: 100%;
 }
 
-
-.legenda{
-  position: absolute;
+#legenda{
   margin-top: 20px;
-  margin-left: 20px;
-}
-
-.legend{
-  font-size: 20pt;
 }
 
 .element{

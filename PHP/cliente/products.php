@@ -35,10 +35,10 @@
                 <div class="gallery" id="gallery">
                     
                     <div class="carro carro1">
-                        <div class="legenda">
+                        <div class="legenda" id="legendaP">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
-                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro1">
+                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro1">
                         <div class="element">
                             <div class="wrapbutton">
                                 <div class="dateContainer">
@@ -54,10 +54,10 @@
                         </div>
                     </div>
                     <div class="carro carro2">
-                        <div class="legenda">
+                        <div class="legenda" id="legendaP">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
-                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro2">
+                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro2">
                         <div class="element">
                             <div class="wrapbutton">
                                 <div class="dateContainer">
@@ -73,10 +73,10 @@
                         </div>
                     </div>                    
                     <div class="carro carro3">
-                        <div class="legenda">
+                        <div class="legenda" id="legendaP">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
-                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro3">
+                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro3">
                         <div class="element">
                             <div class="wrapbutton">
                                 <div class="dateContainer">
@@ -92,10 +92,10 @@
                         </div>
                     </div>
                     <div class="carro carro4">
-                        <div class="legenda">
+                        <div class="legenda" id="legendaP">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
-                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro4">
+                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro4">
                         <div class="element">
                             <div class="wrapbutton">
                                 <div class="dateContainer">
@@ -111,10 +111,10 @@
                         </div>
                     </div>
                     <div class="carro carro5">
-                        <div class="legenda">
+                        <div class="legenda" id="legendaP">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
-                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro5">
+                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro5">
                         <div class="element">
                             <div class="wrapbutton">
                                 <div class="dateContainer">
@@ -130,10 +130,10 @@
                         </div>
                     </div>
                     <div class="carro carro6">
-                        <div class="legenda">
+                        <div class="legenda" id="legendaP">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
-                        <img class="imgGallery" src="/IMAGENS/carro4.png" alt="carro6">
+                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro6">
                         <div class="element">
                             <div class="wrapbutton">
                                 <div class="dateContainer">

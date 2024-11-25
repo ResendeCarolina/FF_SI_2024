@@ -69,10 +69,20 @@
                 <div class="checkthisout">
                         <!--titleTS - titleThirdSection-->
                         <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
-                        <div class="painel">
-                            <img class="imgPainel" src="/IMAGENS/ctocarro1.jpg" alt="carro1">
-                            <img class="imgPainel" src="/IMAGENS/ctocarro3.jpg" alt="carro2">
+                        <div class="painel" id="painel">
+                        <div class="cars car1">
+                            <div class="legenda" id="legendaHP">
+                                <h3 class="tituloGeral legend">Modelo XPTO</h3>
+                            </div>
+                            <a href="products.php"><img class="imgCarro" id="imgPainel" src="/IMAGENS/carro4.png" alt="carro1"></a>
                         </div>
+                        <div class="cars car2">
+                            <div class="legenda" id="legendaHP">
+                                <h3 class="tituloGeral legend">Modelo XPTO</h3>
+                            </div>
+                            <a href="products.php"><img class="imgCarro" id="imgPainel" src="/IMAGENS/carro4.png" alt="carro3"></a>
+                        </div>
+                    </div>
                 </div>
             </section>
         </article>
