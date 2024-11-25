@@ -36,11 +36,29 @@
   padding-left: 150px;
 }
 
+/*
+.carro {
+  background-color: rgba(0,0,0,0);
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
+}
+
+.carro:hover {
+  .legenda, .element {opacity: 0.07;}
+  .imgGallery { opacity: 0.07;}
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
+}
+*/
+
 .imgGallery{
+  z-index: -5;
+  position: relative;
 /*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
   width: 100%; 
   height: 100%;
 }
+
 
 .legenda{
   position: absolute;
@@ -81,7 +99,7 @@
   height: 100%;
   font-size: 14px;
   font-weight: 600;
-  background-color: white;
+  background-color: transparent;
   border: 3px solid black; /* Borda padrão para os inputs */
   border-radius: 15px; /* Bordas arredondadas */
 }

@@ -34,7 +34,7 @@
                 <h2 class="tituloGeral title" id="titleSP">Models</h2>
                 <div class="gallery" id="gallery">
                     
-                    <div class="carro1">
+                    <div class="carro carro1">
                         <div class="legenda">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
@@ -53,7 +53,7 @@
                             <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
                         </div>
                     </div>
-                    <div class="carro2">
+                    <div class="carro carro2">
                         <div class="legenda">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
@@ -72,7 +72,7 @@
                             <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
                         </div>
                     </div>                    
-                    <div class="carro3">
+                    <div class="carro carro3">
                         <div class="legenda">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
@@ -91,7 +91,7 @@
                             <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
                         </div>
                     </div>
-                    <div class="carro4">
+                    <div class="carro carro4">
                         <div class="legenda">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
@@ -110,7 +110,7 @@
                             <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
                         </div>
                     </div>
-                    <div class="carro5">
+                    <div class="carro carro5">
                         <div class="legenda">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
@@ -129,7 +129,7 @@
                             <img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar">
                         </div>
                     </div>
-                    <div class="carro6">
+                    <div class="carro carro6">
                         <div class="legenda">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>
                         </div>
