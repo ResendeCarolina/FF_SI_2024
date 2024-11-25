@@ -49,6 +49,28 @@ html {
   font-size: 20pt;
 }
 
+/*
+.carro {
+  background-color: rgba(0,0,0,0);
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
+}
+
+.carro:hover .legenda, .carro:hover .element {
+  opacity: 0.07;
+}
+
+.carro:hover .imgCarro {
+  z-index: -5;
+  opacity: 0.07;
+}
+
+.carro:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
+}
+*/
+
 @import './_register';
 @import './_login';
 @import './_homepage';

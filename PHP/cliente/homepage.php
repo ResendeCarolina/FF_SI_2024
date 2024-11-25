@@ -70,13 +70,13 @@
                         <!--titleTS - titleThirdSection-->
                         <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
                         <div class="painel" id="painel">
-                        <div class="cars car1">
+                        <div class="carro car1">
                             <div class="legenda" id="legendaHP">
                                 <h3 class="tituloGeral legend">Modelo XPTO</h3>
                             </div>
                             <a href="products.php"><img class="imgCarro" id="imgPainel" src="/IMAGENS/carro4.png" alt="carro1"></a>
                         </div>
-                        <div class="cars car2">
+                        <div class="carro car2">
                             <div class="legenda" id="legendaHP">
                                 <h3 class="tituloGeral legend">Modelo XPTO</h3>
                             </div>

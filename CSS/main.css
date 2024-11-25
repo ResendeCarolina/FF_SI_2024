@@ -47,6 +47,27 @@ html {
   font-size: 20pt;
 }
 
+/*
+.carro {
+  background-color: rgba(0,0,0,0);
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
+}
+
+.carro:hover .legenda, .carro:hover .element {
+  opacity: 0.07;
+}
+
+.carro:hover .imgCarro {
+  z-index: -5;
+  opacity: 0.07;
+}
+
+.carro:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, opacity 0.3s ease; 
+}
+*/
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;
@@ -247,26 +268,6 @@ html {
   padding-left: 150px;
 }
 
-/*
-.carro {
-  background-color: rgba(0,0,0,0);
-  transition: background-color 0.3s ease, opacity 0.3s ease; 
-}
-
-.carro:hover .legenda, .carro:hover .element {
-    opacity: 0.07;
-}
-
-.carro:hover .imgGallery {
-    opacity: 0.07;
-}
-
-.carro:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, opacity 0.3s ease; 
-}
-*/
 #imgGallery {
   z-index: -5;
 }
