@@ -228,8 +228,62 @@ html {
   height: 100%;
 }
 
-#titleSP {
-  margin-left: 150px;
+.inicialContainer {
+  width: 100%;
+  height: 70px; /* Ou maior, para acomodar os elementos */
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  padding-left: 150px;
+  padding-right: 150px;
+  margin-bottom: 30px;
+}
+
+#tituloSP {
+  line-height: 30pt;
+}
+
+.searchBar {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.search {
+  width: 170px;
+  height: 30px;
+  background-color: transparent;
+  border: 3px solid black; /* Borda padrão para os inputs */
+  border-radius: 15px; /* Bordas arredondadas */
+  display: flex;
+  align-items: center;
+}
+
+.searchForm {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchBtn {
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.searchInput {
+  height: 100%;
+  border: none; /* Remove bordas padrão */
+  background: transparent; /* Fundo transparente */
+  margin-left: 15px;
+  font-family: "Archivo Narrow", sans-serif;
+}
+
+input[type=search]:focus {
+  outline: none; /* Remove o contorno padrão */
 }
 
 .carro1 {
@@ -370,16 +424,39 @@ header {
   text-decoration: none;
 }
 
-.icones {
+.iconesContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  flex-direction: row;
   position: absolute;
   right: 150px;
+  z-index: -1; /*permite que possamos navegar através do header na mesma*/
 }
 
-#perfil {
+.icones {
+  position: relative;
   width: 35px;
   height: 35px;
   display: flex;
   align-items: center;
+}
+
+/*countP de Porducts - vai mostrar o número de produtos adicionados ao carrinho*/
+.countP {
+  font-family: "Archivo Narrow", sans-serif;
+  position: absolute;
+  display: flex;
+  width: 17px;
+  height: 17px;
+  font-size: 9pt;
+  background-color: maroon;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  top: 30%;
+  right: -2px;
 }
 
 footer {

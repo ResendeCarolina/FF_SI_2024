@@ -22,18 +22,32 @@
             </nav>
         </div>
 
-        <div class="icones">
-            <a>
-                <img id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-            </a>
+        <div class="iconesContainer">
+            <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+            <div class="cartContainer">
+                <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
+                <span class="countP">0</span>
+            </div>
         </div>
     </header>
     <main>
         <section class="secondPage">
             <div class="secondPageContainer">
-                <h2 class="tituloGeral title" id="titleSP">Models</h2>
+
+                <div class="inicialContainer">
+                    <!--titleSP - tituloSecondPage-->
+                    <h2 class="tituloGeral title" id="titleSP">Models</h2>
+                    <div class="searchBar">
+                        <div class="search">
+                            <form class="searchForm">
+                                <input class="searchInput" type="search" id="search" name="search" placeholder="Search">
+                                <button class="searchBtn"><img class="lupa" src="/IMAGENS/pictogramaLupa.png" width="15" height="15" alt="lupa"></button>   
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="gallery" id="gallery">
-                    
                     <div class="carro carro1">
                         <div class="legenda" id="legendaP">
                             <h3 class="tituloGeral legend">Modelo XPTO</h3>

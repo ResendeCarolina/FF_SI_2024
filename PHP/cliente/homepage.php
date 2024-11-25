@@ -24,10 +24,12 @@
             </nav>
         </div>
 
-        <div class="icones">
-            <a>
-                <img id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-            </a>
+        <div class="iconesContainer">
+            <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+            <div class="cartContainer">
+                <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
+                <span class="countP">0</span>
+            </div>
         </div>
     </header>
     <main>

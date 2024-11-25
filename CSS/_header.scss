@@ -1,49 +1,72 @@
- .cabecalhoHP{
+.cabecalhoHP{
   background: rbga(0,0,0,1);
- }
+}
 
- .cabecalhoGeral{
+.cabecalhoGeral{
   background-color: black;
- }
+}
  
- header {
-    height: 80px;
-    position: fixed;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    top: 0px;
-  }
+header {
+  height: 80px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  top: 0px;
+}
   
-  .logotipo{
-    position: absolute;
-    left: 150px;
-  }
+.logotipo{
+  position: absolute;
+  left: 150px;
+}
   
-  #logo{
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-  }
+#logo{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
   
-  .menu>a{
-    color: white;
-    display: inline-block;
-    margin: 20px;
-    text-decoration: none;
-  }
+.menu>a{
+  color: white;
+  display: inline-block;
+  margin: 20px;
+  text-decoration: none;
+}
   
-  .icones{
-    position: absolute;
-    right: 150px;
-  }
-  
-  #perfil{ 
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-  }
+.iconesContainer{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  flex-direction: row;
+  position: absolute;
+  right: 150px;
+  z-index: -1;/*permite que possamos navegar através do header na mesma*/
+}
+
+.icones{ 
+  position: relative;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+/*countP de Porducts - vai mostrar o número de produtos adicionados ao carrinho*/
+.countP{
+  font-family: "Archivo Narrow", sans-serif;
+  position: absolute;
+  display: flex;
+  width: 17px;
+  height: 17px;
+  font-size: 9pt;
+  background-color: maroon;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  top: 30%;
+  right: -2px;
+}

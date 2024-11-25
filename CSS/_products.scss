@@ -9,8 +9,62 @@
   height: 100%;
 }
 
-#titleSP{
-  margin-left: 150px;
+.inicialContainer {
+  width: 100%;
+  height: 70px; /* Ou maior, para acomodar os elementos */
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  padding-left: 150px;
+  padding-right: 150px;
+  margin-bottom: 30px;
+}
+
+#tituloSP{ 
+  line-height: 30pt;
+}
+
+.searchBar{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.search{
+  width: 170px;
+  height: 30px;
+  background-color: transparent;
+  border: 3px solid black; /* Borda padrão para os inputs */
+  border-radius: 15px; /* Bordas arredondadas */
+  display: flex;
+  align-items: center;
+}
+
+.searchForm{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.searchBtn{
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.searchInput{
+  height: 100%;
+  border: none; /* Remove bordas padrão */
+  background: transparent; /* Fundo transparente */
+  margin-left: 15px;
+  font-family: "Archivo Narrow", sans-serif;
+}
+
+input[type="search"]:focus {
+  outline: none; /* Remove o contorno padrão */
 }
 
 .carro1 { grid-area: primeiro; }
