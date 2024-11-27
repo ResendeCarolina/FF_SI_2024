@@ -64,7 +64,7 @@
 
                     // Verificar se a consulta foi bem-sucedida
                     if (!$resultados) {
-                        echo "Erro ao buscar os dados dos carros: " . pg_last_error($connection);
+                        echo "Erro ao procurar os dados dos carros: " . pg_last_error($connection);
                         exit();
                     }
 
