@@ -71,25 +71,23 @@
                     // Criar cartão
                     // Loop para processar cada linha
                     while ($carro = pg_fetch_assoc($resultados)) {
-                        echo "<div class='carro'>
-                        <div class='legenda' id='legendaP'>
-                            <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
-                        </div>
-                        <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
-                        <div class='element'>
-                            <div class='wrapbutton'>
-                                <div class='dateContainer'>
-                                    <button class='tituloGeral date startBtn'>START</button>
-                                    <input class='dateInput startDate' type='date'>
+                        echo "
+                        <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
+                            <div class='carro'>
+                                <div class='legenda' id='legendaP'>
+                                    <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
                                 </div>
-                                <div class='dateContainer'>
-                                    <button class='tituloGeral date endBtn'>END</button>
-                                    <input class='dateInput endDate' type='date'>
+                                <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
+                                <div class='element'>
+                                    <div class='wrapbutton'>
+                                        <div class='dateContainer'>
+                                            <button class='tituloGeral date startBtn'>Ver Mais</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <button class='botaoPlus' onclick='test(" . htmlspecialchars($carro['matricula']) . ")'><img class='imgPlus' src='/IMAGENS/pictogramaPlus.png' alt='adicionar'></button>
-                        </div>
-                    </div>";
+                        </a>
+                    ";
                     }
 
                     // Fechar a conexão com a base de dados
@@ -122,118 +120,3 @@
 </body>
 
 </html>
-
-<!--                     <div class="carro carro1">
-                        <div class="legenda" id="legendaP">
-                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
-                        </div>
-                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro1">
-                        <div class="element">
-                            <div class="wrapbutton">
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date startBtn">START</button>
-                                    <input class="dateInput startDate" type="date">
-                                </div>
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date endBtn">END</button>
-                                    <input class="dateInput endDate" type="date">
-                                </div>
-                            </div>
-                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
-                        </div>
-                    </div>
-                    <div class="carro carro2">
-                        <div class="legenda" id="legendaP">
-                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
-                        </div>
-                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro2">
-                        <div class="element">
-                            <div class="wrapbutton">
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date startBtn">START</button>
-                                    <input class="dateInput startDate" type="date">
-                                </div>
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date endBtn">END</button>
-                                    <input class="dateInput endDate" type="date">
-                                </div>
-                            </div>
-                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
-                        </div>
-                    </div>                    
-                    <div class="carro carro3">
-                        <div class="legenda" id="legendaP">
-                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
-                        </div>
-                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro3">
-                        <div class="element">
-                            <div class="wrapbutton">
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date startBtn">START</button>
-                                    <input class="dateInput startDate" type="date">
-                                </div>
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date endBtn">END</button>
-                                    <input class="dateInput endDate" type="date">
-                                </div>
-                            </div>
-                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
-                        </div>
-                    </div>
-                    <div class="carro carro4">
-                        <div class="legenda" id="legendaP">
-                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
-                        </div>
-                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro4">
-                        <div class="element">
-                            <div class="wrapbutton">
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date startBtn">START</button>
-                                    <input class="dateInput startDate" type="date">
-                                </div>
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date endBtn">END</button>
-                                    <input class="dateInput endDate" type="date">
-                                </div>
-                            </div>
-                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
-                        </div>
-                    </div>
-                    <div class="carro carro5">
-                        <div class="legenda" id="legendaP">
-                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
-                        </div>
-                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro5">
-                        <div class="element">
-                            <div class="wrapbutton">
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date startBtn">START</button>
-                                    <input class="dateInput startDate" type="date">
-                                </div>
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date endBtn">END</button>
-                                    <input class="dateInput endDate" type="date">
-                                </div>
-                            </div>
-                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
-                        </div>
-                    </div>
-                    <div class="carro carro6">
-                        <div class="legenda" id="legendaP">
-                            <h3 class="tituloGeral legend">Modelo XPTO</h3>
-                        </div>
-                        <img class="imgCarro" id="imgGallery" src="/IMAGENS/carro4.png" alt="carro6">
-                        <div class="element">
-                            <div class="wrapbutton">
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date startBtn">START</button>
-                                    <input class="dateInput startDate" type="date">
-                                </div>
-                                <div class="dateContainer">
-                                    <button class="tituloGeral date endBtn">END</button>
-                                    <input class="dateInput endDate" type="date">
-                                </div>
-                            </div>
-                            <button class="botaoPlus"><img class="imgPlus" src="/IMAGENS/pictogramaPlus.png" alt="adicionar"></button>
-                        </div>
-                    </div> -->

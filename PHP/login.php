@@ -18,8 +18,8 @@
 
         // PHP para submeter os dados para a base de dados
         if (isset($_REQUEST['mail'], $_REQUEST['pwd'])) {
-            $email = $_REQUEST['mail'];  // String fornecida pelo usuário
-            $password = $_REQUEST['pwd'];  // Senha fornecida pelo usuário
+            $email = $_REQUEST['mail'];  // String fornecida pelo utilizador
+            $password = $_REQUEST['pwd'];  // Senha fornecida pelo utilizador
         
             // Escape o email e a senha para garantir que estão corretos e seguros
             $escaped_email = pg_escape_string($connection, $email);
@@ -36,7 +36,7 @@
                 session_start();
                 $_SESSION['user'] = $email;
 
-                // Verifica se o usuário é administrador
+                // Verifica se o utilizador é administrador
                 $queryRole = "SELECT * FROM administrador WHERE pessoa_nome = (SELECT nome FROM pessoa WHERE email = '$escaped_email')";
                 $resultRole = pg_query($connection, $queryRole);
 

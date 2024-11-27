@@ -290,40 +290,23 @@ input[type=search]:focus {
   outline: none; /* Remove o contorno padrão */
 }
 
-.carro1 {
-  grid-area: primeiro;
-}
-
-.carro2 {
-  grid-area: segundo;
-}
-
-.carro3 {
-  grid-area: terceiro;
-}
-
-.carro4 {
-  grid-area: quarto;
-}
-
-.carro5 {
-  grid-area: quinto;
-}
-
-.carro6 {
-  grid-area: sexto;
-}
-
 .gallery {
   display: grid;
   position: relative;
   justify-content: center;
-  grid-template-rows: 450px 300px 450px 300px;
   grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Colunas responsivas */
-  grid-template-areas: "primeiro primeiro" "segundo terceiro" "quarto quarto" "quinto sexto";
   gap: 40px;
   padding-right: 150px;
   padding-left: 150px;
+}
+
+.gallery > *:nth-child(3n+1) {
+  grid-column: 1/-1; /* Ocupa toda a linha (um cartão) */
+}
+
+.gallery > *:nth-child(3n+2),
+.gallery > *:nth-child(3n+3) {
+  grid-column: span 1; /* Ocupa uma coluna (dois cartões por linha) */
 }
 
 #imgGallery {
