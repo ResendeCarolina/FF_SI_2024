@@ -1,19 +1,17 @@
-// Free frontend Grid - https://codepen.io/Everybodyknows/pen/QWwZGdE
-
-.secondPage{
+.secondPage {
   margin-top: 200px;
   width: 100%;
   margin-bottom: 130px;
 }
-  
-.secondPageContainer{
+
+.secondPageContainer {
   width: 100%;
   height: 100%;
 }
 
 .inicialContainer {
   width: 100%;
-  height: 70px; /* Ou maior, para acomodar os elementos */
+  height: 70px;
   display: flex;
   flex-direction: row;
   align-items: end;
@@ -22,34 +20,36 @@
   margin-bottom: 30px;
 }
 
-#titleSP{ 
+#titleSP {
   line-height: 30pt;
 }
 
-.searchBar{
+.searchBar {
   width: 100%;
   display: flex;
   justify-content: end;
 }
 
-.search{
+.search {
   width: 170px;
   height: 30px;
   background-color: transparent;
-  border: 3px solid black; /* Borda padrão para os inputs */
-  border-radius: 15px; /* Bordas arredondadas */
+  border: 3px solid black;
+  /* Borda padrão para os inputs */
+  border-radius: 15px;
+  /* Bordas arredondadas */
   display: flex;
   align-items: center;
 }
 
-.searchForm{
+.searchForm {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.searchBtn{
+.searchBtn {
   width: 15px;
   height: 15px;
   background-color: transparent;
@@ -57,109 +57,63 @@
   cursor: pointer;
 }
 
-.searchInput{
+.searchInput {
   height: 100%;
-  border: none; /* Remove bordas padrão */
-  background: transparent; /* Fundo transparente */
+  border: none;
+  /* Remove bordas padrão */
+  background: transparent;
+  /* Fundo transparente */
   margin-left: 15px;
   font-family: "Archivo Narrow", sans-serif;
 }
 
 input[type="search"]:focus {
-  outline: none; /* Remove o contorno padrão */
+  outline: none;
+  /* Remove o contorno padrão */
 }
 
 .gallery {
   display: grid;
   position: relative;
   justify-content: center;
-  grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Colunas responsivas */
+  grid-auto-rows: auto; /*a altura das imagens vai ocupar o espaço total definido*/
+  grid-template-columns: repeat(2, minmax(300px, 1fr));/* Colunas responsivas */
   gap: 40px;
   padding-right: 150px;
   padding-left: 150px;
 }
 
-.gallery > *:nth-child(3n + 1) {
-  grid-column: 1 / -1; /* Ocupa toda a linha (um cartão) */
+.gallery>*:nth-child(3n + 1) {
+  grid-column: 1 / -1;/* Ocupa toda a linha (um cartão) */
+  height: 450px; /*altura da coluna*/
 }
 
-.gallery > *:nth-child(3n + 2),
-.gallery > *:nth-child(3n + 3) {
-  grid-column: span 1; /* Ocupa uma coluna (dois cartões por linha) */
+.gallery>*:nth-child(3n + 2),
+.gallery>*:nth-child(3n + 3) {
+  grid-column: span 1;/* Ocupa uma coluna (dois cartões por linha) */
+  height: 300px; /*altura da coluna*/
 }
 
-
-#imgGallery{
+#imgGallery {
   z-index: -5;
 }
 
-#legendaP{
-  margin-left: 20px;
-}
-
-.element{
+.element {
   display: flex;
   justify-content: end;
-  flex-direction: row-reverse;
   margin-top: -50px;
-  margin-right: 20px;
-  gap: 10px; /* Espaço entre o botão de data e o ícone */
+  margin-right: 110px;
 }
 
-.botaoPlus{
-  background-color: transparent;
-  border: none;
-  width: 27px;
-  height: 27px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.imgPlus{
-  width: 27px;
-  height: 27px; 
-}
-
-.dateContainer {
-  display: inline-block;
-  position: relative;
+.verMaisBtn {
+  position: absolute;
   width: 85px;
   height: 27px;
-}
 
-.date {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
   font-size: 14px;
   font-weight: 600;
   background-color: transparent;
-  border: 3px solid black; /* Borda padrão para os inputs */
-  border-radius: 15px; /* Bordas arredondadas */
-}
-
-.dateInput {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.dateInput::-webkit-calendar-picker-indicator {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  border: 3px solid black;
+  border-radius: 15px;
   cursor: pointer;
 }

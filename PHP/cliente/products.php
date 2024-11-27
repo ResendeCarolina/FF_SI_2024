@@ -72,22 +72,19 @@
                     // Loop para processar cada linha
                     while ($carro = pg_fetch_assoc($resultados)) {
                         echo "
-                        <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
+                        
                             <div class='carro'>
                                 <div class='legenda' id='legendaP'>
                                     <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
                                 </div>
                                 <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
                                 <div class='element'>
-                                    <div class='wrapbutton'>
-                                        <div class='dateContainer'>
-                                            <button class='tituloGeral date startBtn'>Ver Mais</button>
-                                        </div>
-                                    </div>
+                                    <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
+                                        <button class='tituloGeral verMaisBtn'>Ver Mais</button>
+                                    </a>
                                 </div>
                             </div>
-                        </a>
-                    ";
+                        ";
                     }
 
                     // Fechar a conexão com a base de dados
