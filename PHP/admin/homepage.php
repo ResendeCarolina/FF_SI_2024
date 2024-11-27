@@ -69,9 +69,22 @@
             </section>
             <section class="thirdSection" id="thirdSection">
                 <div class="checkthisout">
-                    <!--titleTS - titleThirdSection-->
-                    <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
-
+                        <!--titleTS - titleThirdSection-->
+                        <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
+                        <div class="painel" id="painel">
+                        <div class="carro car1">
+                            <div class="legenda" id="legendaHP">
+                                <h3 class="tituloGeral legend">Modelo XPTO</h3>
+                            </div>
+                            <a href="products.php"><img class="imgCarro" id="imgPainel" src="/IMAGENS/carro4.png" alt="carro1"></a>
+                        </div>
+                        <div class="carro car2">
+                            <div class="legenda" id="legendaHP">
+                                <h3 class="tituloGeral legend">Modelo XPTO</h3>
+                            </div>
+                            <a href="products.php"><img class="imgCarro" id="imgPainel" src="/IMAGENS/carro4.png" alt="carro3"></a>
+                        </div>
+                    </div>
                 </div>
             </section>
     </main>

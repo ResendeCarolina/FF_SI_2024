@@ -56,7 +56,7 @@
                     // conexão à base de dados
                     require('../baseDados.php');
 
-                    // Consulta SQL para buscar todos os carros
+                    // Consulta SQL para ir buscar todos os atibutos da tabela carro
                     $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img FROM carro";
 
                     // Executar a consulta
@@ -68,7 +68,7 @@
                         exit();
                     }
 
-                    // Criar cartão
+                    // Criar "cartão" 
                     // Loop para processar cada linha
                     while ($carro = pg_fetch_assoc($resultados)) {
                         echo "
@@ -87,7 +87,7 @@
                         ";
                     }
 
-                    // Fechar a conexão com a base de dados
+                    // Encerra a conexão com a base de dados
                     pg_close($connection);
                     ?>
                 </div>

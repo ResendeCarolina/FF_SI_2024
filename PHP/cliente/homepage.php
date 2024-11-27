@@ -33,61 +33,85 @@
         </div>
     </header>
     <main>
-        <article>
-            <section class="firstSection">
-                <div class="videoInicial">
-                    <video class="video" muted autoplay loop src="/IMAGENS/videoInicial.mp4" alt="videoInicial"></video>
-                </div>
-                <div class="sloganInicial">
-                    <p class="tituloGeral slogan">
-                        GO FAST<br>
-                        AND FURIOUS.
-                    </p>
-                </div>
-            </section>
-            <section class="secondSection" id="secondSection">
-                <div class="textContainer">
-                    <div class="textoGeral text">
-                        <!--titleSS - titleSecondSection-->
-                        <h2 class="tituloGeral title" id="titleSS">ABOUT US</h2>
-                        <p><strong>Fast & Furious Cars Inc.</strong>  is a leading company in the luxury car rental market. We offer a unique experience for clients seeking elegance, comfort, and quality.
+        <section class="firstSection">
+            <div class="videoInicial">
+                <video class="video" muted autoplay loop src="/IMAGENS/videoInicial.mp4" alt="videoInicial"></video>
+            </div>
+            <div class="sloganInicial">
+                <p class="tituloGeral slogan">
+                    GO FAST<br>
+                    AND FURIOUS.
+                </p>
+            </div>
+        </section>
+        <section class="secondSection" id="secondSection">
+            <div class="textContainer">
+                <div class="textoGeral text">
+                    <!--titleSS - titleSecondSection-->
+                    <h2 class="tituloGeral title" id="titleSS">ABOUT US</h2>
+                    <p><strong>Fast & Furious Cars Inc.</strong> is a leading company in the luxury car rental market. We offer a unique experience for clients seeking elegance, comfort, and quality.
                         Our fleet consists of the most sophisticated vehicles on the market, from executive sedans to sports cars, and we stand out for our exclusivity.
-                        </p>
-                        <br>
-                        <p>Each car is carefully selected to provide an unforgettable experience, whether for a business trip, a special occasion, or simply enjoying the thrill of driving.
+                    </p>
+                    <br>
+                    <p>Each car is carefully selected to provide an unforgettable experience, whether for a business trip, a special occasion, or simply enjoying the thrill of driving.
                         Our greatest commitment is to unite luxury and practicality, allowing our clients to enjoy a memorable experience with every booking.
-                        </p>
-                        <br>
-                        <p>
+                    </p>
+                    <br>
+                    <p>
                         In addition to our exceptional fleet, we invest in cutting-edge technology to offer a simple and efficient online booking system.
                         The platform allows clients to search for and select the perfect car based on criteria such as brand, style, and price, scheduling the desired rental period in just a few clicks.
                         For administrators, the system provides advanced management tools, such as vehicle visibility controls and real-time statistics, optimizing business operations.
                         Our goal is to redefine the luxury car rental sector by combining exclusivity with personalized services that prioritize customer satisfaction.
-                        </p>
-                    </div>
+                    </p>
                 </div>
-            </section>
-            <section class="thirdSection" id="thirdSection">
-                <div class="checkthisout">
-                        <!--titleTS - titleThirdSection-->
-                        <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
-                        <div class="painel" id="painel">
-                        <div class="carro car1">
-                            <div class="legenda" id="legendaHP">
-                                <h3 class="tituloGeral legend">Modelo XPTO</h3>
+            </div>
+        </section>
+        <section class="thirdSection" id="thirdSection">
+            <div class="checkthisout">
+                <!--titleTS - titleThirdSection-->
+                <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
+                <div class="painel" id="painel">
+                    <?php
+                    // conexão à base de dados
+                    require('../baseDados.php');
+
+                    // Consulta SQL para ir buscar todos os atibutos da tabela carro
+                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, 
+                    administrador_pessoa_nome, img FROM carro LIMIT 2"; //apenas mostra os dois primeiros reultados(linhas) da tabela
+
+                    // Executar a consulta
+                    $resultados = pg_query($connection, $query);
+
+                    // Verificar se a consulta foi bem-sucedida
+                    if (!$resultados) {
+                        echo "Erro ao buscar os dados dos carros: " . pg_last_error($connection);
+                        exit();
+                    }
+
+                    // Criar "cartão" 
+                    // Loop para processar cada linha
+                    while ($carro = pg_fetch_assoc($resultados)) {
+                        echo "
+                        
+                            <div class='carro'>
+                                <div class='legenda' id='legendaP'>
+                                    <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
+                                </div>
+                                <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
+                                <div class='element'>
+                                    <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
+                                        <button class='tituloGeral verMaisBtn'>Ver Mais</button>
+                                    </a>
+                                </div>
                             </div>
-                            <a href="products.php"><img class="imgCarro" id="imgPainel" src="/IMAGENS/carro4.png" alt="carro1"></a>
-                        </div>
-                        <div class="carro car2">
-                            <div class="legenda" id="legendaHP">
-                                <h3 class="tituloGeral legend">Modelo XPTO</h3>
-                            </div>
-                            <a href="products.php"><img class="imgCarro" id="imgPainel" src="/IMAGENS/carro4.png" alt="carro3"></a>
-                        </div>
-                    </div>
+                        ";
+                    }
+
+                    // Encerra a conexão com a base de dados
+                    pg_close($connection);
+                    ?>
                 </div>
-            </section>
-        </article>
+        </section>
     </main>
     <footer class="textoGeral fourthSection" id="fourthSection">
         <div class="conteudoFooter">
@@ -110,4 +134,5 @@
     </footer>
     <script src="/JS/homepage.js"></script>
 </body>
+
 </html>
