@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         ";
-                    }
+                    } //se carregar no botao sou remetida para a página car com as especificações de cada carro
 
                     // Encerra a conexão com a base de dados
                     pg_close($connection);
