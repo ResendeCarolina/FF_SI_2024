@@ -46,6 +46,15 @@ header {
   z-index: -1;/*permite que possamos navegar através do header na mesma*/
 }
 
+.profileContainer {
+  display: flex;
+  justify-content: center;
+  font-family: "Archivo Narrow", sans-serif;
+  align-items: center;
+  color: white;
+  gap: 10px;
+}
+
 .icones{ 
   position: relative;
   width: 35px;
