@@ -27,24 +27,39 @@
         <div class="iconesContainer">
             <div class="profileContainer">
                 <?php
-                    // Conexão à base de dados
-                    require('../baseDados.php');
+                // Conexão à base de dados
+                require('../baseDados.php');
 
-                    session_start();
+                session_start();
 
-                    // Verificar se o utilizador está logado
-                    if (isset($_SESSION['nome'])) {
-                        $nome = htmlspecialchars($_SESSION['nome']);
-                        echo "<p>Bem-vindo/a, $nome!</p>";
-                    } else {
-                        echo "<p>Utilizador não autenticado. Por favor, faça login.</p>";
-                    }
+                // Verifica se o utilizador está logado
+                if (isset($_SESSION['nome'])) {
+                    $nome = htmlspecialchars($_SESSION['nome']);
+                    echo "<p>Bem-vindo, $nome!</p>";
+                } else {
+                    echo "<p>Utilizador não autenticado. Por favor, faça login.</p>";
+                }
                 ?>
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
             </div>
             <div class="cartContainer">
                 <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
                 <span class="countP">0</span>
+            </div>
+            <div>
+                <?php
+                // Conexão à base de dados
+                require('../baseDados.php');
+
+
+                if (isset($_SESSION['nome'])) {
+                    echo "
+                <a href='../logout.php' class='btn-logout'>
+                    <img class='icones' id='logout' src='/IMAGENS/logout.png' alt='logout'>
+                </a>
+                ";
+                }
+                ?>
             </div>
         </div>
     </header>

@@ -42,6 +42,7 @@ header {
   justify-content: end;
   flex-direction: row;
   position: absolute;
+  gap: 10px;
   right: 150px;
   z-index: -1;/*permite que possamos navegar através do header na mesma*/
 }
@@ -53,6 +54,10 @@ header {
   align-items: center;
   color: white;
   gap: 10px;
+}
+
+.cartContainer {
+  position: relative;
 }
 
 .icones{ 
@@ -76,6 +81,6 @@ header {
   align-items: center;
   color: white;
   border-radius: 50%;
-  top: 30%;
-  right: -2px;
+  top: -10%;
+  right: -4px;
 }

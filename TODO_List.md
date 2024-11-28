@@ -10,9 +10,9 @@
   - [x] Geração de saldo fictício no momento do registro
 
 ### Etapa 2: Autenticação de Usuário
-- [ ] Implementar o sistema de **Login e Logout** para Clientes
+- [x] Implementar o sistema de **Login e Logout** para Clientes
   - [x] Exibir o nome do cliente em todas as páginas após o login
-- [ ] Implementar o sistema de **Login e Logout** para Administradores
+- [x] Implementar o sistema de **Login e Logout** para Administradores
   - [x] Exibir o nome do administrador em todas as páginas após o login
 
 ### Etapa 3: Funcionalidades do Cliente
