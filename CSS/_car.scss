@@ -1,24 +1,23 @@
 .thirdPage {
-    margin-top: 200px;
-    width: 100%;
-    margin-bottom: 130px;
-  }
-  
-  .thirdPageContainer {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .detalhesCarro {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    padding-left: 150px;
-    padding-right: 150px;
-    margin-bottom: 30px;
-  }
+  width: 100%;
+  height: 100vh;
+}
+
+.thirdPageContainer {
+  width: 100%;
+  height: 100%;
+  padding: 150px 150px 0px 150px;
+}
+
+.detalhesCarro {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+
+.nomeCarro{
+  font-size: 30pt;
+}
 
 .imgContainer {
     height: 100%;
@@ -27,6 +26,6 @@
 }
 
 .imagem {
-    width: 500px;
-    border: solid red;
+    width: 700px;
+    border: solid black;
 }

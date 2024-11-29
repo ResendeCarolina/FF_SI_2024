@@ -32,7 +32,7 @@
 
                 session_start();
 
-                // Verificar se o utilizador está logado
+                // Verificar se o utilizador fez login
                 if (isset($_SESSION['nome'])) {
                     $nome = htmlspecialchars($_SESSION['nome']);
                     echo "<p>Bem-vindo/a, $nome!</p>";
@@ -71,8 +71,8 @@
                     // Exibir as informações do carro
                     echo "
                                     <div class='thirdPageContainer'> 
+                                        <h1 class='tituloGeral legenda nomeCarro'>" . htmlspecialchars($carro['modelo']) . "</h1>
                                         <div class='detalhesCarro'>
-                                        <h1 class='tituloGeral title'>" . htmlspecialchars($carro['modelo']) . "</h1>
                                             <div class='imgContainer'>
                                                 <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
                                             <div>
