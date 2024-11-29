@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<header class="cabecalhoGeral">
+    <header class="cabecalhoGeral">
         <div class="logotipo">
             <a href="homepage.php">
                 <img id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
@@ -34,56 +34,63 @@
         </div>
     </header>
     <main>
-        <?php
+        <section class="thirdPage">
+            <?php
 
-        // conexão à base de dados
-        require('../baseDados.php');
+            // conexão à base de dados
+            require('../baseDados.php');
 
-        // Verifica se o atributo "matricula" foi enviado
-        if (isset($_GET['matricula'])) { //se foi enviado
-            $matricula = pg_escape_string($connection, $_GET['matricula']);
+            // Verifica se o atributo "matricula" foi enviado
+            if (isset($_GET['matricula'])) { //se foi enviado
+                $matricula = pg_escape_string($connection, $_GET['matricula']);
 
-            // Query para buscar os detalhes do carro
-            $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img FROM carro WHERE matricula = '$matricula'";
-            $resultado = pg_query($connection, $query);
+                // Query para buscar os detalhes do carro
+                $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img FROM carro WHERE matricula = '$matricula'";
+                $resultado = pg_query($connection, $query);
 
-            // Verificar se a consulta foi bem-sucedida
-            if ($resultado && pg_num_rows($resultado) > 0) {
-                $carro = pg_fetch_assoc($resultado);
+                // Verificar se a consulta foi bem-sucedida
+                if ($resultado && pg_num_rows($resultado) > 0) {
+                    $carro = pg_fetch_assoc($resultado);
 
-                // Exibir as informações do carro
-                echo "
-                        <div class='carroDetalhes'>
-                            <h1 class='tituloGeral'>" . htmlspecialchars($carro['modelo']) . "</h1>
-                            <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
-                            <div>
-                                <ul class='tituloGeral topicos'>
-                                    <li>REGISTRATION PLATE</li>
-                                    <li>NUMBER OF SEATS</li>
-                                    <li>COLOR</li>
-                                    <li>YEAR</li>
-                                    <li>COST PER DAY</li>
-                                </ul>
-                                <ul class='textoGeral respostas'>
-                                    <li>" . htmlspecialchars($carro['matricula']) . "</li>
-                                    <li>" . htmlspecialchars($carro['nmr_lugares']) . "</li>
-                                    <li>" . htmlspecialchars($carro['cor']) . "</li>
-                                    <li>" . htmlspecialchars($carro['ano']) . "</li>
-                                    <li>" . htmlspecialchars($carro['custo_max_dia']) . "€</li>
-                                </ul>
-                            </div>
-                        </div>
-                    ";
+                    // Exibir as informações do carro
+                    echo "
+                                    <div class='thirdPageContainer'> 
+                                        <div class='detalhesCarro'>
+                                        <h1 class='tituloGeral title'>" . htmlspecialchars($carro['modelo']) . "</h1>
+                                            <div class='imgContainer'>
+                                                <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
+                                            <div>
+                                            <div>
+                                                <ul class='tituloGeral topicos'>
+                                                    <li>REGISTRATION PLATE</li>
+                                                    <li>NUMBER OF SEATS</li>
+                                                    <li>COLOR</li>
+                                                    <li>YEAR</li>
+                                                    <li>COST PER DAY</li>
+                                                </ul>
+                                                    <ul class='textoGeral respostas'>
+                                                        <li>" . htmlspecialchars($carro['matricula']) . "</li>
+                                                        <li>" . htmlspecialchars($carro['nmr_lugares']) . "</li>
+                                                        <li>" . htmlspecialchars($carro['cor']) . "</li>
+                                                        <li>" . htmlspecialchars($carro['ano']) . "</li>
+                                                        <li>" . htmlspecialchars($carro['custo_max_dia']) . "€</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ";
+                } else {
+                    echo "<p>Carro não encontrado.</p>";
+                }
             } else {
-                echo "<p>Carro não encontrado.</p>";
+                echo "<p>Matrícula não especificada.</p>";
             }
-        } else {
-            echo "<p>Matrícula não especificada.</p>";
-        }
 
-        // Fechar a conexão
-        pg_close($connection);
-        ?>
+            // Fechar a conexão
+            pg_close($connection);
+            ?>
+
+        </section>
     </main>
 </body>
 

@@ -543,7 +543,35 @@ footer {
   border-radius: 3px; /* Bordas arredondadas */
 }
 
-.carroDetalhes {
+.thirdPage {
+  margin-top: 200px;
   width: 100%;
-  height: 100vh;
+  margin-bottom: 130px;
+}
+
+.thirdPageContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.detalhesCarro {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  padding-left: 150px;
+  padding-right: 150px;
+  margin-bottom: 30px;
+}
+
+.imgContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.imagem {
+  width: 500px;
+  border: solid red;
 }/*# sourceMappingURL=main.css.map */
