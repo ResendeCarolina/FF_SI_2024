@@ -3,21 +3,21 @@
 ## Funcionalidades Obrigatórias
 
 ### Etapa 1: Configuração Inicial e Registro
-- [ ] Configurar ambiente de desenvolvimento (PHP, PostgreSQL, PHPStorm, ONDA)
-- [ ] Configurar conexão com a base de dados PostgreSQL
-- [ ] Implementar o sistema de **Registro de Cliente**
-  - [ ] Formulário de registro com campos: Nome, Email, Senha
-  - [ ] Geração de saldo fictício no momento do registro
+- [x] Configurar ambiente de desenvolvimento (PHP, PostgreSQL, PHPStorm, ONDA)
+- [x] Configurar conexão com a base de dados PostgreSQL
+- [x] Implementar o sistema de **Registro de Cliente**
+  - [x] Formulário de registro com campos: Nome, Email, Senha
+  - [x] Geração de saldo fictício no momento do registro
 
 ### Etapa 2: Autenticação de Usuário
-- [ ] Implementar o sistema de **Login e Logout** para Clientes
-  - [ ] Exibir o nome do cliente em todas as páginas após o login
-- [ ] Implementar o sistema de **Login e Logout** para Administradores
-  - [ ] Exibir o nome do administrador em todas as páginas após o login
+- [x] Implementar o sistema de **Login e Logout** para Clientes
+  - [x] Exibir o nome do cliente em todas as páginas após o login
+- [x] Implementar o sistema de **Login e Logout** para Administradores
+  - [x] Exibir o nome do administrador em todas as páginas após o login
 
 ### Etapa 3: Funcionalidades do Cliente
-- [ ] **Listar Carros Disponíveis** para reserva
-  - [ ] Página que mostra todos os carros disponíveis com detalhes básicos
+- [x] **Listar Carros Disponíveis** para reserva
+  - [x] Página que mostra todos os carros disponíveis com detalhes básicos
 - [ ] **Reserva de Carros** para clientes
   - [ ] Formulário para solicitar uma reserva indicando o carro e o período de tempo desejado
   - [ ] Verificação de disponibilidade do carro para o período selecionado
@@ -25,9 +25,9 @@
   - [ ] Listar reservas passadas e futuras do cliente
 
 ### Etapa 4: Pesquisa e Filtros
-- [ ] Implementar **Pesquisa e Filtros de Carros**
-  - [ ] Filtro por marca, número de lugares, custo máximo por dia, etc.
-  - [ ] Opção de ordenação dos resultados (por preço, marca, etc.)
+- [x] Implementar **Pesquisa e Filtros de Carros**
+  - [x] Filtro por marca, número de lugares, custo máximo por dia, etc.
+  - [x] Opção de ordenação dos resultados (por preço, marca, etc.)
 
 ### Etapa 5: Funcionalidades do Administrador
 - [ ] **Visualizar todos os Carros** com detalhes e estatísticas

@@ -25,7 +25,23 @@
         </div>
 
         <div class="iconesContainer">
-            <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+            <div class="profileContainer">
+                <?php
+                // Conexão à base de dados
+                require('../baseDados.php');
+
+                session_start();
+
+                // Verificar se o utilizador está logado
+                if (isset($_SESSION['nome'])) {
+                    $nome = htmlspecialchars($_SESSION['nome']);
+                    echo "<p>Bem-vindo/a, $nome!</p>";
+                } else {
+                    echo "<p>Utilizador não autenticado. Por favor, faça login.</p>";
+                }
+                ?>
+                <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+            </div>
             <div class="cartContainer">
                 <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
                 <!-- TODO: Adicionar a informação dos carros ao carrinho -->
@@ -43,11 +59,39 @@
                     <h2 class="tituloGeral title" id="titleSP">Models</h2>
                     <div class="searchBar">
                         <div class="search">
-                            <form class="searchForm">
-                                <input class="searchInput" type="search" id="search" name="search" placeholder="Search">
-                                <button class="searchBtn"><img class="lupa" src="/IMAGENS/pictogramaLupa.png" width="15" height="15" alt="lupa"></button>
+                            <form class="searchForm" method="GET" action="products.php">
+                                <input class="searchInput" type="search" name="search" placeholder="Search by model" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+
+                                <!-- Filtro por número de lugares -->
+                                <label for="nmr_lugares">Seats:</label>
+                                <select name="nmr_lugares" id="nmr_lugares">
+                                    <option value="">Any</option>
+                                    <option value="2" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '2') ? 'selected' : '' ?>>2</option>
+                                    <option value="4" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '4') ? 'selected' : '' ?>>4</option>
+                                    <option value="5" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '5') ? 'selected' : '' ?>>5</option>
+                                </select>
+
+                                <!-- Filtro por custo máximo -->
+                                <label for="custo_max_dia">Max Cost:</label>
+                                <input type="number" name="custo_max_dia" id="custo_max_dia" placeholder="Cost per day" value="<?= htmlspecialchars($_GET['custo_max_dia'] ?? '') ?>">
+
+                                <!-- Ordenação -->
+                                <label for="sort">Sort by:</label>
+                                <select name="sort" id="sort">
+                                    <option value="">Default</option>
+                                    <option value="price_asc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'price_asc') ? 'selected' : '' ?>>Price (Low to High)</option>
+                                    <option value="price_desc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'price_desc') ? 'selected' : '' ?>>Price (High to Low)</option>
+                                    <option value="model_asc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'model_asc') ? 'selected' : '' ?>>Model (A-Z)</option>
+                                    <option value="model_desc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'model_desc') ? 'selected' : '' ?>>Model (Z-A)</option>
+                                </select>
+
+                                <!-- Botão de pesquisa -->
+                                <button type="submit" class="searchBtn">
+                                    <img class="lupa" src="/IMAGENS/pictogramaLupa.png" width="15" height="15" alt="Search">
+                                </button>
                             </form>
                         </div>
+
                     </div>
                 </div>
 

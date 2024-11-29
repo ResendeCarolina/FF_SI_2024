@@ -24,53 +24,164 @@
   line-height: 30pt;
 }
 
+/* Estilização geral da search bar */
 .searchBar {
   width: 100%;
   display: flex;
-  justify-content: end;
-}
-
-.search {
-  width: 170px;
-  height: 30px;
-  background-color: transparent;
-  border: 3px solid black;
-  /* Borda padrão para os inputs */
-  border-radius: 15px;
-  /* Bordas arredondadas */
-  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+  gap: 20px; /* Espaçamento entre os elementos */
 }
 
+/* Container principal do formulário */
 .searchForm {
   width: 100%;
+  max-width: 800px; /* Largura máxima do formulário */
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 15px; /* Espaçamento entre os inputs */
 }
 
-.searchBtn {
-  width: 15px;
-  height: 15px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
+/* Campo de pesquisa */
 .searchInput {
-  height: 100%;
-  border: none;
-  /* Remove bordas padrão */
-  background: transparent;
-  /* Fundo transparente */
-  margin-left: 15px;
+  height: 40px;
+  flex: 1;
+  padding: 0 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-size: 16px;
   font-family: "Archivo Narrow", sans-serif;
+  background-color: #fff;
+  transition: border-color 0.3s ease-in-out;
 }
 
-input[type="search"]:focus {
+.searchInput:focus {
+  border-color: darkred;
   outline: none;
-  /* Remove o contorno padrão */
 }
+
+/* Botão de pesquisa */
+.searchBtn {
+  height: 40px;
+  width: 40px;
+  background-color: #000000;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.searchBtn img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.searchBtn:hover {
+  background-color: darkred;
+}
+
+/* Selects para filtros */
+select {
+  height: 40px;
+  padding: 0 10px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 14px;
+  font-family: "Archivo Narrow", sans-serif;
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+}
+
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Labels para os filtros */
+label {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Archivo Narrow", sans-serif;
+  margin-right: 5px;
+}
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+  .searchBar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .searchForm {
+    justify-content: center;
+  }
+
+  .searchInput,
+  select {
+    flex: 1;
+    width: 100%;
+  }
+
+  .searchBtn {
+    align-self: flex-end;
+  }
+}
+
+
+// .searchBar {
+//   width: 100%;
+//   display: flex;
+//   justify-content: end;
+// }
+
+// .search {
+//   width: 170px;
+//   height: 30px;
+//   background-color: transparent;
+//   border: 3px solid black;
+//   /* Borda padrão para os inputs */
+//   border-radius: 15px;
+//   /* Bordas arredondadas */
+//   display: flex;
+//   align-items: center;
+// }
+
+// .searchForm {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+// }
+
+// .searchBtn {
+//   width: 15px;
+//   height: 15px;
+//   background-color: transparent;
+//   border: none;
+//   cursor: pointer;
+// }
+
+// .searchInput {
+//   height: 100%;
+//   border: none;
+//   /* Remove bordas padrão */
+//   background: transparent;
+//   /* Fundo transparente */
+//   margin-left: 15px;
+//   font-family: "Archivo Narrow", sans-serif;
+// }
+
+// input[type="search"]:focus {
+//   outline: none;
+//   /* Remove o contorno padrão */
+// }
 
 .gallery {
   display: grid;
