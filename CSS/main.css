@@ -23,6 +23,7 @@ html {
 .title {
   font-size: 30pt;
   color: black;
+  margin-bottom: 30px;
 }
 
 .sobreEfeito:hover {
@@ -181,10 +182,6 @@ html {
   height: 100%;
 }
 
-#titleSS {
-  margin-bottom: 30px;
-}
-
 .thirdSection {
   height: 400px;
   margin-bottom: 50px;
@@ -197,7 +194,6 @@ html {
 
 #titleTS {
   margin-left: 150px;
-  margin-bottom: 30px;
 }
 
 .painel {
@@ -222,65 +218,53 @@ html {
 .secondPageContainer {
   width: 100%;
   height: 100%;
-}
-
-.inicialContainer {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  flex-direction: row;
-  align-items: end;
   padding-left: 150px;
   padding-right: 150px;
   margin-bottom: 30px;
 }
 
-#titleSP {
-  line-height: 30pt;
+.subtitle {
+  font-size: 15pt;
+  font-weight: 400;
+  padding-top: 15px;
 }
 
-/* Estilização geral da search bar */
 .searchBar {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px; /* Espaçamento entre os elementos */
+  justify-content: start;
 }
 
-/* Container principal do formulário */
+/*estiliza e posiciona todos os inputs e botões a preencher do form*/
 .searchForm {
-  width: 100%;
-  max-width: 800px; /* Largura máxima do formulário */
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
-  gap: 15px; /* Espaçamento entre os inputs */
+  gap: 15px;
+  height: 30px;
+  margin-top: 15px;
+  margin-bottom: 80px;
 }
 
-/* Campo de pesquisa */
-.searchInput {
-  height: 40px;
-  flex: 1;
-  padding: 0 10px;
-  border: 2px solid #000;
-  border-radius: 8px;
-  font-size: 16px;
-  font-family: "Archivo Narrow", sans-serif;
-  background-color: #fff;
-  transition: border-color 0.3s ease-in-out;
+.filter {
+  width: 170px;
+  height: 100%;
+  background-color: transparent;
+  border: 3px solid black; /* Borda padrão para os inputs */
+  border-radius: 15px; /* Bordas arredondadas */
+  line-height: 30px;
+  display: flex;
+  align-items: center;
 }
 
-.searchInput:focus {
-  border-color: darkred;
-  outline: none;
+input, select {
+  padding-left: 15px;
 }
 
-/* Botão de pesquisa */
+/*botão de submit os filter*/
 .searchBtn {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background-color: #000000;
   border: none;
   border-radius: 50%;
@@ -292,59 +276,15 @@ html {
 }
 
 .searchBtn img {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   filter: brightness(0) invert(1);
 }
 
-.searchBtn:hover {
-  background-color: darkred;
+input:focus, select:focus {
+  outline: none; /* Remove o contorno padrão */
 }
 
-/* Selects para filtros */
-select {
-  height: 40px;
-  padding: 0 10px;
-  border: 2px solid #000;
-  border-radius: 8px;
-  background-color: #fff;
-  font-size: 14px;
-  font-family: "Archivo Narrow", sans-serif;
-  cursor: pointer;
-  transition: border-color 0.3s ease-in-out;
-}
-
-select:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Labels para os filtros */
-label {
-  font-size: 14px;
-  font-weight: bold;
-  font-family: "Archivo Narrow", sans-serif;
-  margin-right: 5px;
-}
-
-/* Layout responsivo */
-@media (max-width: 768px) {
-  .searchBar {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .searchForm {
-    justify-content: center;
-  }
-  .searchInput,
-  select {
-    flex: 1;
-    width: 100%;
-  }
-  .searchBtn {
-    align-self: flex-end;
-  }
-}
 .gallery {
   display: grid;
   position: relative;
@@ -352,8 +292,6 @@ label {
   grid-auto-rows: auto; /*a altura das imagens vai ocupar o espaço total definido*/
   grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Colunas responsivas */
   gap: 40px;
-  padding-right: 150px;
-  padding-left: 150px;
 }
 
 .gallery > *:nth-child(3n+1) {
@@ -390,6 +328,27 @@ label {
   cursor: pointer;
 }
 
+/* Layout responsivo 
+@media (max-width: 768px) {
+  .searchBar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .searchForm {
+    justify-content: center;
+  }
+
+  .searchInput,
+  select {
+    flex: 1;
+    width: 100%;
+  }
+
+  .searchBtn {
+    align-self: flex-end;
+  }
+}*/
 .cabecalhoHP {
   background: rbga(0, 0, 0, 1);
 }
