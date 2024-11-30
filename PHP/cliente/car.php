@@ -75,39 +75,44 @@
                                         <div class='detalhesCarro'>
                                             <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
                                            
-                                            <div class='caracteristicas'>
-                                                <h1 class='tituloGeral nomeCarro'>Specifications</h1>
-                                                <ul class='tituloGeral topicos'>
-                                                    <li>
-                                                        <span class='tituloGeral'>Registration Plate -</span>
-                                                        <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
-                                                    </li>
-                                                    <li>
-                                                        <span class='tituloGeral'>Number of Seats -</span>
-                                                        <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
-                                                    </li>
-                                                    <li>
-                                                        <span class='tituloGeral'>Color -</span>
-                                                        <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
-                                                    </li>
-                                                    <li>
-                                                        <span class='tituloGeral'>Year -</span>
-                                                        <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
-                                                    </li>
-                                                    <li>
-                                                        <span class='tituloGeral'>Cost per Day -</span>
-                                                        <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class='wrapbutton'>
-                                                <div class='dateContainer'>
-                                                    <button class='tituloGeral date startBtn'>START</button>
-                                                    <input class='dateInput startDate' type='date'>
+                                            <div class='caractContainer'>
+                                                <div class='caracteristicas'>
+                                                    <h1 class='tituloGeral nomeCarro'>Specifications</h1>
+                                                    <ul class='tituloGeral topicos'>
+                                                        <li>
+                                                            <span class='tituloGeral'>Registration Plate -</span>
+                                                            <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class='tituloGeral'>Number of Seats -</span>
+                                                            <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class='tituloGeral'>Color -</span>
+                                                            <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class='tituloGeral'>Year -</span>
+                                                            <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class='tituloGeral'>Cost per Day -</span>
+                                                            <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
+                                                        </li>
+                                                    </ul>
                                                 </div>
-                                                <div class='dateContainer'>
-                                                    <button class='tituloGeral date endBtn'>END</button>
-                                                    <input class='dateInput endDate' type='date'>
+                                                <div class='buttonContainer'>
+                                                    <div class='dateContainer'>
+                                                        <button class='tituloGeral date startBtn'>START</button>
+                                                        <input class='dateInput startDate' type='date'>
+                                                    </div>
+                                                    <div class='dateContainer'>
+                                                        <button class='tituloGeral date endBtn'>END</button>
+                                                        <input class='dateInput endDate' type='date'>
+                                                    </div>
+                                                    <div class='adicionar'>
+                                                        <button class='cartButton' onclick='test(" . htmlspecialchars($carro['matricula']) . ")'>Add to Cart</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
