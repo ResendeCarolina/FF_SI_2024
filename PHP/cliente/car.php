@@ -71,26 +71,44 @@
                     // Exibir as informações do carro
                     echo "
                                     <div class='thirdPageContainer'> 
-                                        <h1 class='tituloGeral legenda nomeCarro'>" . htmlspecialchars($carro['modelo']) . "</h1>
+                                        <h1 class='tituloGeral tituloTP'>" . htmlspecialchars($carro['modelo']) . "</h1>
                                         <div class='detalhesCarro'>
-                                            <div class='imgContainer'>
-                                                <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
-                                            <div>
-                                            <div>
+                                            <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
+                                           
+                                            <div class='caracteristicas'>
+                                                <h1 class='tituloGeral nomeCarro'>Specifications</h1>
                                                 <ul class='tituloGeral topicos'>
-                                                    <li>REGISTRATION PLATE</li>
-                                                    <li>NUMBER OF SEATS</li>
-                                                    <li>COLOR</li>
-                                                    <li>YEAR</li>
-                                                    <li>COST PER DAY</li>
+                                                    <li>
+                                                        <span class='tituloGeral'>Registration Plate -</span>
+                                                        <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class='tituloGeral'>Number of Seats -</span>
+                                                        <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class='tituloGeral'>Color -</span>
+                                                        <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class='tituloGeral'>Year -</span>
+                                                        <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class='tituloGeral'>Cost per Day -</span>
+                                                        <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
+                                                    </li>
                                                 </ul>
-                                                    <ul class='textoGeral respostas'>
-                                                        <li>" . htmlspecialchars($carro['matricula']) . "</li>
-                                                        <li>" . htmlspecialchars($carro['nmr_lugares']) . "</li>
-                                                        <li>" . htmlspecialchars($carro['cor']) . "</li>
-                                                        <li>" . htmlspecialchars($carro['ano']) . "</li>
-                                                        <li>" . htmlspecialchars($carro['custo_max_dia']) . "€</li>
-                                                </ul>
+                                            </div>
+                                            <div class='wrapbutton'>
+                                                <div class='dateContainer'>
+                                                    <button class='tituloGeral date startBtn'>START</button>
+                                                    <input class='dateInput startDate' type='date'>
+                                                </div>
+                                                <div class='dateContainer'>
+                                                    <button class='tituloGeral date endBtn'>END</button>
+                                                    <input class='dateInput endDate' type='date'>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
