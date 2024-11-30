@@ -598,10 +598,9 @@ footer {
 .imgContainer {
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: end;
 }
 
 .imagem {
-  width: 700px;
-  border: solid black;
+  width: 600px;
 }/*# sourceMappingURL=main.css.map */
