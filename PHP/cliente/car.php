@@ -102,16 +102,16 @@
                                                     </ul>
                                                 </div>
                                                 <div class='buttonContainer'>
-                                                    <div class='dateContainer'>
-                                                        <button class='tituloGeral date startBtn'>START</button>
+                                                    <div>
+                                                        <button class='tituloGeral btn date startBtn'>START</button>
                                                         <input class='dateInput startDate' type='date'>
                                                     </div>
-                                                    <div class='dateContainer'>
-                                                        <button class='tituloGeral date endBtn'>END</button>
+                                                    <div>
+                                                        <button class='tituloGeral btn date endBtn'>END</button>
                                                         <input class='dateInput endDate' type='date'>
                                                     </div>
-                                                    <div class='adicionar'>
-                                                        <button class='cartButton' onclick='test(" . htmlspecialchars($carro['matricula']) . ")'>Add to Cart</button>
+                                                    <div>
+                                                        <button class='tituloGeral btn carBtn' id='carBtn' onclick='test(" . htmlspecialchars($carro['matricula']) . ")'>ADD TO CART</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -131,6 +131,7 @@
 
         </section>
     </main>
+    <script src="/JS/car.js"></script>
 </body>
 
 </html>
