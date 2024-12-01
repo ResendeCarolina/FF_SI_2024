@@ -184,7 +184,7 @@ html {
 
 .thirdSection {
   height: 400px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .checkthisout {
@@ -207,6 +207,11 @@ html {
   gap: 40px;
   padding-right: 150px;
   padding-left: 150px;
+}
+
+.carro {
+  color: inherit;
+  color: black;
 }
 
 .secondPage {
@@ -587,7 +592,7 @@ footer {
 }
 
 .tituloTP {
-  padding-top: 50px;
+  padding-top: 20px;
   font-size: 30pt;
   position: absolute;
 }

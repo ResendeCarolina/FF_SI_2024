@@ -123,18 +123,14 @@
                     // Loop para processar cada linha
                     while ($carro = pg_fetch_assoc($resultados)) {
                         echo "
-                        
-                            <div class='carro'>
-                                <div class='legenda' id='legendaP'>
-                                    <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
+                            <a href='products.php'>
+                                <div class='carro'>
+                                    <div class='legenda' id='legendaP'>
+                                        <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
+                                    </div>
+                                    <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
                                 </div>
-                                <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
-                                <div class='element'>
-                                    <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
-                                        <button class='tituloGeral verMaisBtn'>Ver Mais</button>
-                                    </a>
-                                </div>
-                            </div>
+                            </a>
                         ";
                     }
 
