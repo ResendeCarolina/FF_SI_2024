@@ -40,7 +40,9 @@
                     echo "<p>Por favor, faça login.</p>";
                 }
                 ?>
-                <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+                <a href="perfil.php">
+                    <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+                </a>
             </div>
             <div class="cartContainer">
                 <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
