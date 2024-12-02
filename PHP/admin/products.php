@@ -75,7 +75,7 @@
                 <!--titleSP - tituloSecondPage-->
                 <h2 class="tituloGeral title" id="titleSP">Models</h2>
 
-                <h5 class="tituloGeral subtitle">Search your dream car</h5>
+                <h5 class="textoGeral subtitle">Search your dream car</h5>
                 <div class="searchBar">
 
                     <form class="searchForm" method="GET" action="products.php">
