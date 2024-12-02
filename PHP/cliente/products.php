@@ -71,7 +71,6 @@
             <div class="listCart">
                 <div class="item">
                     <div class="itemImg">
-                        <img class='imgCart' src='" . htmlspecialchars($carro[' img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
                     </div>
                     <div class=" itemModelo">
 
