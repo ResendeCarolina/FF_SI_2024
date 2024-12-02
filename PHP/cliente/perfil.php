@@ -130,8 +130,10 @@
                             </div>
                         ";
                     } else {
-                        echo "<h2 class='tituloGeral title'>Profile not found. Please log in</h2>";
+                        echo "<h2 class='textoGeral erro'>Profile not found. Please log in</h2>";
                     }
+                } else {
+                    echo "<p class='textoGeral erro'>Profile not found. Please log in</p>";
                 }
                 ?>
             </div>

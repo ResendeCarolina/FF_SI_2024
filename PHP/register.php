@@ -45,7 +45,6 @@
                         exit();
                     } else {
                         pg_query($connection, "ROLLBACK");
-                        echo "<div class='form'><h3>Erro ao registrar administrador.</h3></div>";
                     }
                 } else {
                     // Insere na tabela cliente
@@ -62,12 +61,10 @@
                         exit();
                     } else {
                         pg_query($connection, "ROLLBACK");
-                        echo "<div class='form'><h3>Erro ao registar cliente.</h3></div>";
                     }
                 }
             } else {
                 pg_query($connection, "ROLLBACK");
-                echo "<div class='form'><h3>Erro ao registar na tabela pessoa.</h3></div>";
             }
         } else {
         ?>
@@ -80,7 +77,7 @@
                     <div class="container">
                         <h2 class="tituloGeral" id="titulo">SIGN UP</h2>
                         <div class="register_form">
-                            <form class="textoGeral" id="registationForm" method="GET" action="register.php">
+                            <form class="textoGeral" id="registationForm" method="POST" action="register.php">
                                 <div>
                                     <label for="nome">Name</label>
                                     <input type="text" id="nome" name="nome" placeholder="Name" required>

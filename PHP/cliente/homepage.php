@@ -55,6 +55,7 @@
         </div>
     </header>
     <main>
+        <!--desenha a barra lateral da lista de reservas-->
         <div class="cartBar" id="cartBar">
             <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">

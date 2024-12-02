@@ -61,8 +61,7 @@
                 <div class="item">
                     <div class="itemImg">
                     </div>
-                    <div class=" itemModelo">
-
+                    <div class="itemModelo">
                     </div>
                 </div>
             </div>
@@ -79,7 +78,9 @@
                 $matricula = pg_escape_string($connection, $_GET['matricula']);
 
                 // Query para buscar os detalhes do carro
-                $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img FROM carro WHERE matricula = '$matricula'";
+                $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img 
+                FROM carro 
+                WHERE matricula = '$matricula'";
                 $resultado = pg_query($connection, $query);
 
                 // Verificar se a consulta foi bem-sucedida
@@ -88,61 +89,92 @@
 
                     // Exibir as informações do carro
                     echo "
-                                    <div class='thirdPageContainer'> 
-                                        <h1 class='tituloGeral tituloTP'>" . htmlspecialchars($carro['modelo']) . "</h1>
-                                        <div class='detalhesCarro'>
-                                            <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
+                            <div class='thirdPageContainer'> 
+                                <h1 class='tituloGeral tituloTP'>" . htmlspecialchars($carro['modelo']) . "</h1>
+                                <div class='detalhesCarro'>
+                                    <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
                                            
-                                            <div class='caractContainer'>
-                                                <div class='caracteristicas'>
-                                                    <h1 class='tituloGeral nomeCarro'>Specifications</h1>
-                                                    <ul class='tituloGeral topicos'>
-                                                        <li>
-                                                            <span class='textoGeral specific'>Registration Plate: </span>
-                                                            <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class='textoGeral specific'>Number of Seats: </span>
-                                                            <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class='textoGeral specific'>Color: </span>
-                                                            <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class='textoGeral specific'>Year: </span>
-                                                            <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class='textoGeral specific'>Cost per Day: </span>
-                                                            <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <form id='carForm'>
-                                                    <div class='buttonContainer'>
-                                                        <div>
-                                                            <button class='tituloGeral botaoGeral btn date startBtn'>START</button>
-                                                            <input class='dateInput startDate' type='date' id='startDate' required>
-                                                        </div>
-                                                        <div>
-                                                            <button class='tituloGeral botaoGeral btn date endBtn'>END</button>
-                                                            <input class='dateInput endDate' type='date' id='endDate' required>
-                                                        </div>
-                                                        <div>
-                                                            <button type='submit' class='tituloGeral botaoGeral btn carBtn' id='carBtn'>BOOK</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                    <div class='caractContainer'>
+                                        <div class='caracteristicas'>
+                                            <h1 class='tituloGeral nomeCarro'>Specifications</h1>
+                                            <ul class='tituloGeral topicos'>
+                                                <li>
+                                                    <span class='textoGeral specific'>Registration Plate: </span>
+                                                    <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
+                                                </li>
+                                                <li>
+                                                    <span class='textoGeral specific'>Number of Seats: </span>
+                                                    <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
+                                                </li>
+                                                <li>
+                                                    <span class='textoGeral specific'>Color: </span>
+                                                    <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
+                                                </li>
+                                                <li>
+                                                    <span class='textoGeral specific'>Year: </span>
+                                                    <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
+                                                </li>
+                                                <li>
+                                                    <span class='textoGeral specific'>Cost per Day: </span>
+                                                    <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
+                                                </li>
+                                            </ul>
                                         </div>
+                                        <form id='carForm' method='POST'>
+                                            <input type='hidden' name='matricula' value='<?php echo htmlspecialchars($matricula); ?>'>
+                                            <div class='buttonContainer'>
+                                                <div>
+                                                    <button class='tituloGeral botaoGeral btn date startBtn' name='startDate'>START</button>
+                                                    <input class='dateInput startDate' type='date' id='startDate' name='endDate'required>
+                                                </div>
+                                                <div>
+                                                    <button class='tituloGeral botaoGeral btn date endBtn'>END</button>
+                                                    <input class='dateInput endDate' type='date' id='endDate' required>
+                                                </div>
+                                                <div>
+                                                    <button type='submit' class='tituloGeral botaoGeral btn carBtn' id='carBtn'>BOOK</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                ";
+                                </div>
+                            </div>
+                        ";
                 } else {
-                    echo "<p>Carro não encontrado.</p>";
+                    echo "<p class='textoGeral erro erroCar'>Car not found</p>";
                 }
             } else {
-                echo "<p>Matrícula não especificada.</p>";
+                echo "<p class='textoGeral erro erroCar'>Not found</p>";
+            }
+            ?>
+
+            <?php
+            // conexão à base de dados
+            require('../baseDados.php');
+
+            // Processamento do formulário
+            if (isset($_POST['startDate'], $_POST['endDate'], $_GET['matricula'])) {
+                $dataInicio = pg_escape_string($connection, $_POST['startDate']);
+                $dataFim = pg_escape_string($connection, $_POST['endDate']);
+                $matricula = pg_escape_string($connection, $_GET['matricula']);
+                $clienteNome = pg_escape_string($connection, $_SESSION['nome']);
+
+                // Começa a transação
+                pg_query($connection, "BEGIN");
+
+                // Insere na tabela pessoa
+                $queryReserva = "INSERT INTO reserva (data_inicio, data_fim, carro_matricula, cliente_pessoa_nome) 
+                    VALUES ('$dataInicio', '$dataFim', '$matricula', '$clienteNome')";
+
+                $resultReserva = pg_query($connection, $queryReserva);
+
+                if ($resultReserva) {
+                    pg_query($connection, "COMMIT");
+                    echo "console.log(Reservation made successfully)";
+                } else {
+                    pg_query($connection, "ROLLBACK");
+                    echo "console.log(Error making reservation)";
+                }
             }
 
             // Fechar a conexão

@@ -68,6 +68,11 @@ html {
   font-weight: 600;
 }
 
+.erro {
+  color: black;
+  font-size: 16pt;
+}
+
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;
@@ -716,6 +721,10 @@ footer {
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+
+.erroCar {
+  padding: 150px 150px 0px 150px;
 }
 
 .profilePage {
