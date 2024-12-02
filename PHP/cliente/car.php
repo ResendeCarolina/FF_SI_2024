@@ -70,9 +70,6 @@
         <section class="thirdPage">
             <?php
 
-            // conexão à base de dados
-            require('../baseDados.php');
-
             // Verifica se o atributo "matricula" foi enviado
             if (isset($_GET['matricula'])) { //se foi enviado
                 $matricula = pg_escape_string($connection, $_GET['matricula']);
@@ -149,9 +146,7 @@
             ?>
 
             <?php
-            // conexão à base de dados
-            require('../baseDados.php');
-
+            
             // Processamento do formulário
             if (isset($_POST['startDate'], $_POST['endDate'], $_GET['matricula'])) {
                 $dataInicio = pg_escape_string($connection, $_POST['startDate']);
