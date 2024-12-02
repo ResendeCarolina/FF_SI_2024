@@ -24,7 +24,11 @@ function updateButtonText(inputClass, buttonClass) {
 updateButtonText('.startDate', '.startBtn');
 updateButtonText('.endDate', '.endBtn');
 
-/*aumenta o nº do carrinho, representando no nº d eprodutos que lá está*/
+
+/*função para adicionar ao carrinho o produto*/
+let countP = document.getElementById("countP");
+let i = 0;
+
 let nCar = (id) => { //nCar - nº das reservas que vão para o carrinho
   console.log(id);
   i++;

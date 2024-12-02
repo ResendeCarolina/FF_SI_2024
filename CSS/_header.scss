@@ -69,6 +69,9 @@ header {
   align-items: center;
 }
 
+
+/*---------------------------------- Relativo à aba do carrinho ------------------------------*/
+
 /*countP de Porducts - vai mostrar o número de produtos adicionados ao carrinho*/
 .countP{
   font-family: "Archivo Narrow", sans-serif;
@@ -88,10 +91,10 @@ header {
 
 .cartBar{
   z-index: 10;
-  width: 450px;
+  width: 350px;
   background: rgba(211, 211, 211, 1);
   position: fixed;
-  inset: 0 auto 0 -450px; /*referente ao valor de top, right, bottom, left*/
+  inset: 0 auto 0 -350px; /*referente ao valor de top, right, bottom, left*/
   padding-top: 40px;
   padding-left: 40px;
   display: grid;

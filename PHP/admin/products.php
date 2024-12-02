@@ -66,68 +66,121 @@
     </header>
 
     <main>
-        <section class="secondPage">
-            <div class="secondPageContainer">
-
-                <div class="inicialContainer">
-                    <!--titleSP - tituloSecondPage-->
-                    <h2 class="tituloGeral title" id="titleSP">Models</h2>
-                    <div class="searchBar">
-                        <div class="search">
-                            <form class="searchForm" method="GET" action="products.php">
-                                <input class="searchInput" type="search" name="search" placeholder="Search by model" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
-
-                                <!-- Filtro por número de lugares -->
-                                <label for="nmr_lugares">Seats:</label>
-                                <select name="nmr_lugares" id="nmr_lugares">
-                                    <option value="">Any</option>
-                                    <option value="2" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '2') ? 'selected' : '' ?>>2</option>
-                                    <option value="4" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '4') ? 'selected' : '' ?>>4</option>
-                                    <option value="5" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '5') ? 'selected' : '' ?>>5</option>
-                                </select>
-
-                                <!-- Filtro por custo máximo -->
-                                <label for="custo_max_dia">Max Cost:</label>
-                                <input type="number" name="custo_max_dia" id="custo_max_dia" placeholder="Cost per day" value="<?= htmlspecialchars($_GET['custo_max_dia'] ?? '') ?>">
-
-                                <!-- Ordenação -->
-                                <label for="sort">Sort by:</label>
-                                <select name="sort" id="sort">
-                                    <option value="">Default</option>
-                                    <option value="price_asc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'price_asc') ? 'selected' : '' ?>>Price (Low to High)</option>
-                                    <option value="price_desc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'price_desc') ? 'selected' : '' ?>>Price (High to Low)</option>
-                                    <option value="model_asc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'model_asc') ? 'selected' : '' ?>>Model (A-Z)</option>
-                                    <option value="model_desc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'model_desc') ? 'selected' : '' ?>>Model (Z-A)</option>
-                                </select>
-
-                                <!-- Botão de pesquisa -->
-                                <button type="submit" class="searchBtn">
-                                    <img class="lupa" src="/IMAGENS/pictogramaLupa.png" width="15" height="15" alt="Search">
-                                </button>
-                            </form>
-                        </div>
+        <div class="cartBar" id="cartBar">
+            <h1 class="tituloGeral title titleSC">Shopping Cart</h1>
+            <div class="listCart">
+                <div class="item">
+                    <div class="itemImg">
+                    </div>
+                    <div class=" itemModelo">
 
                     </div>
                 </div>
+            </div>
+            <button class="tituloGeral botaoGeral reservar">RESERVAR</button>
+        </div>
+
+        <section class="secondPage">
+            <div class="secondPageContainer">
+
+                <!--titleSP - tituloSecondPage-->
+                <h2 class="tituloGeral title" id="titleSP">Models</h2>
+
+                <h5 class="tituloGeral subtitle">Search your dream car</h5>
+                <div class="searchBar">
+
+                    <form class="searchForm" method="GET" action="products.php">
+
+                        <!-- Filtro para ordenar -->
+                        <select class="filter" name="sort" id="sort">
+                            <option value="">Sort by</option>
+                            <option value="price_asc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'price_asc') ? 'selected' : '' ?>>Price (Low to High)</option>
+                            <option value="price_desc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'price_desc') ? 'selected' : '' ?>>Price (High to Low)</option>
+                            <option value="model_asc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'model_asc') ? 'selected' : '' ?>>Model (A-Z)</option>
+                            <option value="model_desc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'model_desc') ? 'selected' : '' ?>>Model (Z-A)</option>
+                        </select>
+
+                        <input class="filter" type="search" name="search" placeholder="Search by model...." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+
+                        <!-- Filtro relativo ao número de lugares -->
+                        <select class="filter" name="nmr_lugares" id="nmr_lugares">
+                            <option value="">Number of Seats</option>
+                            <option value="2" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '2') ? 'selected' : '' ?>>2</option>
+                            <option value="4" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '4') ? 'selected' : '' ?>>4</option>
+                            <option value="5" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '5') ? 'selected' : '' ?>>5</option>
+                        </select>
+
+                        <!-- Filtro relativo ao custo máximo diário -->
+                        <input class="filter" type="number" name="custo_max_dia" id="custo_max_dia" placeholder="Max Cost...." value="<?= htmlspecialchars($_GET['custo_max_dia'] ?? '') ?>">
+
+                        <!-- Botão de pesquisa -->
+                        <button type="submit" class="searchBtn">
+                            <img class="lupa" src="/IMAGENS/pictogramaLupa.png" width="15" height="15" alt="Search">
+                        </button>
+
+                    </form>
+
+                </div>
+
 
                 <div class="gallery" id="gallery">
                     <?php
-                    // conexão à base de dados
+                    // Conexão à base de dados
                     require('../baseDados.php');
 
-                    // Consulta SQL para buscar todos os carros
-                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img FROM carro";
+                    // Capturar os parâmetros da pesquisa e filtros
+                    $search = pg_escape_string($connection, $_GET['search'] ?? '');
+                    $nmr_lugares = pg_escape_string($connection, $_GET['nmr_lugares'] ?? '');
+                    $custo_max_dia = pg_escape_string($connection, $_GET['custo_max_dia'] ?? '');
+                    $sort = $_GET['sort'] ?? '';
+
+                    // Base da query
+                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img FROM carro WHERE 1=1";
+
+                    // Filtro por pesquisa (modelo)
+                    if (!empty($search)) {
+                        $query .= " AND LOWER(modelo) LIKE LOWER('%$search%')";
+                    }
+
+                    // Filtro por número de lugares
+                    if (!empty($nmr_lugares)) {
+                        $query .= " AND nmr_lugares = $nmr_lugares";
+                    }
+
+                    // Filtro por custo máximo por dia
+                    if (!empty($custo_max_dia)) {
+                        $query .= " AND custo_max_dia <= $custo_max_dia";
+                    }
+
+                    // Ordenação
+                    switch ($sort) {
+                        case 'price_asc':
+                            $query .= " ORDER BY custo_max_dia ASC";
+                            break;
+                        case 'price_desc':
+                            $query .= " ORDER BY custo_max_dia DESC";
+                            break;
+                        case 'model_asc':
+                            $query .= " ORDER BY modelo ASC";
+                            break;
+                        case 'model_desc':
+                            $query .= " ORDER BY modelo DESC";
+                            break;
+                        default:
+                            $query .= " ORDER BY modelo ASC"; // Ordenação padrão
+                    }
+
 
                     // Executar a consulta
                     $resultados = pg_query($connection, $query);
 
                     // Verificar se a consulta foi bem-sucedida
                     if (!$resultados) {
-                        echo "Erro ao buscar os dados dos carros: " . pg_last_error($connection);
+                        echo "Erro ao procurar os dados dos carros: " . pg_last_error($connection);
                         exit();
                     }
 
-                    // Criar cartão
+                    // Criar "cartão" 
                     // Loop para processar cada linha
                     while ($carro = pg_fetch_assoc($resultados)) {
                         echo "
@@ -138,22 +191,19 @@
                                 </div>
                                 <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
                                 <div class='element'>
-                                    <div class='wrapbutton'>
-                                        <div class='dateContainer'>
-                                            <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
-                                                <button class='tituloGeral date verMaisBtn'>Ver Mais</button>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
+                                        <button class='tituloGeral botaoGeral verMaisBtn'>Ver Mais</button>
+                                    </a>
                                 </div>
                             </div>
-                         ";
-                    }
+                        ";
+                    } //se carregar no botao sou remetida para a página car com as especificações de cada carro
 
-                    // Fechar a conexão com a base de dados
+                    // Encerra a conexão com a base de dados
                     pg_close($connection);
                     ?>
                 </div>
+
             </div>
         </section>
     </main>
@@ -177,6 +227,7 @@
         </div>
     </footer>
     <script src="/JS/products.js"></script>
+    <script src="/JS/header.js"></script>
 </body>
 
 </html>
