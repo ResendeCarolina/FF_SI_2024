@@ -26,8 +26,8 @@
 }
     
 .imagem {
-  height: 100%; /*ocupa a altura total do contentor pai sempre de forma proporcional*/
-  width: auto;
+  width: 70%;/*ocupa 70% da largura total do contentor pai sempre de forma proporcional*/
+  height: auto;
   object-fit: cover;
 }
 
