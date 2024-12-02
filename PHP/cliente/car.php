@@ -20,7 +20,7 @@
             <nav class="menu">
                 <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
-                <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
+                <a class="tituloGeral sobreEfeito" id="secao3" href="homepage.php#fourthSection">CONTACTS</a>
             </nav>
         </div>
 
@@ -37,7 +37,7 @@
                     $nome = htmlspecialchars($_SESSION['nome']);
                     echo "<p>Bem-vindo/a, $nome!</p>";
                 } else {
-                    echo "<p>Utilizador não autenticado. Por favor, faça login.</p>";
+                    echo "<p>Por favor, faça login.</p>";
                 }
                 ?>
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
@@ -47,9 +47,39 @@
                 <!-- TODO: Adicionar a informação dos carros ao carrinho -->
                 <span class="countP" id="countP">0</span>
             </div>
+            <div>
+                <?php
+                // Conexão à base de dados
+                require('../baseDados.php');
+
+
+                if (isset($_SESSION['nome'])) {
+                    echo "
+                <a href='../logout.php' class='btn-logout'>
+                    <img class='icones' id='logout' src='/IMAGENS/logout.png' alt='logout'>
+                </a>
+                ";
+                }
+                ?>
+            </div>
         </div>
     </header>
     <main>
+        <div class="cartBar" id="cartBar">
+            <h1 class="tituloGeral title titleSC">Shopping Cart</h1>
+            <div class="listCart">
+                <div class="item">
+                    <div class="itemImg">
+                        <img class='imgCart' src='" . htmlspecialchars($carro[' img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
+                    </div>
+                    <div class=" itemModelo">
+
+                    </div>
+                </div>
+            </div>
+            <button class="tituloGeral botaoGeral reservar">RESERVAR</button>
+        </div>
+
         <section class="thirdPage">
             <?php
 
@@ -101,19 +131,21 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class='buttonContainer'>
-                                                    <div>
-                                                        <button class='tituloGeral btn date startBtn'>START</button>
-                                                        <input class='dateInput startDate' type='date'>
+                                                <form id='carForm'>
+                                                    <div class='buttonContainer'>
+                                                        <div>
+                                                            <button class='tituloGeral botaoGeral btn date startBtn'>START</button>
+                                                            <input class='dateInput startDate' type='date' id='startDate' required>
+                                                        </div>
+                                                        <div>
+                                                            <button class='tituloGeral botaoGeral btn date endBtn'>END</button>
+                                                            <input class='dateInput endDate' type='date' id='endDate' required>
+                                                        </div>
+                                                        <div>
+                                                            <button type='submit' class='tituloGeral botaoGeral btn carBtn' id='carBtn'>ADD TO CART</button>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <button class='tituloGeral btn date endBtn'>END</button>
-                                                        <input class='dateInput endDate' type='date'>
-                                                    </div>
-                                                    <div>
-                                                        <button class='tituloGeral btn carBtn' id='carBtn' onclick='test(" . htmlspecialchars($carro['matricula']) . ")'>ADD TO CART</button>
-                                                    </div>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -132,20 +164,7 @@
         </section>
     </main>
     <script src="/JS/car.js"></script>
+    <script src="/JS/header.js"></script>
 </body>
 
 </html>
-
-<!-- <div class='element'>
-                            <div class='wrapbutton'>
-                                <div class='dateContainer'>
-                                    <button class='tituloGeral date startBtn'>START</button>
-                                    <input class='dateInput startDate' type='date'>
-                                </div>
-                                <div class='dateContainer'>
-                                    <button class='tituloGeral date endBtn'>END</button>
-                                    <input class='dateInput endDate' type='date'>
-                                </div>
-                            </div>
-                            <button class='botaoPlus' onclick='test(" . htmlspecialchars($carro['matricula']) . ")'><img class='imgPlus' src='/IMAGENS/pictogramaPlus.png' alt='adicionar'></button>
-                        </div> -->

@@ -37,7 +37,7 @@
                     $nome = htmlspecialchars($_SESSION['nome']);
                     echo "<p>Bem-vindo, $nome!</p>";
                 } else {
-                    echo "<p>Utilizador não autenticado. Por favor, faça login.</p>";
+                    echo "<p>Por favor, faça login.</p>";
                 }
                 ?>
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
@@ -64,6 +64,21 @@
         </div>
     </header>
     <main>
+        <div class="cartBar" id="cartBar">
+            <h1 class="tituloGeral title titleSC">Shopping Cart</h1>
+            <div class="listCart">
+                <div class="item">
+                    <div class="itemImg">
+                        <img class='imgCart' src='" . htmlspecialchars($carro[' img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
+                    </div>
+                    <div class=" itemModelo">
+
+                    </div>
+                </div>
+            </div>
+            <button class="tituloGeral botaoGeral reservar">RESERVAR</button>
+        </div>
+
         <section class="firstSection">
             <div class="videoInicial">
                 <video class="video" muted autoplay loop src="/IMAGENS/videoInicial.mp4" alt="videoInicial"></video>
@@ -160,6 +175,7 @@
         </div>
     </footer>
     <script src="/JS/homepage.js"></script>
+    <script src="/JS/header.js"></script>
 </body>
 
 </html>

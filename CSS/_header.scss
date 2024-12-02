@@ -58,6 +58,7 @@ header {
 
 .cartContainer {
   position: relative;
+  cursor: pointer;
 }
 
 .icones{ 
@@ -83,4 +84,37 @@ header {
   border-radius: 50%;
   top: -10%;
   right: -4px;
+}
+
+.cartBar{
+  z-index: 10;
+  width: 450px;
+  background: rgba(211, 211, 211, 1);
+  position: fixed;
+  inset: 0 auto 0 -450px; /*referente ao valor de top, right, bottom, left*/
+  padding-top: 40px;
+  padding-left: 40px;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+  transition: left 2s;
+}
+
+.cartBar.show{
+  left: 0px;
+  transition: left 2s;
+}
+
+.reservar{
+  width: 50%;
+  height: 30px;
+  color: lightgrey;
+  background-color: black;
+}
+
+.listCart{
+  overflow: auto; /*caso o número de reservas exceda a altura da janela, cria-se um scroll*/
+}
+
+.listCart::-webkit-scrollbar{
+  width: 0; /*o scroll funciona na mesma, mas a barra de scroll desaparece*/
 }

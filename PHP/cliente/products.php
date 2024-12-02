@@ -37,7 +37,7 @@
                     $nome = htmlspecialchars($_SESSION['nome']);
                     echo "<p>Bem-vindo/a, $nome!</p>";
                 } else {
-                    echo "<p>Utilizador não autenticado. Por favor, faça login.</p>";
+                    echo "<p>Por favor, faça login.</p>";
                 }
                 ?>
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
@@ -47,10 +47,40 @@
                 <!-- TODO: Adicionar a informação dos carros ao carrinho -->
                 <span class="countP" id="countP">0</span>
             </div>
+            <div>
+                <?php
+                // Conexão à base de dados
+                require('../baseDados.php');
+
+
+                if (isset($_SESSION['nome'])) {
+                    echo "
+                <a href='../logout.php' class='btn-logout'>
+                    <img class='icones' id='logout' src='/IMAGENS/logout.png' alt='logout'>
+                </a>
+                ";
+                }
+                ?>
+            </div>
         </div>
     </header>
 
     <main>
+        <div class="cartBar" id="cartBar">
+            <h1 class="tituloGeral title titleSC">Shopping Cart</h1>
+            <div class="listCart">
+                <div class="item">
+                    <div class="itemImg">
+                        <img class='imgCart' src='" . htmlspecialchars($carro[' img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
+                    </div>
+                    <div class=" itemModelo">
+
+                    </div>
+                </div>
+            </div>
+            <button class="tituloGeral botaoGeral reservar">RESERVAR</button>
+        </div>
+
         <section class="secondPage">
             <div class="secondPageContainer">
 
@@ -85,7 +115,7 @@
                         <input class="filter" type="number" name="custo_max_dia" id="custo_max_dia" placeholder="Max Cost...." value="<?= htmlspecialchars($_GET['custo_max_dia'] ?? '') ?>">
 
                         <!-- Botão de pesquisa -->
-                        <button type="submit" class="searchBtn"> 
+                        <button type="submit" class="searchBtn">
                             <img class="lupa" src="/IMAGENS/pictogramaLupa.png" width="15" height="15" alt="Search">
                         </button>
 
@@ -163,7 +193,7 @@
                                 <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
                                 <div class='element'>
                                     <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
-                                        <button class='tituloGeral verMaisBtn'>Ver Mais</button>
+                                        <button class='tituloGeral botaoGeral verMaisBtn'>Ver Mais</button>
                                     </a>
                                 </div>
                             </div>
@@ -198,6 +228,7 @@
         </div>
     </footer>
     <script src="/JS/products.js"></script>
+    <script src="/JS/header.js"></script>
 </body>
 
 </html>

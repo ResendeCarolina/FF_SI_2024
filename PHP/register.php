@@ -22,7 +22,7 @@
             $password = $_REQUEST['pwd'];
             $identification = $_REQUEST['cc'];
             $birthday = $_REQUEST['birth'];
-            $is_admin = isset($_REQUEST['is_admin']) ? 1 : 0;
+            $is_admin = isset($_REQUEST['is_admin']) ? 1 : 0; //o campo do admin é opcional
 
             // Começa a transação
             pg_query($connection, "BEGIN");
@@ -62,12 +62,12 @@
                         exit();
                     } else {
                         pg_query($connection, "ROLLBACK");
-                        echo "<div class='form'><h3>Erro ao registrar cliente.</h3></div>";
+                        echo "<div class='form'><h3>Erro ao registar cliente.</h3></div>";
                     }
                 }
             } else {
                 pg_query($connection, "ROLLBACK");
-                echo "<div class='form'><h3>Erro ao registrar na tabela pessoa.</h3></div>";
+                echo "<div class='form'><h3>Erro ao registar na tabela pessoa.</h3></div>";
             }
         } else {
         ?>
@@ -80,7 +80,7 @@
                     <div class="container">
                         <h2 class="tituloGeral" id="titulo">SIGN UP</h2>
                         <div class="register_form">
-                            <form class="textoGeral" id="registationForm">
+                            <form class="textoGeral" id="registationForm" method="GET" action="register.php">
                                 <div>
                                     <label for="nome">Name</label>
                                     <input type="text" id="nome" name="nome" placeholder="Name" required>
