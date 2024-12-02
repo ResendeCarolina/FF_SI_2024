@@ -31,20 +31,15 @@
                 require('../baseDados.php');
 
                 session_start();
-
-                // Verifica se o utilizador está logado
-                if (isset($_SESSION['nome'])) {
-                    $nome = htmlspecialchars($_SESSION['nome']);
-                    echo "<p>Bem-vindo, $nome!</p>";
-                } else {
-                    echo "<p>Por favor, faça login.</p>";
-                }
                 ?>
-                <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+                <a href="perfil.php">
+                    <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+                </a>
             </div>
             <div class="cartContainer">
                 <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
-                <span class="countP">0</span>
+                <!-- TODO: Adicionar a informação dos carros ao carrinho -->
+                <span class="countP" id="countP">0</span>
             </div>
             <div>
                 <?php

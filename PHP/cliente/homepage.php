@@ -29,16 +29,8 @@
                 <?php
                 // Conexão à base de dados
                 require('../baseDados.php');
-
+                
                 session_start();
-
-                // Verifica se o utilizador está logado
-                if (isset($_SESSION['nome'])) {
-                    $nome = htmlspecialchars($_SESSION['nome']);
-                    echo "<p>Bem-vindo, $nome!</p>";
-                } else {
-                    echo "<p>Por favor, faça login.</p>";
-                }
                 ?>
                 <a href="perfil.php">
                     <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">

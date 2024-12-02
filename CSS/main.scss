@@ -58,6 +58,14 @@ html {
   cursor: pointer;
 }
 
+/*código comum às listas de características e dados do car.php e do perfil.php*/
+.topicos{
+  margin-top: 20px;
+  position: relative;
+  list-style: none;
+  line-height: 20px;
+}
+
 @import './_register';
 @import './_login';
 @import './_homepage';

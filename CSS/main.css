@@ -56,6 +56,14 @@ html {
   cursor: pointer;
 }
 
+/*código comum às listas de características e dados do car.php e do perfil.php*/
+.topicos {
+  margin-top: 20px;
+  position: relative;
+  list-style: none;
+  line-height: 20px;
+}
+
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;
@@ -407,6 +415,7 @@ header {
   align-items: center;
 }
 
+/*---------------------------------- Relativo à aba do carrinho ------------------------------*/
 /*countP de Porducts - vai mostrar o número de produtos adicionados ao carrinho*/
 .countP {
   font-family: "Archivo Narrow", sans-serif;
@@ -646,13 +655,6 @@ footer {
   width: 100%;
 }
 
-.topicos {
-  margin-top: 20px;
-  position: relative;
-  list-style: none;
-  line-height: 20px;
-}
-
 .buttonContainer {
   width: 100%;
   display: grid;
@@ -703,4 +705,25 @@ footer {
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+
+.profilePage {
+  width: 100%;
+  height: 100vh;
+}
+
+.profilePageContainer {
+  width: 100%;
+  height: 100%;
+  padding: 150px 150px 0px 150px;
+  position: relative;
+}
+
+.data {
+  margin-bottom: 10px;
+}
+
+.balance {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=main.css.map */

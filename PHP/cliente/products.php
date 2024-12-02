@@ -31,16 +31,10 @@
                 require('../baseDados.php');
 
                 session_start();
-
-                // Verificar se o utilizador está logado
-                if (isset($_SESSION['nome'])) {
-                    $nome = htmlspecialchars($_SESSION['nome']);
-                    echo "<p>Bem-vindo/a, $nome!</p>";
-                } else {
-                    echo "<p>Por favor, faça login.</p>";
-                }
                 ?>
-                <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+                <a href="perfil.php">
+                    <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
+                </a>
             </div>
             <div class="cartContainer">
                 <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
