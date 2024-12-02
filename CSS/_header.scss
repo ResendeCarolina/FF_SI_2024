@@ -32,8 +32,9 @@ header {
 .menu>a{
   color: white;
   display: inline-block;
-  margin: 20px;
+  margin: 15px;
   text-decoration: none;
+  cursor: pointer;
 }
   
 .iconesContainer{
@@ -92,10 +93,10 @@ header {
 .cartBar{
   z-index: 10;
   width: 350px;
-  background: rgba(211, 211, 211, 1);
+  background: darkred;
   position: fixed;
   inset: 0 auto 0 -350px; /*referente ao valor de top, right, bottom, left*/
-  padding-top: 40px;
+  padding-top: 45px;
   padding-left: 40px;
   display: grid;
   grid-template-rows: 70px 1fr 70px;
@@ -107,11 +108,8 @@ header {
   transition: left 2s;
 }
 
-.reservar{
-  width: 50%;
-  height: 30px;
-  color: lightgrey;
-  background-color: black;
+.titleSC{
+  color: white;
 }
 
 .listCart{

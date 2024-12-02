@@ -66,6 +66,11 @@ html {
   line-height: 20px;
 }
 
+.specific{
+  font-weight: 600;
+}
+
+
 @import './_register';
 @import './_login';
 @import './_homepage';

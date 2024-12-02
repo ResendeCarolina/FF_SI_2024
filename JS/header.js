@@ -1,5 +1,5 @@
 //interação com carrinho
-var botao = document.querySelector("#cart");
+var botao = document.querySelector("#reserva");
 botao.addEventListener('click', toggleCarrinho);
 
 function toggleCarrinho() {

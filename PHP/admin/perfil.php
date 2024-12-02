@@ -21,6 +21,7 @@
                 <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
                 <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
+                <a class="tituloGeral sobreEfeito" id="reserva">RESERVAS</a>
             </nav>
         </div>
 
@@ -35,11 +36,6 @@
                 <a href="perfil.php">
                     <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
                 </a>
-            </div>
-            <div class="cartContainer">
-                <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
-                <!-- TODO: Adicionar a informação dos carros ao carrinho -->
-                <span class="countP" id="countP">0</span>
             </div>
             <div>
                 <?php
@@ -61,7 +57,7 @@
 
     <main>
         <div class="cartBar" id="cartBar">
-            <h1 class="tituloGeral title titleSC">Shopping Cart</h1>
+            <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
                 <div class="item">
                     <div class="itemImg">
@@ -71,7 +67,6 @@
                     </div>
                 </div>
             </div>
-            <button class="tituloGeral botaoGeral reservar">RESERVAR</button>
         </div>
 
         <section class="profilePage">
@@ -80,8 +75,6 @@
                 <?php
                 // Conexão à base de dados
                 require('../baseDados.php');
-
-                session_start();
 
                 // Verificar se o utilizador está logado
                 if (isset($_SESSION['nome'])) {
@@ -105,23 +98,23 @@
                                 <ul class='tituloGeral topicos'>
                                     <h3 class='tituloGeral data'>Data</h3>
                                     <li>
-                                        <span class='tituloGeral'>Name -</span>
+                                        <span class='textoGeral specific'>Name: </span>
                                         <span class='textoGeral'>" . htmlspecialchars($utilizador['nome']) . "</span>
                                     </li>
                                     <li>
-                                        <span class='tituloGeral'>Identification -</span>
+                                        <span class='textoGeral specific'>Identification: </span>
                                         <span class='textoGeral'> " . htmlspecialchars($utilizador['cc']) . "</span>
                                     </li>
                                     <li>
-                                        <span class='tituloGeral'>Date of Birth -</span>
+                                        <span class='textoGeral specific'>Date of Birth: </span>
                                         <span class='textoGeral'>" . htmlspecialchars($utilizador['data_nasc']) . "</span>
                                     </li>
                                     <li>
-                                        <span class='tituloGeral'>Email -</span>
+                                        <span class='textoGeral specific'>Email: </span>
                                         <span class='textoGeral'>" . htmlspecialchars($utilizador['email']) . "</span>
                                     </li>
                                     <li>
-                                        <span class='tituloGeral'>Password -</span>
+                                        <span class='textoGeral specific'>Password: </span>
                                         <span class='textoGeral'>" . htmlspecialchars($utilizador['password']) . "</span>
                                     </li>
                                     <h3 class='tituloGeral balance'>AccountBalance</h3>

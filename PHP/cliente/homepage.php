@@ -21,6 +21,7 @@
                 <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
                 <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
+                <a class="tituloGeral sobreEfeito" id="reserva">RESERVAS</a>
             </nav>
         </div>
 
@@ -29,16 +30,12 @@
                 <?php
                 // Conexão à base de dados
                 require('../baseDados.php');
-                
+
                 session_start();
                 ?>
                 <a href="perfil.php">
                     <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
                 </a>
-            </div>
-            <div class="cartContainer">
-                <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
-                <span class="countP">0</span>
             </div>
             <div>
                 <?php
@@ -59,7 +56,7 @@
     </header>
     <main>
         <div class="cartBar" id="cartBar">
-            <h1 class="tituloGeral title titleSC">Shopping Cart</h1>
+            <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
                 <div class="item">
                     <div class="itemImg">
@@ -69,7 +66,6 @@
                     </div>
                 </div>
             </div>
-            <button class="tituloGeral botaoGeral reservar">RESERVAR</button>
         </div>
 
         <section class="firstSection">

@@ -21,6 +21,7 @@
                 <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
                 <a class="tituloGeral sobreEfeito" id="secao3" href="homepage.php#fourthSection">CONTACTS</a>
+                <a class="tituloGeral sobreEfeito" id="reserva">RESERVAS</a>
             </nav>
         </div>
 
@@ -35,11 +36,6 @@
                 <a href="perfil.php">
                     <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
                 </a>
-            </div>
-            <div class="cartContainer">
-                <img class="icones" id="cart" src="/IMAGENS/pictogramaCart.png" alt="cart">
-                <!-- TODO: Adicionar a informação dos carros ao carrinho -->
-                <span class="countP" id="countP">0</span>
             </div>
             <div>
                 <?php
@@ -60,7 +56,7 @@
     </header>
     <main>
         <div class="cartBar" id="cartBar">
-            <h1 class="tituloGeral title titleSC">Shopping Cart</h1>
+            <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
                 <div class="item">
                     <div class="itemImg">
@@ -70,7 +66,6 @@
                     </div>
                 </div>
             </div>
-            <button class="tituloGeral botaoGeral reservar">RESERVAR</button>
         </div>
 
         <section class="thirdPage">
@@ -103,23 +98,23 @@
                                                     <h1 class='tituloGeral nomeCarro'>Specifications</h1>
                                                     <ul class='tituloGeral topicos'>
                                                         <li>
-                                                            <span class='tituloGeral'>Registration Plate -</span>
+                                                            <span class='textoGeral specific'>Registration Plate: </span>
                                                             <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
                                                         </li>
                                                         <li>
-                                                            <span class='tituloGeral'>Number of Seats -</span>
+                                                            <span class='textoGeral specific'>Number of Seats: </span>
                                                             <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
                                                         </li>
                                                         <li>
-                                                            <span class='tituloGeral'>Color -</span>
+                                                            <span class='textoGeral specific'>Color: </span>
                                                             <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
                                                         </li>
                                                         <li>
-                                                            <span class='tituloGeral'>Year -</span>
+                                                            <span class='textoGeral specific'>Year: </span>
                                                             <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
                                                         </li>
                                                         <li>
-                                                            <span class='tituloGeral'>Cost per Day -</span>
+                                                            <span class='textoGeral specific'>Cost per Day: </span>
                                                             <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
                                                         </li>
                                                     </ul>
@@ -135,7 +130,7 @@
                                                             <input class='dateInput endDate' type='date' id='endDate' required>
                                                         </div>
                                                         <div>
-                                                            <button type='submit' class='tituloGeral botaoGeral btn carBtn' id='carBtn'>ADD TO CART</button>
+                                                            <button type='submit' class='tituloGeral botaoGeral btn carBtn' id='carBtn'>BOOK</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -160,4 +155,4 @@
     <script src="/JS/header.js"></script>
 </body>
 
-</html>
+</html> 

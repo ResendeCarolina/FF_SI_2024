@@ -64,6 +64,10 @@ html {
   line-height: 20px;
 }
 
+.specific {
+  font-weight: 600;
+}
+
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;
@@ -176,6 +180,10 @@ html {
   margin-left: 150px;
   width: 580px;
   height: 100%;
+}
+
+.text > p > strong {
+  color: darkred;
 }
 
 .thirdSection {
@@ -378,8 +386,9 @@ header {
 .menu > a {
   color: white;
   display: inline-block;
-  margin: 20px;
+  margin: 15px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .iconesContainer {
@@ -436,10 +445,10 @@ header {
 .cartBar {
   z-index: 10;
   width: 350px;
-  background: rgb(211, 211, 211);
+  background: darkred;
   position: fixed;
   inset: 0 auto 0 -350px; /*referente ao valor de top, right, bottom, left*/
-  padding-top: 40px;
+  padding-top: 45px;
   padding-left: 40px;
   display: grid;
   grid-template-rows: 70px 1fr 70px;
@@ -451,11 +460,8 @@ header {
   transition: left 2s;
 }
 
-.reservar {
-  width: 50%;
-  height: 30px;
-  color: lightgrey;
-  background-color: black;
+.titleSC {
+  color: white;
 }
 
 .listCart {
@@ -685,6 +691,11 @@ footer {
   background-color: black;
 }
 
+.carBtn:hover {
+  border: solid darkred;
+  background-color: darkred;
+}
+
 .dateInput {
   position: absolute;
   left: 0;
@@ -721,9 +732,11 @@ footer {
 
 .data {
   margin-bottom: 10px;
+  color: darkred;
 }
 
 .balance {
   margin-top: 30px;
   margin-bottom: 10px;
+  color: darkred;
 }/*# sourceMappingURL=main.css.map */
