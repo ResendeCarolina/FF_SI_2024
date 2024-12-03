@@ -78,7 +78,7 @@
                 <h5 class="textoGeral subtitle">Search your dream car</h5>
                 <div class="searchBar">
 
-                    <form class="searchForm" method="GET" action="products.php">
+                    <form class="searchForm searchFA" method="GET" action="products.php">
 
                         <!-- Filtro para ordenar -->
                         <select class="filter" name="sort" id="sort">
@@ -108,7 +108,10 @@
                         </button>
 
                     </form>
+                </div>
 
+                <div>
+                    <button class="tituloGeral botaoGeral adicionar">ADD PRODUCT</button>
                 </div>
 
 

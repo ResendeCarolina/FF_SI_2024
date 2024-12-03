@@ -257,7 +257,14 @@ html {
   gap: 15px;
   height: 30px;
   margin-top: 15px;
+}
+
+.searchFC {
   margin-bottom: 80px;
+}
+
+.searchFA {
+  margin-bottom: 50px;
 }
 
 .filter {
@@ -327,7 +334,7 @@ input:focus, select:focus {
   display: flex;
   justify-content: end;
   margin-top: -50px;
-  margin-right: 110px;
+  margin-right: 85px;
 }
 
 .verMaisBtn {
@@ -357,6 +364,15 @@ input:focus, select:focus {
     align-self: flex-end;
   }
 }*/
+.adicionar {
+  position: relative;
+  margin-bottom: 80px;
+  width: 170px;
+  height: 30px;
+  color: white;
+  background-color: black;
+}
+
 .cabecalhoHP {
   background: rbga(0, 0, 0, 1);
 }
