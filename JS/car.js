@@ -23,3 +23,19 @@ function updateButtonText(inputClass, buttonClass) {
 // Chama a função para os inputs de data e seus respectivos botões
 updateButtonText('.startDate', '.startBtn');
 updateButtonText('.endDate', '.endBtn');
+
+
+//Para mudar a cor do botão de reservar quando se carrega
+let reservaBtn = document.querySelector('#carBtn');
+
+//Quando se carrega no botão
+reservaBtn.addEventListener('mousedown', function () {
+  reservaBtn.style.backgroundColor = "darkred";
+  reservaBtn.style.border = "solid darkred";
+});
+
+// Quando se deixa de carregar no botão
+reservaBtn.addEventListener('mouseup', function () {
+  reservaBtn.style.backgroundColor = "";
+  reservaBtn.style.border = "solid black";
+});
