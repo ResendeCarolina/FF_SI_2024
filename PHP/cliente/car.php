@@ -118,15 +118,15 @@
                                             </ul>
                                         </div>
                                         <form id='carForm' method='POST'>
-                                            <input type='hidden' name='matricula' value='<?php echo htmlspecialchars($matricula); ?>'>
+                                            <input type='hidden' name='matricula' id='matricula' value='" . htmlspecialchars($carro['matricula']) . "'>
                                             <div class='buttonContainer'>
                                                 <div>
-                                                    <button class='tituloGeral botaoGeral btn date startBtn' name='startDate'>START</button>
-                                                    <input class='dateInput startDate' type='date' id='startDate' name='endDate'required>
+                                                    <button class='tituloGeral botaoGeral btn date startBtn'>START</button>
+                                                    <input class='dateInput startDate' type='date' id='startDate' name='startDate' required>
                                                 </div>
                                                 <div>
                                                     <button class='tituloGeral botaoGeral btn date endBtn'>END</button>
-                                                    <input class='dateInput endDate' type='date' id='endDate' required>
+                                                    <input class='dateInput endDate' type='date' id='endDate' name='endDate' required>
                                                 </div>
                                                 <div>
                                                     <button type='submit' class='tituloGeral botaoGeral btn carBtn' id='carBtn'>BOOK</button>
@@ -143,34 +143,6 @@
             } else {
                 echo "<p class='textoGeral erro erroCar'>Not found</p>";
             }
-            ?>
-
-            <?php
-            
-            // Processamento do formulário
-            if (isset($_POST['startDate'], $_POST['endDate'], $_GET['matricula'])) {
-                $dataInicio = pg_escape_string($connection, $_POST['startDate']);
-                $dataFim = pg_escape_string($connection, $_POST['endDate']);
-                $matricula = pg_escape_string($connection, $_GET['matricula']);
-                $clienteNome = pg_escape_string($connection, $_SESSION['nome']);
-
-                // Começa a transação
-                pg_query($connection, "BEGIN");
-
-                // Insere na tabela pessoa
-                $queryReserva = "INSERT INTO reserva (data_inicio, data_fim, carro_matricula, cliente_pessoa_nome) 
-                    VALUES ('$dataInicio', '$dataFim', '$matricula', '$clienteNome')";
-
-                $resultReserva = pg_query($connection, $queryReserva);
-
-                if ($resultReserva) {
-                    pg_query($connection, "COMMIT");
-                    echo "console.log(Reservation made successfully)";
-                } else {
-                    pg_query($connection, "ROLLBACK");
-                    echo "console.log(Error making reservation)";
-                }
-            }
 
             // Fechar a conexão
             pg_close($connection);
@@ -180,6 +152,26 @@
     </main>
     <script src="/JS/car.js"></script>
     <script src="/JS/header.js"></script>
+    <script>
+        document.getElementById('carForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o refresh da página
+
+            const formData = new FormData(this); // Obtém os dados do formulário
+
+            // Envia os dados via fetch
+            fetch('../processar_reserva.php', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.text()) // Lê a resposta do PHP como texto
+                .then(data => {
+                    console.log('Resposta do servidor:', data); // Exibe a resposta no console
+                })
+                .catch(error => {
+                    console.error('Erro na submissão:', error);
+                });
+        });
+    </script>
 </body>
 
 </html>

@@ -738,6 +738,12 @@ footer {
   padding: 150px 150px 0px 150px;
 }
 
+input[type=date] option:disabled {
+  border-color: rgb(255, 255, 255);
+  background: darkred;
+  color: rgb(255, 255, 255);
+}
+
 .profilePage {
   width: 100%;
   height: 100vh;

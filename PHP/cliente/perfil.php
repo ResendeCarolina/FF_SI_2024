@@ -20,7 +20,7 @@
             <nav class="menu">
                 <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
-                <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
+                <a class="tituloGeral sobreEfeito" id="secao3" href="homepage.php#fourthSection">CONTACTS</a>
                 <a class="tituloGeral sobreEfeito" id="reserva">RESERVAS</a>
             </nav>
         </div>

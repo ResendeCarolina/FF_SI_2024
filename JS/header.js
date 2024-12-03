@@ -7,3 +7,8 @@ function toggleCarrinho() {
   contentor.classList.toggle("show");
 }
 
+document.getElementById('carForm').addEventListener('submit', function (event) {
+  event.preventDefault(); // Evita o refresh da página
+
+  toggleCarrinho();
+});
