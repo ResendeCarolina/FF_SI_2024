@@ -27,17 +27,31 @@
 
         <div class="iconesContainer">
             <div class="profileContainer">
-                <?php
-                // Conexão à base de dados
-                require('../baseDados.php');
+                <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
 
-                session_start();
-                ?>
-                <a href="perfil.php">
-                    <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-                </a>
+                <div class="loginNome">
+                    <?php
+                    // Conexão à base de dados
+                    require('../baseDados.php');
+
+                    session_start();
+                    // Verificar se o utilizador está logado
+                    if (isset($_SESSION['nome'])) {
+                        $nome = htmlspecialchars($_SESSION['nome']);
+                        echo "<p>Welcome, $nome!</p>";
+                    } else {
+                        echo "<p>Please login</p>";
+                    }
+                    ?>
+                </div>
             </div>
-            <div>
+
+            <div class="tituloGeral opcoesCont" id="opcoesCont">
+                <a href="perfil.php">
+                    <div class="sobreEfeito opcoes account" id="acount">
+                        <p>MY ACCOUNT</p>
+                    </div>
+                </a>
                 <?php
                 // Conexão à base de dados
                 require('../baseDados.php');
@@ -46,7 +60,9 @@
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../logout.php' class='btn-logout'>
-                    <img class='icones' id='logout' src='/IMAGENS/logout.png' alt='logout'>
+                    <div class='sobreEfeito opcoes logout' id='logout'>
+                        <p>LOGOUT</p>
+                    </div>
                 </a>
                 ";
                 }
@@ -58,12 +74,55 @@
         <div class="cartBar" id="cartBar">
             <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
-                <div class="item">
-                    <div class="itemImg">
-                    </div>
-                    <div class="itemModelo">
-                    </div>
-                </div>
+                <?php
+                // Conexão à base de dados
+                require('../baseDados.php');
+
+                // Query para buscar o histórico de reservas
+                $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, carro.modelo, carro.img
+                                  FROM reserva, carro
+                                  WHERE reserva.carro_matricula = carro.matricula 
+                                  ORDER BY reserva.data_inicio DESC";
+
+                $resultadosReservas = pg_query($connection, $queryReservas);
+
+                if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
+                    echo "<ul class='tituloGeral'>";
+                    while ($reserva = pg_fetch_assoc($resultadosReservas)) {
+                        // Lista de Reservas do utilizador
+                        echo "
+                            <li>
+                                <div class='listaItem'>
+                                    <div class='textoTitulo item itemModelo'>
+                                        " . htmlspecialchars($reserva['modelo']) . "
+                                    </div>
+                                    <div class='cartaoZinho'>
+                                        <div class='item itemImg'>
+                                            <img class='imgAba' src='" . htmlspecialchars($reserva['img']) . "' alt='carro'>
+                                        </div>     
+                                        <div class='textoAba'>
+                                            <div class='textoGeral item itemMatricula'>
+                                                <p>RP: " . htmlspecialchars($reserva['carro_matricula']) . "</p>
+                                            </div>
+                                            <div class='textoGeral item itemInicio'>
+                                                <p>SD: " . htmlspecialchars($reserva['data_inicio']) . "</p>
+                                            </div>
+                                            <div class='textoGeral item itemFim'>
+                                                <p>ED: " . htmlspecialchars($reserva['data_fim']) . "</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <hr>
+                            <br>
+                        ";
+                    }
+                    echo "</ul>";
+                } else {
+                    echo "<p class='textoGeral'>No reservations found.</p>";
+                }
+                ?>
             </div>
         </div>
 
@@ -117,6 +176,7 @@
                                                 </li>
                                             </ul>
                                         </div>
+
                                         <form id='carForm' method='POST'>
                                             <input type='hidden' name='matricula' id='matricula' value='" . htmlspecialchars($carro['matricula']) . "'>
                                             <div class='buttonContainer'>
@@ -152,26 +212,17 @@
     </main>
     <script src="/JS/car.js"></script>
     <script src="/JS/header.js"></script>
-    <script>
-        document.getElementById('carForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita o refresh da página
-
-            const formData = new FormData(this); // Obtém os dados do formulário
-
-            // Envia os dados via fetch
-            fetch('../processar_reserva.php', {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.text()) // Lê a resposta do PHP como texto
-                .then(data => {
-                    console.log('Resposta do servidor:', data); // Exibe a resposta no console
-                })
-                .catch(error => {
-                    console.error('Erro na submissão:', error);
-                });
-        });
-    </script>
+    <script src="/JS/calendar.js"></script>
 </body>
 
 </html>
+
+<!--  <div id='calendarContainer'>
+    <div id='calendarHeader'>
+        <button id='prevMonth'>←</button>
+        <span id='currentMonth'></span>
+        <button id='nextMonth'>→</button>
+    </div>
+    <div id='calendarGrid'>
+    </div>
+</div>  -->

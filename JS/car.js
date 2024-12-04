@@ -40,44 +40,63 @@ reservaBtn.addEventListener('mouseup', function () {
   reservaBtn.style.border = "solid black";
 });
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const matricula = document.getElementById('matricula').value;
-//   const startDateInput = document.getElementById('startDate');
-//   const endDateInput = document.getElementById('endDate');
+document.addEventListener('DOMContentLoaded', function () {
+  const matricula = document.getElementById('matricula').value;
+  const startDateInput = document.getElementById('startDate');
+  const endDateInput = document.getElementById('endDate');
 
-//   // Requisição para obter as datas reservadas
-//   fetch(`../get_reserved_dates.php?matricula=${encodeURIComponent(matricula)}`)
-//     .then(response => response.json())
-//     .then(reservas => {
-//       if (reservas.error) {
-//         console.error(reservas.error);
-//         return;
-//       }
+  // Requisição para obter as datas reservadas
+  fetch(`../get_reserved_dates.php?matricula=${encodeURIComponent(matricula)}`)
+    .then(response => response.json())
+    .then(reservas => {
+      if (reservas.error) {
+        console.error(reservas.error);
+        return;
+      }
 
-//       console.log(reservas);
+      console.log(reservas);
 
-//       // Desativa as datas reservadas
-//       reservas.forEach(reserva => {
-//         const start = new Date(reserva.start);
-//         const end = new Date(reserva.end);
+      // Desativa as datas reservadas
+      reservas.forEach(reserva => {
+        const start = new Date(reserva.start);
+        const end = new Date(reserva.end);
 
-//         // Adiciona as datas como inválidas no campo de data
-//         while (start <= end) {
-//           const dateStr = start.toISOString().split('T')[0];
-//           disableDate(startDateInput, dateStr);
-//           disableDate(endDateInput, dateStr);
-//           start.setDate(start.getDate() + 1);
-//         }
-//       });
-//     })
-//     .catch(error => console.error('Erro ao carregar datas reservadas:', error));
+        // Adiciona as datas como inválidas no campo de data
+        while (start <= end) {
+          const dateStr = start.toISOString().split('T')[0];
+          disableDate(startDateInput, dateStr);
+          disableDate(endDateInput, dateStr);
+          start.setDate(start.getDate() + 1);
+        }
+      });
+    })
+    .catch(error => console.error('Erro ao carregar datas reservadas:', error));
 
-//   // Função para desativar uma data
-//   function disableDate(input, date) {
-//     const option = document.createElement('option');
-//     console.log(option);
-//     option.value = date;
-//     option.disabled = true;
-//     input.appendChild(option);
-//   }
-// });
+  // Função para desativar uma data
+  function disableDate(input, date) {
+    const option = document.createElement('option');
+    console.log(option);
+    option.value = date;
+    option.disabled = true;
+    input.appendChild(option);
+  }
+});
+
+document.getElementById('carForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o refresh da página
+
+            const formData = new FormData(this); // Obtém os dados do formulário
+
+            // Envia os dados via fetch
+            fetch('../processar_reserva.php', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.text()) // Lê a resposta do PHP como texto
+                .then(data => {
+                    console.log('Resposta do servidor:', data); // Exibe a resposta no console
+                })
+                .catch(error => {
+                    console.error('Erro na submissão:', error);
+                });
+        });

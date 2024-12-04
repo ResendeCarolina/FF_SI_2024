@@ -404,9 +404,16 @@ header {
   align-items: center;
 }
 
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
 .menu > a {
   color: white;
-  display: inline-block;
   margin: 15px;
   text-decoration: none;
   cursor: pointer;
@@ -426,15 +433,20 @@ header {
 .profileContainer {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   font-family: "Archivo Narrow", sans-serif;
   align-items: center;
   color: white;
   gap: 10px;
 }
 
-.cartContainer {
-  position: relative;
-  cursor: pointer;
+.loginNome {
+  font-size: 9pt;
+  line-height: 10pt;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: -10px;
 }
 
 .icones {
@@ -443,36 +455,49 @@ header {
   height: 35px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.opcoesCont {
+  position: absolute;
+  margin-top: 40px;
+  margin-right: 10px;
+  display: none;
+}
+
+.opcoesCont > a {
+  color: white;
+  text-decoration: none;
+}
+
+.opcoes {
+  width: 90px;
+  height: 30px;
+  background-color: black;
+  border: 3px solid white;
+  border-radius: 15px;
+  font-size: 10pt;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout {
+  position: relative;
+  top: -2px;
 }
 
 /*---------------------------------- Relativo à aba do carrinho ------------------------------*/
-/*countP de Porducts - vai mostrar o número de produtos adicionados ao carrinho*/
-.countP {
-  font-family: "Archivo Narrow", sans-serif;
-  position: absolute;
-  display: flex;
-  width: 17px;
-  height: 17px;
-  font-size: 9pt;
-  background-color: maroon;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  border-radius: 50%;
-  top: -10%;
-  right: -4px;
-}
-
 .cartBar {
   z-index: 10;
   width: 350px;
   background: darkred;
   position: fixed;
   inset: 0 auto 0 -350px; /*referente ao valor de top, right, bottom, left*/
-  padding-top: 45px;
-  padding-left: 40px;
+  padding: 50px 40px;
   display: grid;
-  grid-template-rows: 70px 1fr 70px;
+  grid-template-rows: 70px 1fr 10px;
   transition: left 2s;
 }
 
@@ -481,16 +506,61 @@ header {
   transition: left 2s;
 }
 
-.titleSC {
-  color: white;
-}
-
 .listCart {
   overflow: auto; /*caso o número de reservas exceda a altura da janela, cria-se um scroll*/
 }
 
 .listCart::-webkit-scrollbar {
   width: 0; /*o scroll funciona na mesma, mas a barra de scroll desaparece*/
+}
+
+.listaItem {
+  width: 100%;
+  height: 30%;
+  color: black;
+  margin-top: 20px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.cartaoZinho {
+  margin-top: -20px;
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+  align-items: center;
+}
+
+.itemImg {
+  height: 100%;
+  width: 68%;
+}
+
+.imgAba {
+  width: 100%;
+  height: 100%;
+}
+
+.textoAba {
+  width: 32%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  font-size: 10pt;
+}
+
+.itemModelo {
+  font-size: 12pt;
+  width: 100%;
+}
+
+.itemMatricula {
+  margin-bottom: 5px;
+}
+
+hr {
+  border: 1px solid black;
 }
 
 footer {
@@ -738,21 +808,14 @@ footer {
   padding: 150px 150px 0px 150px;
 }
 
-input[type=date] option:disabled {
-  border-color: rgb(255, 255, 255);
-  background: darkred;
-  color: rgb(255, 255, 255);
-}
-
 .profilePage {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .profilePageContainer {
   width: 100%;
-  height: 100%;
-  padding: 150px 150px 0px 150px;
+  padding: 150px 150px 100px 150px;
   position: relative;
 }
 
@@ -765,4 +828,14 @@ input[type=date] option:disabled {
   margin-top: 30px;
   margin-bottom: 10px;
   color: darkred;
+}
+
+.histReserv {
+  position: relative;
+  list-style: none;
+  line-height: 20px;
+}
+
+.ultimo {
+  margin-bottom: 20px;
 }/*# sourceMappingURL=main.css.map */

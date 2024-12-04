@@ -18,11 +18,11 @@
 ### Etapa 3: Funcionalidades do Cliente
 - [x] **Listar Carros Disponíveis** para reserva
   - [x] Página que mostra todos os carros disponíveis com detalhes básicos
-- [ ] **Reserva de Carros** para clientes
+- [x] **Reserva de Carros** para clientes
   - [x] Formulário para solicitar uma reserva indicando o carro e o período de tempo desejado
   - [ ] Verificação de disponibilidade do carro para o período selecionado
-- [ ] **Visualizar Histórico de Reservas**
-  - [ ] Listar reservas passadas e futuras do cliente
+- [x] **Visualizar Histórico de Reservas**
+  - [x] Listar reservas passadas e futuras do cliente
 
 ### Etapa 4: Pesquisa e Filtros
 - [x] Implementar **Pesquisa e Filtros de Carros**

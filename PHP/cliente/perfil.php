@@ -27,17 +27,31 @@
 
         <div class="iconesContainer">
             <div class="profileContainer">
-                <?php
-                // Conexão à base de dados
-                require('../baseDados.php');
+                <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
 
-                session_start();
-                ?>
-                <a href="perfil.php">
-                    <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-                </a>
+                <div class="loginNome">
+                    <?php
+                    // Conexão à base de dados
+                    require('../baseDados.php');
+
+                    session_start();
+                    // Verificar se o utilizador está logado
+                    if (isset($_SESSION['nome'])) {
+                        $nome = htmlspecialchars($_SESSION['nome']);
+                        echo "<p>Welcome, $nome!</p>";
+                    } else {
+                        echo "<p>Please login</p>";
+                    }
+                    ?>
+                </div>
             </div>
-            <div>
+
+            <div class="tituloGeral opcoesCont" id="opcoesCont">
+                <a href="perfil.php">
+                    <div class="sobreEfeito opcoes account" id="acount">
+                        <p>MY ACCOUNT</p>
+                    </div>
+                </a>
                 <?php
                 // Conexão à base de dados
                 require('../baseDados.php');
@@ -46,7 +60,9 @@
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../logout.php' class='btn-logout'>
-                    <img class='icones' id='logout' src='/IMAGENS/logout.png' alt='logout'>
+                    <div class='sobreEfeito opcoes logout' id='logout'>
+                        <p>LOGOUT</p>
+                    </div>
                 </a>
                 ";
                 }
@@ -59,13 +75,55 @@
         <div class="cartBar" id="cartBar">
             <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
-                <div class="item">
-                    <div class="itemImg">
-                    </div>
-                    <div class=" itemModelo">
+                <?php
+                // Conexão à base de dados
+                require('../baseDados.php');
 
-                    </div>
-                </div>
+                // Query para buscar o histórico de reservas
+                $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, carro.modelo, carro.img
+                                  FROM reserva, carro
+                                  WHERE reserva.carro_matricula = carro.matricula 
+                                  ORDER BY reserva.data_inicio DESC";
+
+                $resultadosReservas = pg_query($connection, $queryReservas);
+
+                if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
+                    echo "<ul class='tituloGeral'>";
+                    while ($reserva = pg_fetch_assoc($resultadosReservas)) {
+                        // Lista de Reservas do utilizador
+                        echo "
+                            <li>
+                                <div class='listaItem'>
+                                    <div class='textoTitulo item itemModelo'>
+                                        " . htmlspecialchars($reserva['modelo']) . "
+                                    </div>
+                                    <div class='cartaoZinho'>
+                                        <div class='item itemImg'>
+                                            <img class='imgAba' src='" . htmlspecialchars($reserva['img']) . "' alt='carro'>
+                                        </div>     
+                                        <div class='textoAba'>
+                                            <div class='textoGeral item itemMatricula'>
+                                                <p>RP: " . htmlspecialchars($reserva['carro_matricula']) . "</p>
+                                            </div>
+                                            <div class='textoGeral item itemInicio'>
+                                                <p>SD: " . htmlspecialchars($reserva['data_inicio']) . "</p>
+                                            </div>
+                                            <div class='textoGeral item itemFim'>
+                                                <p>ED: " . htmlspecialchars($reserva['data_fim']) . "</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <hr>
+                            <br>
+                        ";
+                    }
+                    echo "</ul>";
+                } else {
+                    echo "<p class='textoGeral'>No reservations found.</p>";
+                }
+                ?>
             </div>
         </div>
 
@@ -79,11 +137,11 @@
                 // Verificar se o utilizador está logado
                 if (isset($_SESSION['nome'])) {
 
-                    $nome = $_SESSION['nome'];
+                    $nome = pg_escape_string($connection, $_SESSION['nome']);
                     $query = "SELECT pessoa.nome, pessoa.cc, pessoa.data_nasc, pessoa.email, pessoa.password, cliente.saldo 
-                            FROM pessoa, cliente 
-                            WHERE pessoa.nome = cliente.pessoa_nome 
-                            AND pessoa.nome = '$nome'";
+                             FROM pessoa, cliente 
+                             WHERE pessoa.nome = cliente.pessoa_nome 
+                             AND pessoa.nome = '$nome'";
 
                     // Executa a query
                     $resultados = pg_query($connection, $query);
@@ -117,16 +175,49 @@
                                         <span class='textoGeral specific'>Password: </span>
                                         <span class='textoGeral'>" . htmlspecialchars($utilizador['password']) . "</span>
                                     </li>
-                                    <h3 class='tituloGeral balance'>AccountBalance</h3>
+                                    <h3 class='tituloGeral balance'>Account Balance</h3>
                                     <li>
                                         <span class='textoGeral'>" . htmlspecialchars($utilizador['saldo']) . "€</span>
                                     </li>
-                                    <h3 class='tituloGeral balance'>Reservation History</h3>
-                                    <li>
-                                        <span class='textoGeral'></span>
-                                    </li>
-                                </ul>
+                                    <h3 class='tituloGeral balance'>Reservation History</h3>";
 
+                        // Query que vai buscar às duas tabelas (reserva e carro) os dados de reserva
+                        $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, carro.modelo 
+                                        FROM reserva, carro
+                                        WHERE reserva.carro_matricula = carro.matricula 
+                                        AND reserva.cliente_pessoa_nome = '$nome'
+                                        ORDER BY reserva.data_inicio DESC";
+
+                        $resultadosReservas = pg_query($connection, $queryReservas);
+
+                        if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
+                            echo "<ul class='tituloGeral histReserv'>";
+                            while ($reserva = pg_fetch_assoc($resultadosReservas)) {
+                                // Lista de Reservas do utilizador
+                                echo "
+                                            <li>
+                                                <span class='textoGeral specific'>Car Model: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($reserva['modelo']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Start Date: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($reserva['data_inicio']) . "</span>
+                                            </li>
+                                            <li  class='ultimo'>
+                                                <span class='textoGeral specific'>End Date: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($reserva['data_fim']) . "</span>
+                                            </li>
+                                            <hr>
+                                            <br>
+                                        ";
+                            }
+                            echo "</ul>";
+                        } else {
+                            echo "<p class='textoGeral'>No reservations found.</p>";
+                        }
+
+                        echo "
+                                </ul>
                             </div>
                         ";
                     } else {
@@ -137,6 +228,7 @@
                 }
                 ?>
             </div>
+
         </section>
 
     </main>

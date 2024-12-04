@@ -50,12 +50,11 @@ O objetivo principal do projeto é implementar um site dinâmico usando **PHP** 
 
 ## Equipe
 
-- **[Nome do Aluno 1]** - [Responsabilidades e Tarefas para Meta 1 e Meta 2]
-- **[Nome do Aluno 2]** - [Responsabilidades e Tarefas para Meta 1 e Meta 2]
+- **[Maria Miguel Pedro - 2022215966]** - [Responsabilidades e Tarefas para Meta 1 e Meta 2]
+- **[Carolina Freire Resende - Nr de Estudante]** - [Responsabilidades e Tarefas para Meta 1 e Meta 2]
 
 ---
 
 ## Considerações Finais
 Este projeto explora os conceitos de sistemas de informação aplicados ao gerenciamento de uma frota de carros, permitindo que os alunos desenvolvam habilidades em PHP, PostgreSQL, e design de banco de dados. A simplicidade do frontend contrasta com a complexidade das operações de backend, refletindo o foco do projeto em lógica de negócios e operações de banco de dados.
 
-Para qualquer dúvida ou sugestão, entre em contato conosco.

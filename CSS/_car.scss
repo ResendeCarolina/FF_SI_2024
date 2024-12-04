@@ -103,3 +103,62 @@
 .erroCar{
   padding: 150px 150px 0px 150px;
 }
+
+// #calendarContainer {
+//     width: 300px;
+//     margin: 20px auto;
+//     border: 1px solid #ddd;
+//     border-radius: 10px;
+//     overflow: hidden;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//     font-family: Arial, sans-serif;
+// }
+
+// #calendarHeader {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     background-color: #007BFF;
+//     color: white;
+//     padding: 10px;
+// }
+
+// #calendarHeader button {
+//     background: none;
+//     border: none;
+//     color: white;
+//     font-size: 18px;
+//     cursor: pointer;
+// }
+
+// #calendarGrid {
+//     display: grid;
+//     grid-template-columns: repeat(7, 1fr);
+//     gap: 2px;
+//     background-color: #f9f9f9;
+//     padding: 10px;
+// }
+
+// #calendarGrid div {
+//     text-align: center;
+//     padding: 10px;
+//     background: white;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     font-size: 14px;
+// }
+
+// #calendarGrid .disabled {
+//     background: #f5a9a9; /* Cor das datas reservadas */
+//     cursor: not-allowed;
+//     color: #888;
+// }
+
+// #calendarGrid .available {
+//     background: #d4edda; /* Cor das datas disponíveis */
+//     cursor: pointer;
+// }
+
+// #calendarGrid div:hover:not(.disabled) {
+//     background: #c8e6c9;
+// }
