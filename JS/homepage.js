@@ -1,5 +1,3 @@
-console.log("ola");
-
 let registationForm = document.getElementById("registationForm");
 
 /* registationForm.addEventListener("submit", () => console.log("cenas")) */

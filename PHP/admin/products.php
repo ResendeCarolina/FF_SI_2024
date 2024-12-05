@@ -111,7 +111,9 @@
                 </div>
 
                 <div>
-                    <button class="tituloGeral botaoGeral adicionar">ADD PRODUCT</button>
+                    <a href="addproduct.php">
+                        <button class="tituloGeral botaoGeral adicionar">ADD PRODUCT</button>
+                    </a>
                 </div>
 
 
@@ -199,7 +201,7 @@
             </div>
         </section>
     </main>
-    <footer class="textoGeral fourthSection" id="fourthSection">
+    <footer class=" textoGeral fourthSection" id="fourthSection">
         <div class="conteudoFooter">
             <div class="iconesContact">
                 <img class="icoC" id="mail" src="/IMAGENS/pictogramaMail.jpg" alt="iconeMail">

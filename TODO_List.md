@@ -32,8 +32,8 @@
 ### Etapa 5: Funcionalidades do Administrador
 - [ ] **Visualizar todos os Carros** com detalhes e estatísticas
   - [ ] Número de reservas e períodos de reserva para cada carro
-- [ ] **Adicionar Novo Carro** ao sistema
-  - [ ] Formulário de criação com detalhes do carro e custo diário para novas reservas
+- [x] **Adicionar Novo Carro** ao sistema
+  - [x] Formulário de criação com detalhes do carro e custo diário para novas reservas
 - [ ] **Alterar Visibilidade do Carro**
   - [ ] Função para ocultar carros que não estão alugados ou têm reservas futuras
   - [ ] Função para tornar um carro oculto visível novamente
@@ -41,12 +41,12 @@
   - [ ] Implementar histórico de preços para rastrear alterações ao longo do tempo
 
 ### Etapa 6: Estatísticas Administrativas
-- [ ] **Visualizar Estatísticas Gerais do Sistema**
-  - [ ] Total de carros
-  - [ ] Total de utilizadores que já reservaram carros
-  - [ ] Número médio de reservas por utilizador
-  - [ ] Custo médio de um carro com base nos preços atuais
-  - [ ] Uma estatística adicional relevante (ex.: carro mais reservado)
+- [x] **Visualizar Estatísticas Gerais do Sistema**
+  - [x] Total de carros
+  - [x] Total de utilizadores que já reservaram carros
+  - [x] Número médio de reservas por utilizador
+  - [x] Custo médio de um carro com base nos preços atuais
+  - [x] Uma estatística adicional relevante (ex.: carro mais reservado)
 
 ## Funcionalidades Opcionais (Melhorias)
 

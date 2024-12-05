@@ -169,8 +169,9 @@ html {
 }
 
 .secondSection {
-  height: 580px;
-  margin-top: 150px;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 100px 0;
 }
 
 .textContainer {
@@ -189,11 +190,6 @@ html {
 
 .text > p > strong {
   color: darkred;
-}
-
-.thirdSection {
-  height: 400px;
-  margin-bottom: 30px;
 }
 
 .checkthisout {
@@ -221,6 +217,19 @@ html {
 .carro {
   color: inherit;
   color: black;
+}
+
+.thirdSection {
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 100px;
+}
+
+.estatisticas_lista {
+  list-style: none;
+}
+.estatisticas_lista li {
+  margin-bottom: 20px;
 }
 
 .secondPage {
@@ -838,4 +847,38 @@ footer {
 
 .ultimo {
   margin-bottom: 20px;
+}
+
+.mainContainer {
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 150px 0 100px 0;
+}
+
+.formAdicionarCarro {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.inputGeral {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.botaoAddCar {
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  border: 3px solid black;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.botaoAddCar:hover {
+  background-color: darkred;
+  color: white;
 }/*# sourceMappingURL=main.css.map */

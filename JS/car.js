@@ -94,9 +94,16 @@ document.getElementById('carForm').addEventListener('submit', function(event) {
                 })
                 .then(response => response.text()) // Lê a resposta do PHP como texto
                 .then(data => {
-                    console.log('Resposta do servidor:', data); // Exibe a resposta no console
+                  console.log('Resposta do servidor:', data); // Exibe a resposta no console
+                  toggleCarrinho();
                 })
                 .catch(error => {
                     console.error('Erro na submissão:', error);
                 });
-        });
+});
+        
+
+// document.getElementById('carForm').addEventListener('submit', function (event) {
+//   event.preventDefault(); // Evita o refresh da página
+//   toggleCarrinho();
+// });

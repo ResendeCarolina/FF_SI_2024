@@ -38,8 +38,8 @@
 }
 
 .secondSection{
-  height: 580px;
-  margin-top: 150px;
+  height: fit-content;
+  margin: 100px 0;
 }
 
 .textContainer{
@@ -58,11 +58,6 @@
 
 .text>p>strong{
   color: darkred;
-}
-
-.thirdSection{
-  height: 400px;
-  margin-bottom: 30px;
 }
 
 .checkthisout{
@@ -91,4 +86,17 @@
 .carro{
   color: inherit;
   color: black;
+}
+
+.thirdSection{
+  height: fit-content;
+  margin-bottom: 100px;
+}
+
+.estatisticas_lista {
+  list-style: none;
+
+  & li {
+    margin-bottom: 20px;
+  }
 }

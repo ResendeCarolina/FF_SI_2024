@@ -37,9 +37,3 @@ function foraCarrinho(event) {
     aba.classList.remove("show");
   }
 }
-
-document.getElementById('carForm').addEventListener('submit', function (event) {
-  event.preventDefault(); // Evita o refresh da página
-
-  toggleCarrinho();
-});

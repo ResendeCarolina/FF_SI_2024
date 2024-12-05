@@ -42,47 +42,47 @@ function isDateReserved(date) {
     });
 }
 
-// Controle de navegação do calendário
-let currentYear = new Date().getFullYear();
-let currentMonth = new Date().getMonth();
+// // Controle de navegação do calendário
+// let currentYear = new Date().getFullYear();
+// let currentMonth = new Date().getMonth();
 
-function updateCalendar() {
-    const currentMonthName = new Date(currentYear, currentMonth).toLocaleString("default", { month: "long" });
-    document.getElementById("currentMonth").textContent = `${currentMonthName} ${currentYear}`;
-    createCalendar(currentYear, currentMonth);
-    console.log("updateCalendar");
-}
+// function updateCalendar() {
+//     const currentMonthName = new Date(currentYear, currentMonth).toLocaleString("default", { month: "long" });
+//     document.getElementById("currentMonth").textContent = `${currentMonthName} ${currentYear}`;
+//     createCalendar(currentYear, currentMonth);
+//     console.log("updateCalendar");
+// }
 
-document.getElementById("prevMonth").addEventListener("click", () => {
-    currentMonth--;
-    if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-    }
-    updateCalendar();
-});
+// document.getElementById("prevMonth").addEventListener("click", () => {
+//     currentMonth--;
+//     if (currentMonth < 0) {
+//         currentMonth = 11;
+//         currentYear--;
+//     }
+//     updateCalendar();
+// });
 
-document.getElementById("nextMonth").addEventListener("click", () => {
-    currentMonth++;
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-    }
-    updateCalendar();
-});
+// document.getElementById("nextMonth").addEventListener("click", () => {
+//     currentMonth++;
+//     if (currentMonth > 11) {
+//         currentMonth = 0;
+//         currentYear++;
+//     }
+//     updateCalendar();
+// });
 
-// Inicializa o calendário
-updateCalendar();
+// // Inicializa o calendário
+// updateCalendar();
 
-document.addEventListener('DOMContentLoaded', function () {
-    const matricula = document.getElementById('matricula').value;
+// document.addEventListener('DOMContentLoaded', function () {
+//     const matricula = document.getElementById('matricula').value;
 
-    fetch(`../get_reserved_dates.php?matricula=${encodeURIComponent(matricula)}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            reservations.push(...data); // Adiciona as reservas obtidas ao array
-            updateCalendar(); // Atualiza o calendário
-        })
-        .catch(error => console.error("Error fetching reserved dates:", error));
-});
+//     fetch(`../get_reserved_dates.php?matricula=${encodeURIComponent(matricula)}`)
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data);
+//             reservations.push(...data); // Adiciona as reservas obtidas ao array
+//             updateCalendar(); // Atualiza o calendário
+//         })
+//         .catch(error => console.error("Error fetching reserved dates:", error));
+// });

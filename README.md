@@ -51,7 +51,7 @@ O objetivo principal do projeto é implementar um site dinâmico usando **PHP** 
 ## Equipe
 
 - **[Maria Miguel Pedro - 2022215966]** - [Responsabilidades e Tarefas para Meta 1 e Meta 2]
-- **[Carolina Freire Resende - Nr de Estudante]** - [Responsabilidades e Tarefas para Meta 1 e Meta 2]
+- **[Carolina Freire Resende - 2021211132]** - [Responsabilidades e Tarefas para Meta 1 e Meta 2]
 
 ---
 
