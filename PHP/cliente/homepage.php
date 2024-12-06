@@ -12,7 +12,7 @@
     <header class="cabecalhoHP">
         <div class="logotipo">
             <a href="homepage.php">
-                <img id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
+                <img class="logo" id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
             </a>
         </div>
 
@@ -29,7 +29,7 @@
             <div class="profileContainer">
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
 
-                <div class="loginNome">
+                <div class="textoGeral loginNome">
                     <?php
                     // Conexão à base de dados
                     require('../baseDados.php');

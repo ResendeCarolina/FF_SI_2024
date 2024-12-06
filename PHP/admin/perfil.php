@@ -12,7 +12,7 @@
     <header class="cabecalhoGeral">
         <div class="logotipo">
             <a href="homepage.php">
-                <img id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
+                <img class="logo" id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
             </a>
         </div>
 
@@ -27,17 +27,31 @@
 
         <div class="iconesContainer">
             <div class="profileContainer">
-                <?php
-                // Conexão à base de dados
-                require('../baseDados.php');
+                <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
 
-                session_start();
-                ?>
-                <a href="perfil.php">
-                    <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-                </a>
+                <div class="textoGeral loginNome">
+                    <?php
+                    // Conexão à base de dados
+                    require('../baseDados.php');
+
+                    session_start();
+                    // Verificar se o utilizador está logado
+                    if (isset($_SESSION['nome'])) {
+                        $nome = htmlspecialchars($_SESSION['nome']);
+                        echo "<p>Welcome, $nome!</p>";
+                    } else {
+                        echo "<p>Please login</p>";
+                    }
+                    ?>
+                </div>
             </div>
-            <div>
+
+            <div class="tituloGeral opcoesCont" id="opcoesCont">
+                <a href="perfil.php">
+                    <div class="sobreEfeito opcoes account" id="acount">
+                        <p>MY ACCOUNT</p>
+                    </div>
+                </a>
                 <?php
                 // Conexão à base de dados
                 require('../baseDados.php');
@@ -46,7 +60,9 @@
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../logout.php' class='btn-logout'>
-                    <img class='icones' id='logout' src='/IMAGENS/logout.png' alt='logout'>
+                    <div class='sobreEfeito opcoes logout' id='logout'>
+                        <p>LOGOUT</p>
+                    </div>
                 </a>
                 ";
                 }
@@ -80,10 +96,9 @@
                 if (isset($_SESSION['nome'])) {
 
                     $nome = $_SESSION['nome'];
-                    $query = "SELECT pessoa.nome, pessoa.cc, pessoa.data_nasc, pessoa.email, pessoa.password, cliente.saldo 
-                            FROM pessoa, cliente 
-                            WHERE pessoa.nome = cliente.pessoa_nome 
-                            AND pessoa.nome = '$nome'";
+                    $query = "SELECT pessoa.nome, pessoa.cc, pessoa.data_nasc, pessoa.email, pessoa.password
+                            FROM pessoa
+                            WHERE pessoa.nome = '$nome'";
 
                     // Executa a query
                     $resultados = pg_query($connection, $query);
@@ -116,14 +131,6 @@
                                     <li>
                                         <span class='textoGeral specific'>Password: </span>
                                         <span class='textoGeral'>" . htmlspecialchars($utilizador['password']) . "</span>
-                                    </li>
-                                    <h3 class='tituloGeral balance'>AccountBalance</h3>
-                                    <li>
-                                        <span class='textoGeral'>" . htmlspecialchars($utilizador['saldo']) . "€</span>
-                                    </li>
-                                    <h3 class='tituloGeral balance'>Reservation History</h3>
-                                    <li>
-                                        <span class='textoGeral'></span>
                                     </li>
                                 </ul>
 

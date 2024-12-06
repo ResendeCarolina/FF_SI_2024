@@ -7,34 +7,35 @@
 }
  
 header {
-  height: 80px;
+  height: 80px;  
+  width: 100%;  
+  top: 0px;
+  padding-left: 150px;
+  padding-right: 150px;
   position: fixed;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
-  top: 0px;
 }
   
 .logotipo{
-  position: absolute;
-  left: 150px;
-}
-  
-#logo{
-  width: 30px;
+  position: relative; 
   height: 30px;
-  display: flex;
-  align-items: center;
+  width: auto;
 }
   
-.menu{
+.logo{
+  height: 100%;
+}
+  
+.menuContainer{
+  width: 100%;
+  position: relative;  
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  width: 100%;
 }
 
 .menu>a{
@@ -45,24 +46,13 @@ header {
 }
   
 .iconesContainer{
-  width: 100%;
-  display: flex;
-  justify-content: end;
-  flex-direction: row;
-  position: absolute;
-  gap: 10px;
-  right: 150px;
-  z-index: -1;/*permite que possamos navegar através do header na mesma*/
+  position: relative;
 }
 
 .profileContainer {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  font-family: "Archivo Narrow", sans-serif;
   align-items: center;
   color: white;
-  gap: 10px;
 }
 
 .loginNome{
@@ -70,8 +60,6 @@ header {
   line-height: 10pt;
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin-left: -10px;
 }
 
 .icones{ 
@@ -85,7 +73,7 @@ header {
 
 .opcoesCont{
   position: absolute;
-  margin-top: 40px; 
+  margin-top: 10px; 
   margin-right: 10px;
   display: none;
 }
@@ -99,8 +87,8 @@ header {
   width: 90px;
   height: 30px;
   background-color: black;
-  border: 3px solid white;
-  border-radius: 15px;
+  border: 2px solid white;
+  border-radius: 5px;
   font-size: 10pt;
   display: flex;
   flex-direction: column;

@@ -12,7 +12,7 @@
     <header class="cabecalhoGeral">
         <div class="logotipo">
             <a href="homepage.php">
-                <img id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
+                <img class="logo" id="logo" src="/IMAGENS/LogoBranco.png" alt="logotipo">
             </a>
         </div>
 
@@ -20,24 +20,38 @@
             <nav class="menu">
                 <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
-                <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
+                <a class="tituloGeral sobreEfeito" id="secao3" href="homepage.php#fourthSection">CONTACTS</a>
                 <a class="tituloGeral sobreEfeito" id="reserva">RESERVAS</a>
             </nav>
         </div>
 
         <div class="iconesContainer">
             <div class="profileContainer">
-                <?php
-                // Conexão à base de dados
-                require('../baseDados.php');
+                <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
 
-                session_start();
-                ?>
-                <a href="perfil.php">
-                    <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-                </a>
+                <div class="textoGeral loginNome">
+                    <?php
+                    // Conexão à base de dados
+                    require('../baseDados.php');
+
+                    session_start();
+                    // Verificar se o utilizador está logado
+                    if (isset($_SESSION['nome'])) {
+                        $nome = htmlspecialchars($_SESSION['nome']);
+                        echo "<p>Welcome, $nome!</p>";
+                    } else {
+                        echo "<p>Please login</p>";
+                    }
+                    ?>
+                </div>
             </div>
-            <div>
+
+            <div class="tituloGeral opcoesCont" id="opcoesCont">
+                <a href="perfil.php">
+                    <div class="sobreEfeito opcoes account" id="acount">
+                        <p>MY ACCOUNT</p>
+                    </div>
+                </a>
                 <?php
                 // Conexão à base de dados
                 require('../baseDados.php');
@@ -46,7 +60,9 @@
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../logout.php' class='btn-logout'>
-                    <img class='icones' id='logout' src='/IMAGENS/logout.png' alt='logout'>
+                    <div class='sobreEfeito opcoes logout' id='logout'>
+                        <p>LOGOUT</p>
+                    </div>
                 </a>
                 ";
                 }
@@ -68,7 +84,7 @@
                 </div>
             </div>
         </div>
-        
+
         <?php
         require('../baseDados.php'); // Conexão com a base de dados
 
