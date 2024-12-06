@@ -10,11 +10,11 @@ if (isset($_SESSION['user'])) {
     session_destroy();
 
     // Redireciona para a página de login
-    header('Location: login.php');
+    header('Location: ../comuns/login.php');
     exit();
 } else {
     // Se não estiver logado, redireciona para a página de login diretamente
-    header('Location: login.php');
+    header('Location: ../comuns/login.php');
     exit();
 }
 ?>

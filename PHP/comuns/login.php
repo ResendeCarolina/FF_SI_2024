@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="/CSS/main.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <?php
 
         // Conexão à base de dados
-        require('baseDados.php');
+        require('../comuns/baseDados.php');
 
         // PHP para submeter os dados para a base de dados
         if (isset($_REQUEST['mail'], $_REQUEST['pwd'])) {

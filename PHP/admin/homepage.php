@@ -33,7 +33,7 @@
                 <div class="textoGeral loginNome">
                     <?php
                     // Conexão à base de dados
-                    require('../baseDados.php');
+                    require('../comuns/baseDados.php');
 
                     session_start();
                     // Verificar se o utilizador está logado
@@ -55,12 +55,12 @@
                 </a>
                 <?php
                 // Conexão à base de dados
-                require('../baseDados.php');
+                require('../comuns/baseDados.php');
 
 
                 if (isset($_SESSION['nome'])) {
                     echo "
-                <a href='../logout.php' class='btn-logout'>
+                <a href='../comuns/logout.php' class='btn-logout'>
                     <div class='sobreEfeito opcoes logout' id='logout'>
                         <p>LOGOUT</p>
                     </div>
@@ -134,7 +134,7 @@
 
                 <?php
                 // Conexão à base de dados
-                require('../baseDados.php');
+                require('../comuns/baseDados.php');
 
                 // Estatísticas
                 $stats = [];
@@ -230,7 +230,7 @@
 
     <script>
         // Fetch data from PHP
-        fetch('../graficos.php')
+        fetch('../comuns/graficos.php')
             .then(response => response.json())
             .then(data => {
                 console.log(data)

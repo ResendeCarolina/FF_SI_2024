@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="/CSS/main.css">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
         <?php
         // Conexão com a base de dados
-        require 'baseDados.php';
+        require('../comuns/baseDados.php');
 
         // Processamento do formulário
         if (isset($_REQUEST['nome'], $_REQUEST['mail'], $_REQUEST['pwd'], $_REQUEST['cc'], $_REQUEST['birth'])) {
@@ -41,7 +41,7 @@
                     $resultAdmin = pg_query($connection, $queryAdmin);
                     if ($resultAdmin) {
                         pg_query($connection, "COMMIT");
-                        header("Location: /PHP/login.php");
+                        header("Location: /PHP/comuns/login.php");
                         exit();
                     } else {
                         pg_query($connection, "ROLLBACK");
@@ -57,7 +57,7 @@
                     $resultCliente = pg_query($connection, $queryCliente);
                     if ($resultCliente) {
                         pg_query($connection, "COMMIT");
-                        header("Location: /PHP/login.php");
+                        header("Location: /PHP/comuns/login.php");
                         exit();
                     } else {
                         pg_query($connection, "ROLLBACK");

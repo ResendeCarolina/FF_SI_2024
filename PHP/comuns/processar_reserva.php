@@ -1,7 +1,7 @@
 <?php
 session_start(); // Inicia a sessão
 
-require('baseDados.php'); // Conexão ao banco de dados
+require('../comuns/baseDados.php'); // Conexão ao banco de dados
 
 if (isset($_POST['startDate'], $_POST['endDate'], $_POST['matricula'])) {
     $dataInicio = pg_escape_string($connection, $_POST['startDate']);

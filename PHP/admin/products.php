@@ -32,7 +32,7 @@
                 <div class="textoGeral loginNome">
                     <?php
                     // Conexão à base de dados
-                    require('../baseDados.php');
+                    require('../comuns/baseDados.php');
 
                     session_start();
                     // Verificar se o utilizador está logado
@@ -54,12 +54,12 @@
                 </a>
                 <?php
                 // Conexão à base de dados
-                require('../baseDados.php');
+                require('../comuns/baseDados.php');
 
 
                 if (isset($_SESSION['nome'])) {
                     echo "
-                <a href='../logout.php' class='btn-logout'>
+                <a href='../comuns/logout.php' class='btn-logout'>
                     <div class='sobreEfeito opcoes logout' id='logout'>
                         <p>LOGOUT</p>
                     </div>
@@ -136,7 +136,7 @@
                 <div class="gallery" id="gallery">
                     <?php
                     // Conexão à base de dados
-                    require('../baseDados.php');
+                    require('../comuns/baseDados.php');
 
                     // Capturar os parâmetros da pesquisa e filtros
                     $search = pg_escape_string($connection, $_GET['search'] ?? '');
