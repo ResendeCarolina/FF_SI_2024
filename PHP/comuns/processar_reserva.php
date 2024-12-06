@@ -1,4 +1,4 @@
-<!--ficheiro que vai buscar os valores submetidos no formulário do 
+<!--ficheiro que vai buscar os valores submetidos no formulário (à função JS) do 
 carro e os envia para a tabela reserva da base de dados-->
 
 <?php

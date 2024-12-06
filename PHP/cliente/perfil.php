@@ -83,6 +83,7 @@
                 $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, carro.modelo, carro.img
                                   FROM reserva, carro
                                   WHERE reserva.carro_matricula = carro.matricula 
+                                  AND reserva.cliente_pessoa_nome = '$nome'
                                   ORDER BY reserva.data_inicio DESC";
 
                 $resultadosReservas = pg_query($connection, $queryReservas);

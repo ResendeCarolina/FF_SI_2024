@@ -52,8 +52,8 @@ reservaBtn.addEventListener('mouseup', function () {
 
 
 
-/*----------------- função que envia os dados do formulário (startDate, endDate, matricula) 
-para o ficheiro PHP processar_reserva.php usando o método POST. ----------------*/
+/*----------------- função que guarda os dados submetidos pelo  form do Car e 
+ os envia para o ficheiro PHP processar_reserva.php usando o método POST. ----------------*/
 
 let carroForm = document.getElementById('carForm');
 
