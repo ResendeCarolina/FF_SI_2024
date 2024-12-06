@@ -132,57 +132,54 @@
             </div>
         </div>
 
-        <section class="thirdPage">
-            <?php
+        <?php
 
-            // Verifica se o atributo "matricula" foi enviado
-            if (isset($_GET['matricula'])) { //se foi enviado
-                $matricula = pg_escape_string($connection, $_GET['matricula']);
+        // Verifica se o atributo "matricula" foi enviado
+        if (isset($_GET['matricula'])) { //se foi enviado
+            $matricula = pg_escape_string($connection, $_GET['matricula']);
 
-                // Query para buscar os detalhes do carro
-                $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img 
+            // Query para buscar os detalhes do carro
+            $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img 
                 FROM carro 
                 WHERE matricula = '$matricula'";
-                $resultado = pg_query($connection, $query);
+            $resultado = pg_query($connection, $query);
 
-                // Verificar se a consulta foi bem-sucedida
-                if ($resultado && pg_num_rows($resultado) > 0) {
-                    $carro = pg_fetch_assoc($resultado);
+            // Verificar se a consulta foi bem-sucedida
+            if ($resultado && pg_num_rows($resultado) > 0) {
+                $carro = pg_fetch_assoc($resultado);
 
-                    // Exibir as informações do carro
-                    echo "
-                            <div class='thirdPageContainer'> 
+                // Exibir as informações do carro
+                echo "
+                        <section class='thirdPage'>
+                            <div class='thirdPageFC'> 
                                 <h1 class='tituloGeral tituloTP'>" . htmlspecialchars($carro['modelo']) . "</h1>
                                 <div class='detalhesCarro'>
                                     <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
-                                           
-                                    <div class='caractContainer'>
-                                        <div class='caracteristicas'>
-                                            <h1 class='tituloGeral nomeCarro'>Specifications</h1>
-                                            <ul class='tituloGeral topicos'>
-                                                <li>
-                                                    <span class='textoGeral specific'>Registration Plate: </span>
-                                                    <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
-                                                </li>
-                                                <li>
-                                                    <span class='textoGeral specific'>Number of Seats: </span>
-                                                    <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
-                                                </li>
-                                                <li>
-                                                    <span class='textoGeral specific'>Color: </span>
-                                                    <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
-                                                </li>
-                                                <li>
-                                                    <span class='textoGeral specific'>Year: </span>
-                                                    <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
-                                                </li>
-                                                <li>
-                                                    <span class='textoGeral specific'>Cost per Day: </span>
-                                                    <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-
+                                        
+                                    <div class='specificationCont'>
+                                        <h1 class='tituloGeral nomeCarro'>Specifications</h1>
+                                        <ul class='tituloGeral topicos'>
+                                            <li>
+                                                <span class='textoGeral specific'>Registration Plate: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Number of Seats: </span>
+                                                <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Color: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Year: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Cost per Day: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
+                                            </li>
+                                        </ul>                              
                                         <form id='carForm' method='POST'>
                                             <input type='hidden' name='matricula' id='matricula' value='" . htmlspecialchars($carro['matricula']) . "'>
                                             <div class='buttonContainer'>
@@ -202,17 +199,18 @@
                                     </div>
                                 </div>
                             </div>
+                        </section>
                         ";
-                } else {
-                    echo "<p class='textoGeral erro erroCar'>Car not found</p>";
-                }
             } else {
-                echo "<p class='textoGeral erro erroCar'>Not found</p>";
+                echo "<p class='textoGeral erro erroCar'>Car not found</p>";
             }
+        } else {
+            echo "<p class='textoGeral erro erroCar'>Not found</p>";
+        }
 
-            // Fechar a conexão
-            pg_close($connection);
-            ?>
+        // Fechar a conexão
+        pg_close($connection);
+        ?>
 
         </section>
     </main>

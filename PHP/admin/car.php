@@ -83,116 +83,106 @@
             </div>
         </div>
 
-        <section class="thirdPage">
-            <?php
+        <?php
 
-            // Verifica se o atributo "matricula" foi enviado
-            if (isset($_GET['matricula'])) { //se foi enviado
-                $matricula = pg_escape_string($connection, $_GET['matricula']);
+        // Verifica se o atributo "matricula" foi enviado
+        if (isset($_GET['matricula'])) { //se foi enviado
+            $matricula = pg_escape_string($connection, $_GET['matricula']);
 
-                // Query para buscar os detalhes do carro
-                $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img 
-                FROM carro 
-                WHERE matricula = '$matricula'";
-                $resultado = pg_query($connection, $query);
+            // Query para buscar os detalhes do carro
+            $queryCarro = "SELECT carro.matricula, carro.modelo, carro.nmr_lugares, carro.cor, carro.ano, carro.custo_max_dia, carro.img, 
+                                      reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, reserva.cliente_pessoa_nome,
+                              (SELECT COUNT (*) FROM reserva WHERE reserva.carro_matricula = carro.matricula) AS total_reservas 
+                FROM carro, reserva
+                WHERE carro.matricula = reserva.carro_matricula
+                AND matricula = '$matricula'";
 
-                // Verificar se a consulta foi bem-sucedida
-                if ($resultado && pg_num_rows($resultado) > 0) {
-                    $carro = pg_fetch_assoc($resultado);
+            $resultado = pg_query($connection, $queryCarro);
 
-                    // Exibir as informações do carro
-                    echo "
-                            <div class='thirdPageContainer'> 
+            // Verificar se a consulta foi bem-sucedida
+            if ($resultado && pg_num_rows($resultado) > 0) {
+                $carro = pg_fetch_assoc($resultado);
+
+                // Exibir as informações do carro
+                echo "
+                        <section class='thirdPage'>
+                            <div class='thirdPageFC'> 
                                 <h1 class='tituloGeral tituloTP'>" . htmlspecialchars($carro['modelo']) . "</h1>
                                 <div class='detalhesCarro'>
                                     <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
-                                           
-                                    <div class='caractContainer'>
-                                        <div class='caracteristicas'>
-                                            <h1 class='tituloGeral nomeCarro'>Specifications</h1>
-                                            <ul class='tituloGeral topicos'>
-                                                <li>
-                                                    <span class='textoGeral specific'>Registration Plate: </span>
-                                                    <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
-                                                </li>
-                                                <li>
-                                                    <span class='textoGeral specific'>Number of Seats: </span>
-                                                    <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
-                                                </li>
-                                                <li>
-                                                    <span class='textoGeral specific'>Color: </span>
-                                                    <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
-                                                </li>
-                                                <li>
-                                                    <span class='textoGeral specific'>Year: </span>
-                                                    <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
-                                                </li>
-                                                <li>
-                                                    <span class='textoGeral specific'>Cost per Day: </span>
-                                                    <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <form id='carForm' method='POST'>
-                                            <input type='hidden' name='matricula' value='<?php echo htmlspecialchars($matricula); ?>'>
-                                            <div class='buttonContainer'>
-                                                <div>
-                                                    <button class='tituloGeral botaoGeral btn date startBtn' name='startDate'>START</button>
-                                                    <input class='dateInput startDate' type='date' id='startDate' name='endDate'required>
-                                                </div>
-                                                <div>
-                                                    <button class='tituloGeral botaoGeral btn date endBtn'>END</button>
-                                                    <input class='dateInput endDate' type='date' id='endDate' required>
-                                                </div>
-                                                <div>
-                                                    <button type='submit' class='tituloGeral botaoGeral btn carBtn' id='carBtn'>BOOK</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        
+                                    <div class='specificationCont'>
+                                        <h1 class='tituloGeral nomeCarro'>Specifications</h1>
+                                        <ul class='tituloGeral topicos'>
+                                            <li>
+                                                <span class='textoGeral specific'>Registration Plate: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Number of Seats: </span>
+                                                <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Color: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Year: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Cost per Day: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
+                                            </li>
+                                        </ul>                        
                                     </div>
                                 </div>
-                            </div>
+                            </section>
+                            <section class='thirdPage'>
+                                <div class='thirdPageSC' id='second'>
+                                    <h1 class='tituloGeral titutloTP'>Reservations</h1>";
+
+                // Reinicializar o resultado para percorrer as reservas
+                pg_result_seek($resultado, 0);
+
+                echo "<ul class='topicos'>
+                        <li>
+                            <span class='textoGeral specific'>Number of reservations: </span>
+                            <span class='textoGeral'>" . htmlspecialchars($carro['total_reservas']) . "</span>
+                        </li>
+                        <br>
+                        <hr>
+                        <br>
                         ";
-                } else {
-                    echo "<p class='textoGeral erro erroCar'>Car not found</p>";
+                while ($reserva = pg_fetch_assoc($resultado)) {
+                echo "
+                        <li>
+                            <span class='textoGeral specific'>Client: </span>
+                            <span class='textoGeral'>" . htmlspecialchars($reserva['cliente_pessoa_nome']) . "</span>
+                        </li>
+                        <li>
+                            <span class='textoGeral specific'>Start Date: </span>
+                            <span class='textoGeral'>" . htmlspecialchars($reserva['data_inicio']) . "</span>
+                        </li>
+                        <li>
+                            <span class='textoGeral specific'>End Date: </span>
+                            <span class='textoGeral'>" . htmlspecialchars($reserva['data_fim']) . "</span>
+                        </li>
+                        <br>
+                        <hr>
+                        <br>
+                    ";
                 }
+                echo "</ul></div></section>";
             } else {
-                echo "<p class='textoGeral erro erroCar'>Not found</p>";
+                echo "<p class='textoGeral erro erroCar'>Car not found or no reservations available</p>";
             }
-            ?>
+        } else {
+            echo "<p class='textoGeral erro erroCar'>No car selected</p>";
+        }
+        ?>
 
-            <?php
 
-            // Processamento do formulário
-            if (isset($_POST['startDate'], $_POST['endDate'], $_GET['matricula'])) {
-                $dataInicio = pg_escape_string($connection, $_POST['startDate']);
-                $dataFim = pg_escape_string($connection, $_POST['endDate']);
-                $matricula = pg_escape_string($connection, $_GET['matricula']);
-                $clienteNome = pg_escape_string($connection, $_SESSION['nome']);
-
-                // Começa a transação
-                pg_query($connection, "BEGIN");
-
-                // Insere na tabela pessoa
-                $queryReserva = "INSERT INTO reserva (data_inicio, data_fim, carro_matricula, cliente_pessoa_nome) 
-                    VALUES ('$dataInicio', '$dataFim', '$matricula', '$clienteNome')";
-
-                $resultReserva = pg_query($connection, $queryReserva);
-
-                if ($resultReserva) {
-                    pg_query($connection, "COMMIT");
-                    echo "console.log(Reservation made successfully)";
-                } else {
-                    pg_query($connection, "ROLLBACK");
-                    echo "console.log(Error making reservation)";
-                }
-            }
-
-            // Fechar a conexão
-            pg_close($connection);
-            ?>
-
-        </section>
     </main>
     <script src="/JS/car.js"></script>
     <script src="/JS/header.js"></script>
