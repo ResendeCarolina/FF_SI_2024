@@ -79,51 +79,56 @@
                 // Conexão à base de dados
                 require('../comuns/baseDados.php');
 
-                // Query para buscar o histórico de reservas
-                $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, carro.modelo, carro.img
-                                  FROM reserva, carro
-                                  WHERE reserva.carro_matricula = carro.matricula 
-                                  AND reserva.cliente_pessoa_nome = '$nome'
-                                  ORDER BY reserva.data_inicio DESC";
+                if (isset($_SESSION['nome'])) {
+                    // Query para buscar o histórico de reservas
+                    $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, carro.modelo, carro.img
+                                    FROM reserva, carro
+                                    WHERE reserva.carro_matricula = carro.matricula 
+                                    AND reserva.cliente_pessoa_nome = '$nome'
+                                    ORDER BY reserva.data_inicio DESC";
 
-                $resultadosReservas = pg_query($connection, $queryReservas);
+                    $resultadosReservas = pg_query($connection, $queryReservas);
 
-                if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
-                    echo "<ul class='tituloGeral'>";
-                    while ($reserva = pg_fetch_assoc($resultadosReservas)) {
-                        // Lista de Reservas do utilizador
-                        echo "
-                            <li>
-                                <div class='listaItem'>
-                                    <div class='textoTitulo item itemModelo'>
-                                        " . htmlspecialchars($reserva['modelo']) . "
-                                    </div>
-                                    <div class='cartaoZinho'>
-                                        <div class='item itemImg'>
-                                            <img class='imgAba' src='" . htmlspecialchars($reserva['img']) . "' alt='carro'>
-                                        </div>     
-                                        <div class='textoAba'>
-                                            <div class='textoGeral item itemMatricula'>
-                                                <p>RP: " . htmlspecialchars($reserva['carro_matricula']) . "</p>
-                                            </div>
-                                            <div class='textoGeral item itemInicio'>
-                                                <p>SD: " . htmlspecialchars($reserva['data_inicio']) . "</p>
-                                            </div>
-                                            <div class='textoGeral item itemFim'>
-                                                <p>ED: " . htmlspecialchars($reserva['data_fim']) . "</p>
+                    if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
+                        echo "<ul class='tituloGeral'>";
+                        while ($reserva = pg_fetch_assoc($resultadosReservas)) {
+                            // Lista de Reservas do utilizador
+                            echo "
+                                <li>
+                                    <div class='listaItem'>
+                                        <div class='textoTitulo item itemModelo'>
+                                            " . htmlspecialchars($reserva['modelo']) . "
+                                        </div>
+                                        <div class='cartaoZinho'>
+                                            <div class='item itemImg'>
+                                                <img class='imgAba' src='" . htmlspecialchars($reserva['img']) . "' alt='carro'>
+                                            </div>     
+                                            <div class='textoAba'>
+                                                <div class='textoGeral item itemMatricula'>
+                                                    <p>RP: " . htmlspecialchars($reserva['carro_matricula']) . "</p>
+                                                </div>
+                                                <div class='textoGeral item itemInicio'>
+                                                    <p>SD: " . htmlspecialchars($reserva['data_inicio']) . "</p>
+                                                </div>
+                                                <div class='textoGeral item itemFim'>
+                                                    <p>ED: " . htmlspecialchars($reserva['data_fim']) . "</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                            <hr>
-                            <br>
-                        ";
+                                </li>
+                                <hr>
+                                <br>
+                            ";
+                        }
+                        echo "</ul>";
+                    } else {
+                        echo "<p class='textoGeral'>No reservations found</p>";
                     }
-                    echo "</ul>";
                 } else {
-                    echo "<p class='textoGeral'>No reservations found.</p>";
+                    echo "<p class='textoGeral'>No reservations found</p>";
                 }
+                
                 ?>
             </div>
         </div>
