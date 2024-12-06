@@ -30,8 +30,8 @@
   - [x] Opção de ordenação dos resultados (por preço, marca, etc.)
 
 ### Etapa 5: Funcionalidades do Administrador
-- [ ] **Visualizar todos os Carros** com detalhes e estatísticas
-  - [ ] Número de reservas e períodos de reserva para cada carro
+- [x] **Visualizar todos os Carros** com detalhes e estatísticas
+  - [x] Número de reservas e períodos de reserva para cada carro
 - [x] **Adicionar Novo Carro** ao sistema
   - [x] Formulário de criação com detalhes do carro e custo diário para novas reservas
 - [ ] **Alterar Visibilidade do Carro**
