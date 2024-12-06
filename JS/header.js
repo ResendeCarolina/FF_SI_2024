@@ -22,7 +22,7 @@ botao.addEventListener('click', toggleCarrinho);
 document.addEventListener('click', foraCarrinho);
 aba.addEventListener('click', dentroCarrinho);
 
-function toggleCarrinho(event) {
+function toggleCarrinho() {
   aba.classList.toggle("show");
 }
 

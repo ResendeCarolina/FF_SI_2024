@@ -130,9 +130,6 @@
         <section class="secondPage">
             <div class="secondPageContainer">
 
-                <!--titleSP - tituloSecondPage-->
-                <h2 class="tituloGeral title" id="titleSP">Models</h2>
-
                 <h5 class="textoGeral subtitle">Search your dream car</h5>
                 <div class="searchBar">
 

@@ -71,7 +71,7 @@
         </div>
     </header>
 
-    <main class="mainContainer">
+    <main>
         <div class="cartBar" id="cartBar">
             <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
@@ -121,58 +121,43 @@
         }
         ?>
 
+        <section class="addCarPage">
+            <div class="addCarPageContainer">
 
-        <h2 class="tituloGeral title">Adicionar Novo Carro</h2>
+                <!--titleAC de Add Car-->
+                <h2 class="tituloGeral title" id="titleAC">New Product</h2>
 
-        <form method="POST" class="formAdicionarCarro">
-            <label for="matricula" class="textoGeral">Matrícula:</label>
-            <input type="text" id="matricula" name="matricula" class="inputGeral" maxlength="20" required>
+                <form method="POST" class="formAdicionarCarro">
+                    <label for="matricula" class="textoGeral">Matrícula:</label>
+                    <input type="text" id="matricula" name="matricula" class="inputGeral" maxlength="20" required>
 
-            <label for="modelo" class="textoGeral">Modelo:</label>
-            <input type="text" id="modelo" name="modelo" class="inputGeral" required>
+                    <label for="modelo" class="textoGeral">Modelo:</label>
+                    <input type="text" id="modelo" name="modelo" class="inputGeral" required>
 
-            <label for="nmr_lugares" class="textoGeral">Número de Lugares:</label>
-            <input type="number" id="nmr_lugares" name="nmr_lugares" class="inputGeral" required>
+                    <label for="nmr_lugares" class="textoGeral">Número de Lugares:</label>
+                    <input type="number" id="nmr_lugares" name="nmr_lugares" class="inputGeral" required>
 
-            <label for="cor" class="textoGeral">Cor:</label>
-            <input type="text" id="cor" name="cor" class="inputGeral" required>
+                    <label for="cor" class="textoGeral">Cor:</label>
+                    <input type="text" id="cor" name="cor" class="inputGeral" required>
 
-            <label for="ano" class="textoGeral">Ano:</label>
-            <input type="date" id="ano" name="ano" class="inputGeral" required>
+                    <label for="ano" class="textoGeral">Ano:</label>
+                    <input type="date" id="ano" name="ano" class="inputGeral" required>
 
-            <label for="custo_max_dia" class="textoGeral">Custo Máximo por Dia (€):</label>
-            <input type="number" id="custo_max_dia" name="custo_max_dia" class="inputGeral" step="0.01" required>
+                    <label for="custo_max_dia" class="textoGeral">Custo Máximo por Dia (€):</label>
+                    <input type="number" id="custo_max_dia" name="custo_max_dia" class="inputGeral" step="0.01" required>
 
-            <label for="administrador_pessoa_nome" class="textoGeral">Administrador Responsável:</label>
-            <input type="text" id="administrador_pessoa_nome" name="administrador_pessoa_nome" class="inputGeral" required>
+                    <label for="administrador_pessoa_nome" class="textoGeral">Administrador Responsável:</label>
+                    <input type="text" id="administrador_pessoa_nome" name="administrador_pessoa_nome" class="inputGeral" required>
 
-            <label for="imagem" class="textoGeral">URL da Imagem:</label>
-            <input type="url" id="imagem" name="imagem" class="inputGeral" required>
-            <br>
+                    <label for="imagem" class="textoGeral">URL da Imagem:</label>
+                    <input type="url" id="imagem" name="imagem" class="inputGeral" required>
+                    <br>
 
-            <button type="submit" class="botaoAddCar">Adicionar Carro</button>
-        </form>
+                    <button type="submit" class="tituloGeral botaoAddCar">ADD CAR</button>
+                </form>
+            </div>
+        </section>
     </main>
-
-    <footer class=" textoGeral fourthSection" id="fourthSection">
-        <div class="conteudoFooter">
-            <div class="iconesContact">
-                <img class="icoC" id="mail" src="/IMAGENS/pictogramaMail.jpg" alt="iconeMail">
-                <img class="icoC" id="phone" src="/IMAGENS/pictogramaTelefone.jpg" alt="iconePhone">
-                <img class="icoC" id="local" src="/IMAGENS/pictogramaLocalizacao.jpg" alt="iconeLocal">
-            </div>
-            <ul>
-                <li>fastandfurious@gmail.com</li>
-                <li>+351 239 567 307</li>
-                <li>Rua Quinta da Beira, lote 3, nº 25, 3030-240, Coimbra</li>
-            </ul>
-            <div class="iconesMedia">
-                <img class="icoM" id="face" src="/IMAGENS/pictogramaFace.png" alt="iconeFacebook">
-                <img class="icoM" id="insta" src="/IMAGENS/pictogramaInsta.png" alt="iconeInsta">
-                <img class="icoM" id="twitter" src="/IMAGENS/pictogramaTwitter.png" alt="iconeTwitter">
-            </div>
-        </div>
-    </footer>
     <script src="/JS/header.js"></script>
 </body>
 
