@@ -1,10 +1,12 @@
 <?php
-require('baseDados.php');
+require('../comuns/baseDados.php');
 
 if (isset($_REQUEST['matricula'])) {
     $matricula = pg_escape_string($connection, $_GET['matricula']);
 
-    $query = "SELECT data_inicio, data_fim FROM reserva WHERE carro_matricula = '$matricula'";
+    $query = "SELECT data_inicio, data_fim 
+             FROM reserva 
+             WHERE carro_matricula = '$matricula'";
     $resultado = pg_query($connection, $query);
 
     $reservas = [];

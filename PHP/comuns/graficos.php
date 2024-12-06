@@ -1,5 +1,5 @@
 <?php
-require('baseDados.php');
+require('../comuns/baseDados.php');
 
 // Dados para os gráficos
 $data = [];

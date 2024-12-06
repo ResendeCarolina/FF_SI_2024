@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const endDateInput = document.getElementById('endDate');
 
   // Requisição para obter as datas reservadas
-  fetch(`../get_reserved_dates.php?matricula=${encodeURIComponent(matricula)}`)
+  fetch(`../comuns/get_reserved_dates.php?matricula=${encodeURIComponent(matricula)}`)
     .then(response => response.json())
     .then(reservas => {
       if (reservas.error) {
@@ -88,7 +88,7 @@ document.getElementById('carForm').addEventListener('submit', function(event) {
             const formData = new FormData(this); // Obtém os dados do formulário
 
             // Envia os dados via fetch
-            fetch('../processar_reserva.php', {
+            fetch('../comuns/processar_reserva.php', {
                     method: 'POST',
                     body: formData,
                 })
