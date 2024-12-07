@@ -175,6 +175,7 @@
 
                 <div class="gallery" id="gallery">
                     <?php
+
                     // Conexão à base de dados
                     require('../comuns/baseDados.php');
 
@@ -184,25 +185,26 @@
                     $custo_max_dia = pg_escape_string($connection, $_GET['custo_max_dia'] ?? '');
                     $sort = $_GET['sort'] ?? '';
 
-                    // Base da query
-                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img FROM carro WHERE 1=1";
+                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img 
+                    FROM carro 
+                    WHERE 1=1";//seleciona todos os resultados da tabela carro
 
-                    // Filtro por pesquisa (modelo)
+                    //filtro por pesquisa (modelo)
                     if (!empty($search)) {
                         $query .= " AND LOWER(modelo) LIKE LOWER('%$search%')";
                     }
 
-                    // Filtro por número de lugares
+                    //filtro por número de lugares
                     if (!empty($nmr_lugares)) {
                         $query .= " AND nmr_lugares = $nmr_lugares";
                     }
 
-                    // Filtro por custo máximo por dia
+                    //filtro por custo máximo por dia
                     if (!empty($custo_max_dia)) {
                         $query .= " AND custo_max_dia <= $custo_max_dia";
                     }
 
-                    // Ordenação
+                    //filtro por ordenação
                     switch ($sort) {
                         case 'price_asc':
                             $query .= " ORDER BY custo_max_dia ASC";
@@ -221,17 +223,16 @@
                     }
 
 
-                    // Executar a consulta
+                    //executa a consulta
                     $resultados = pg_query($connection, $query);
 
-                    // Verificar se a consulta foi bem-sucedida
+                    //verifica se a consulta foi bem sucedida
                     if (!$resultados) {
                         echo "Erro ao procurar os dados dos carros: " . pg_last_error($connection);
                         exit();
                     }
 
-                    // Criar "cartão" 
-                    // Loop para processar cada linha
+                    //cria um loop que cria o número de "cartões" com o número de produtos da base de dados
                     while ($carro = pg_fetch_assoc($resultados)) {
                         echo "
                         

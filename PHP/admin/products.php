@@ -141,25 +141,26 @@
                     $custo_max_dia = pg_escape_string($connection, $_GET['custo_max_dia'] ?? '');
                     $sort = $_GET['sort'] ?? '';
 
-                    // Base da query
-                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img FROM carro WHERE 1=1";
+                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, img
+                    FROM carro
+                    WHERE 1=1"; //seleciona todos os resultados da tabela carro
 
-                    // Filtro por pesquisa (modelo)
+                    //filtro por pesquisa (modelo)
                     if (!empty($search)) {
                         $query .= " AND LOWER(modelo) LIKE LOWER('%$search%')";
                     }
 
-                    // Filtro por número de lugares
+                    //filtro por número de lugares
                     if (!empty($nmr_lugares)) {
                         $query .= " AND nmr_lugares = $nmr_lugares";
                     }
 
-                    // Filtro por custo máximo por dia
+                    //filtro por custo máximo por dia
                     if (!empty($custo_max_dia)) {
                         $query .= " AND custo_max_dia <= $custo_max_dia";
                     }
 
-                    // Ordenação
+                    //filtro por ordenação
                     switch ($sort) {
                         case 'price_asc':
                             $query .= " ORDER BY custo_max_dia ASC";
@@ -178,17 +179,16 @@
                     }
 
 
-                    // Executar a consulta
+                    //executa a consulta
                     $resultados = pg_query($connection, $query);
 
-                    // Verificar se a consulta foi bem-sucedida
+                    //verifica se a consulta foi bem sucedida
                     if (!$resultados) {
                         echo "Erro ao procurar os dados dos carros: " . pg_last_error($connection);
                         exit();
                     }
 
-                    // Criar "cartão" 
-                    // Loop para processar cada linha
+                    //cria um loop que cria o número de "cartões" com o número de produtos da base de dados
                     while ($carro = pg_fetch_assoc($resultados)) {
                         echo "
                         
@@ -197,16 +197,22 @@
                                     <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
                                 </div>
                                 <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
-                                <div class='element'>
+                                <div class='element elementAdmin'>
                                     <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
                                         <button class='tituloGeral botaoGeral verMaisBtn'>Ver Mais</button>
                                     </a>
-                                </div>
+                                    <form method='POST'>
+                                        <input type='hidden' name='matricula' value='" . htmlspecialchars($carro['matricula']) . "'>
+                                        <button class='olhoBtn' type='submit'>
+                                            <img class='olho' src='/IMAGENS/olhoVisivel.png') alt='Visibilidade'>
+                                        </button>
+                                    </form>
+                                </div>                                
                             </div>
                         ";
-                    } //se carregar no botao sou remetida para a página car com as especificações de cada carro
+                    }
 
-                    // Encerra a conexão com a base de dados
+                    //conexão com a base de dados fechada
                     pg_close($connection);
                     ?>
                 </div>
@@ -238,3 +244,12 @@
 </body>
 
 </html>
+
+<!--$query = "SELECT carro.matricula, carro.modelo, carro.nmr_lugares, carro.cor, carro.ano, carro.custo_max_dia, carro.img, hist_preco_carro_.carro_matricula, hist_preco_carro_.oculto
+                    FROM carro, hist_preco_carro_
+                    WHERE carro.matricula = hist_preco_carro_.carro_matricula
+                    AND 1=1";//seleciona todos os resultados da tabela carro
+                    
+                    <button class='olhoBtn' type='submit'>
+                                            <img class='olho' src='/IMAGENS/" . ($carro['oculto'] ? 'olhoOculto.png' : 'olhoVisivel.png') . "' alt='Visibilidade'>
+                                        </button>-->

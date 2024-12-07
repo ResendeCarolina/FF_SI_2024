@@ -78,8 +78,7 @@
                 <div class="item">
                     <div class="itemImg">
                     </div>
-                    <div class=" itemModelo">
-
+                    <div class="itemModelo">
                     </div>
                 </div>
             </div>
@@ -106,7 +105,7 @@
 
             // Query de inserção
             $query = "INSERT INTO carro (matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img)
-              VALUES ('$matricula', '$modelo', $nmr_lugares, '$cor', '$ano', $custo_max_dia, '$administrador_pessoa_nome', '$imagem')";
+                      VALUES ('$matricula', '$modelo', $nmr_lugares, '$cor', '$ano', $custo_max_dia, '$administrador_pessoa_nome', '$imagem')";
 
             // Executar a query
             $result = pg_query($connection, $query);
@@ -124,36 +123,36 @@
         <section class="addCarPage">
             <div class="addCarPageContainer">
 
-                <!--titleAC de Add Car-->
-                <h2 class="tituloGeral title" id="titleAC">New Product</h2>
+                <!--titleAC - titleAddStatistics-->
+                <h2 class="tituloGeral title" id="titleAC">NEW PRODUCT</h2>
 
                 <form method="POST" class="formAdicionarCarro">
-                    <label for="matricula" class="textoGeral">Matrícula:</label>
-                    <input type="text" id="matricula" name="matricula" class="inputGeral" maxlength="20" required>
 
-                    <label for="modelo" class="textoGeral">Modelo:</label>
-                    <input type="text" id="modelo" name="modelo" class="inputGeral" required>
+                    <label for="matricula" class="textoGeral">Registration Plate</label>
+                    <input type="text" id="matricula" name="matricula" class="textoGeral inputGeral" maxlength="20" placeholder="Insert registration plate">
 
-                    <label for="nmr_lugares" class="textoGeral">Número de Lugares:</label>
-                    <input type="number" id="nmr_lugares" name="nmr_lugares" class="inputGeral" required>
+                    <label for="modelo" class="textoGeral">Model</label>
+                    <input type="text" id="modelo" name="modelo" class="textoGeral inputGeral" placeholder="Insert model" required>
 
-                    <label for="cor" class="textoGeral">Cor:</label>
-                    <input type="text" id="cor" name="cor" class="inputGeral" required>
+                    <label for="nmr_lugares" class="textoGeral">Number of seats</label>
+                    <input type="number" id="nmr_lugares" name="nmr_lugares" class="textoGeral inputGeral" placeholder="Insert number of seats" required>
 
-                    <label for="ano" class="textoGeral">Ano:</label>
-                    <input type="date" id="ano" name="ano" class="inputGeral" required>
+                    <label for="cor" class="textoGeral">Color</label>
+                    <input type="text" id="cor" name="cor" class="textoGeral inputGeral" placeholder="Insert color" required>
 
-                    <label for="custo_max_dia" class="textoGeral">Custo Máximo por Dia (€):</label>
-                    <input type="number" id="custo_max_dia" name="custo_max_dia" class="inputGeral" step="0.01" required>
+                    <label for="ano" class="textoGeral">Year</label>
+                    <input type="date" id="ano" name="ano" class="inputGeral" placeholder="Insert year" required>
 
-                    <label for="administrador_pessoa_nome" class="textoGeral">Administrador Responsável:</label>
-                    <input type="text" id="administrador_pessoa_nome" name="administrador_pessoa_nome" class="inputGeral" required>
+                    <label for="custo_max_dia" class="textoGeral">Maxim cost per day (€)</label>
+                    <input type="number" id="custo_max_dia" name="custo_max_dia" class="textoGeral inputGeral" step="0.01" placeholder="Insert value" required>
 
-                    <label for="imagem" class="textoGeral">URL da Imagem:</label>
-                    <input type="url" id="imagem" name="imagem" class="inputGeral" required>
-                    <br>
+                    <label for="administrador_pessoa_nome" class="textoGeral">Responsable administrator</label>
+                    <input type="text" id="administrador_pessoa_nome" name="administrador_pessoa_nome" class="textoGeral inputGeral" placeholder="Insert name" required>
 
-                    <button type="submit" class="tituloGeral botaoAddCar">ADD CAR</button>
+                    <label for="imagem" class="textoGeral">Image URL</label>
+                    <input type="url" id="imagem" name="imagem" class="textoGeral inputGeral" placeholder="Insert link" required>
+
+                    <button class="tituloGeral botaoGeral botaoGeral addBtn" type="submit" class="tituloGeral botaoAddCar">ADD CAR</button>
                 </form>
             </div>
         </section>

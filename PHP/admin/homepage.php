@@ -180,29 +180,38 @@
                 // Fechar a conexão
                 pg_close($connection);
                 ?>
-                <ul class="estatisticas_lista">
-                    <li>- Total Cars: <?= htmlspecialchars($stats['total_carros']); ?></li>
+                <ul class="topicos">
                     <li>
-                        <div class="grafico">
-                            <canvas id="carModelsChart"></canvas>
-                        </div>
-                    </li>
-                    <li>- Total Users who Reserved Cars: <?= htmlspecialchars($stats['total_utilizadores']); ?></li>
-                    <li>- Average Reservations per User:
-                        <?= htmlspecialchars(number_format($stats['media_reservas'], 2)); ?>
+                        <span class='textoGeral specific'>Total Cars:</span>
+                        <span class='textoGeral'><?= htmlspecialchars($stats['total_carros']); ?></span>
                     </li>
                     <li>
-                        <div class="grafico">
-                            <canvas id="reservationsChart"></canvas>
-                        </div>
+                        <span class='textoGeral specific'>Total Users who Reserved Cars:</span>
+                        <span class='textoGeral'><?= htmlspecialchars($stats['total_utilizadores']); ?></span>
                     </li>
-                    <li>- Average Car Cost (per day):
-                        €<?= htmlspecialchars(number_format($stats['custo_medio_carro'], 2)); ?>
+                    <li>
+                        <span class='textoGeral specific'>Average Reservations per User:</span>
+                        <span class='textoGeral'><?= htmlspecialchars(number_format($stats['media_reservas'], 2)); ?></span>
                     </li>
-                    <li>- Most Reserved Car:
-                        <?= htmlspecialchars($stats['carro_popular']['modelo']) . " (" . htmlspecialchars($stats['carro_popular']['total_reservas']) . " reservations)"; ?>
+                    <li>
+                        <span class='textoGeral specific'>Average car cost per day:</span>
+                        <span class='textoGeral'><?= htmlspecialchars(number_format($stats['custo_medio_carro'], 2)); ?>€</span>
+                    </li>
+                    <li>
+                        <span class='textoGeral specific'>Most Reserved Car: </span>
+                        <span class='textoGeral'><?= htmlspecialchars($stats['carro_popular']['modelo']) . " (" . htmlspecialchars($stats['carro_popular']['total_reservas']) . " reservations)"; ?></span>
                     </li>
                 </ul>
+                <div class="graficos">
+                    <div class="graficoModelos">
+                        <canvas id="graficoModelos"></canvas>
+                    </div>
+                    <div class="graficoReservas">
+                        <canvas id="graficoReservas"></canvas>
+                    </div>
+                </div>
+
+
             </div>
         </section>
     </main>
@@ -227,83 +236,7 @@
     </footer>
     <script src="/JS/homepage.js"></script>
     <script src="/JS/header.js"></script>
-
-    <script>
-        // Fetch data from PHP
-        fetch('../comuns/graficos.php')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                // Car Models Chart
-                const carModelsCtx = document.getElementById('carModelsChart').getContext('2d');
-                const carModelsData = data.modelos.map(item => item.total);
-                const carModelsLabels = data.modelos.map(item => item.modelo);
-
-                new Chart(carModelsCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: carModelsLabels,
-                        datasets: [{
-                            label: 'Total Cars by Model',
-                            data: carModelsData,
-                            backgroundColor: 'rgba(139, 0, 0, 0.5)',
-                            borderColor: 'rgba(139, 0, 0, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'top'
-                            }
-                        }
-                    }
-                });
-
-                // Reservations Chart
-                const reservationsCtx = document.getElementById('reservationsChart').getContext('2d');
-                const reservationsData = data.reservas.map(item => item.total);
-                const reservationsLabels = data.reservas.map(item => item.utilizador);
-
-                new Chart(reservationsCtx, {
-                    type: 'pie',
-                    data: {
-                        labels: reservationsLabels,
-                        datasets: [{
-                            label: 'Reservations by User',
-                            data: reservationsData,
-                            backgroundColor: [
-                                'rgba(255, 99, 132, 0.5)',
-                                'rgba(54, 162, 235, 0.5)',
-                                'rgba(255, 206, 86, 0.5)',
-                                'rgba(75, 192, 192, 0.5)',
-                                'rgba(153, 102, 255, 0.5)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'top'
-                            }
-                        }
-                    }
-                });
-            })
-            .catch(error => console.error('Error loading data:', error));
-    </script>
+    <script src="/JS/graficos.js"></script>
 </body>
 
 </html>

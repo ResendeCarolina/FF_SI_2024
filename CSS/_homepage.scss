@@ -89,14 +89,25 @@
 }
 
 .thirdSection{
-  height: fit-content;
-  margin-bottom: 100px;
+  margin-bottom: 130px;
 }
 
-.estatisticas_lista {
-  list-style: none;
+.graficos{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 100px;
+}
 
-  & li {
-    margin-bottom: 20px;
-  }
+.graficoReservas{
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;  //impede que o gráfico encolha
+}
+
+.graficoModelos{
+  width: 400px;
+  flex-shrink: 0;  //impede que o gráfico encolha
 }

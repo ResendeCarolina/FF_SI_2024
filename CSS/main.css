@@ -61,7 +61,7 @@ html {
   margin-top: 20px;
   position: relative;
   list-style: none;
-  line-height: 20px;
+  line-height: 25px;
 }
 
 .specific {
@@ -220,16 +220,27 @@ html {
 }
 
 .thirdSection {
-  height: -moz-fit-content;
-  height: fit-content;
-  margin-bottom: 100px;
+  margin-bottom: 130px;
 }
 
-.estatisticas_lista {
-  list-style: none;
+.graficos {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 100px;
 }
-.estatisticas_lista li {
-  margin-bottom: 20px;
+
+.graficoReservas {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.graficoModelos {
+  width: 400px;
+  flex-shrink: 0;
 }
 
 .secondPage {
@@ -266,6 +277,7 @@ html {
   gap: 15px;
   height: 30px;
   margin-top: 15px;
+  margin-bottom: 80px;
 }
 
 .searchFC {
@@ -341,38 +353,18 @@ input:focus, select:focus {
 
 .element {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: end;
   margin-top: -50px;
-  margin-right: 85px;
+  align-items: center;
 }
 
 .verMaisBtn {
-  position: absolute;
+  position: relative;
   width: 85px;
   height: 30px;
 }
 
-/* Layout responsivo 
-@media (max-width: 768px) {
-  .searchBar {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .searchForm {
-    justify-content: center;
-  }
-
-  .searchInput,
-  select {
-    flex: 1;
-    width: 100%;
-  }
-
-  .searchBtn {
-    align-self: flex-end;
-  }
-}*/
 .adicionar {
   position: relative;
   margin-bottom: 80px;
@@ -380,6 +372,23 @@ input:focus, select:focus {
   height: 30px;
   color: white;
   background-color: black;
+}
+
+.elementAdmin {
+  gap: 15px;
+}
+
+.olhoBtn {
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border: none;
+  background: none;
+}
+
+.olho {
+  width: auto;
+  height: 100%;
 }
 
 .cabecalhoHP {
@@ -859,26 +868,26 @@ footer {
   display: flex;
   flex-direction: column;
   max-width: 400px;
-  margin: 0 auto;
-  gap: 10px;
+  margin: 0;
+}
+
+.formAdicionarCarro > label {
+  margin-bottom: 5px;
+  margin-top: 20px;
 }
 
 .inputGeral {
   padding: 10px;
   font-size: 16px;
+  border: 2px solid black;
+  border-radius: 5px;
+  height: 35px;
 }
 
-.botaoAddCar {
-  background-color: transparent;
-  font-size: 14px;
-  font-weight: 600;
-  border: 3px solid black;
-  border-radius: 15px;
-  cursor: pointer;
-  padding: 10px 0;
-}
-
-.botaoAddCar:hover {
-  background-color: darkred;
+.addBtn {
+  background-color: black;
   color: white;
+  margin: 50px auto;
+  height: 30px;
+  width: 200px;
 }/*# sourceMappingURL=main.css.map */

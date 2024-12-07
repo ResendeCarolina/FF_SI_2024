@@ -32,6 +32,7 @@
   gap: 15px;
   height: 30px;
   margin-top: 15px;
+  margin-bottom: 80px;
 }
 
 .searchFC{  
@@ -107,13 +108,14 @@ input:focus, select:focus{
 
 .element {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: end;
   margin-top: -50px;
-  margin-right: 85px;
+  align-items: center;
 }
 
 .verMaisBtn {
-  position: absolute;
+  position: relative;
   width: 85px;
   height: 30px;
 }
@@ -121,30 +123,8 @@ input:focus, select:focus{
 
 
 
-/* Layout responsivo 
-@media (max-width: 768px) {
-  .searchBar {
-    flex-direction: column;
-    gap: 15px;
-  }
 
-  .searchForm {
-    justify-content: center;
-  }
-
-  .searchInput,
-  select {
-    flex: 1;
-    width: 100%;
-  }
-
-  .searchBtn {
-    align-self: flex-end;
-  }
-}*/
-
-
-// CSS destinado apenas ao products do administrador
+// CSS destinado apenas ao products do administrador -------------------------------------------------
 
 .adicionar{
   position: relative;
@@ -153,4 +133,21 @@ input:focus, select:focus{
   height: 30px;
   color: white;
   background-color: black;
+}
+
+.elementAdmin {
+  gap: 15px;
+}
+
+.olhoBtn{
+  position: relative;
+  width: 50px;
+  height: 30px;
+  border: none;
+  background: none;
+}
+
+.olho{
+  width: auto;
+  height:100%;
 }
