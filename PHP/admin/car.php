@@ -91,7 +91,7 @@
             $matricula = pg_escape_string($connection, $_GET['matricula']);
 
             // Query para buscar os detalhes do carro
-            $queryCarro = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, img
+            $queryCarro = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, img, oculto
                                 FROM carro
                                 WHERE matricula = '$matricula'";
 
@@ -100,6 +100,8 @@
             // Verificar se a consulta foi bem-sucedida
             if ($resultado && pg_num_rows($resultado) > 0) {
                 $carro = pg_fetch_assoc($resultado);
+                // Verifica se o valor de 'oculto' é 't' (true) ou 'f' (false)
+                $oculto = ($carro['oculto'] === 't'); // Converte para booleano em PHP
 
                 // Exibir as informações do carro
                 echo "
@@ -142,7 +144,7 @@
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Visible: </span>
-                                            <input type='checkbox' class='editField' id='editOcult' style='display: none;'>
+                                            <input type='checkbox' class='editField' id='editOcult' " . ($oculto ? 'checked' : '') . " style='display: none;'>
                                         </li>
                                     </ul>
                                 </div>
@@ -167,7 +169,6 @@
                 $totalReservasRow = pg_fetch_assoc($totalReservas);
                 $numeroReservas = $totalReservasRow['total_reservas'] ?? 0; //caso não haja reservas, retorna 0
 
-                // Reservas 
                 if ($reservas && pg_num_rows($reservas) > 0) {
                     echo "<section class='thirdPage'>
                                 <div class='thirdPageSC'>
@@ -212,67 +213,46 @@
                 }
 
 
-                // Histórico de Preço Diario 
-                // //query que vai buscar a informação do preco de cada carro
-                // $queryReservas = "SELECT data_inicio, data_fim, cliente_pessoa_nome
-                //                   FROM reserva
-                //                   WHERE reserva.carro_matricula = '$matricula'";
+                // Historico do carro
+                //query que vai buscar a informação das reservas de cada carro
+                $queryHist = "SELECT custodiario, data_alteracao, administrador_pessoa_nome
+                                  FROM hist_preco_carro_
+                                  WHERE hist_preco_carro_.carro_matricula = '$matricula'";
 
-                // //query que vai buscar a informação das reservas de cada carro
-                // $queryTotalReservas = "SELECT COUNT (*) AS total_reservas
-                //                   FROM reserva
-                //                   WHERE reserva.carro_matricula = '$matricula'";
-
-                // $reservas = pg_query($connection, $queryReservas);
-                // $totalReservas = pg_query($connection, $queryTotalReservas);
-
-                // //retorna o número total de reservas
-                // $totalReservasRow = pg_fetch_assoc($totalReservas);
-                // $numeroReservas = $totalReservasRow['total_reservas'] ?? 0; //caso não haja reservas, retorna 0
-
-                // if ($reservas && pg_num_rows($reservas) > 0) {
-                //     echo "<section class='thirdPage'>
-                //                 <div class='thirdPageSC'>
-                //                     <h1 class='tituloGeral titutloTP'>Reservations</h1>
-                //                     <ul class='topicos'>
-                //                         <li>
-                //                             <span class='textoGeral specific'>Number of reservations: </span>
-                //                             <span class='textoGeral'>" . htmlspecialchars($numeroReservas) . "</span>
-                //                         </li>
-                //                         <br>
-                //                         <hr>
-                //                         <br>";
-                //     while ($reserva = pg_fetch_assoc($reservas)) {
-                //         echo "
-                //                 <li>
-                //                     <span class='textoGeral specific'>Client: </span>
-                //                     <span class='textoGeral'>" . htmlspecialchars($reserva['cliente_pessoa_nome']) . "</span>
-                //                 </li>
-                //                 <li>
-                //                     <span class='textoGeral specific'>Start Date: </span>
-                //                     <span class='textoGeral'>" . htmlspecialchars($reserva['data_inicio']) . "</span>
-                //                 </li>
-                //                 <li>
-                //                     <span class='textoGeral specific'>End Date: </span>
-                //                     <span class='textoGeral'>" . htmlspecialchars($reserva['data_fim']) . "</span>
-                //                 </li>
-                //                 <br>
-                //                 <hr>
-                //                 <br>
-                //             ";
-                //     }
-                //     echo "
-                //             </ul>
-                //         </div>
-                //     </section>
-                //     ";
-                // } else {
-                //     echo "<div class='thirdPageSC'>
-                //             <h1 class='tituloGeral titutloTP'>Reservations</h1>
-                //             <p class='textoGeral semReserva'>No reservations made</p>
-                //           </div>";
-                // }
-
+                $history = pg_query($connection, $queryHist);
+        
+                if ($history && pg_num_rows($history) > 0) {
+                    while ($hist = pg_fetch_assoc($history)) {
+                        echo "
+                                <h1 class='tituloGeral titutloTP'>Price History</h1>
+                                <li>
+                                    <span class='textoGeral specific'>Administrator: </span>
+                                    <span class='textoGeral'>" . htmlspecialchars($hist['administrador_pessoa_nome']) . "</span>
+                                </li>
+                                <li>
+                                    <span class='textoGeral specific'>Modification date: </span>
+                                    <span class='textoGeral'>" . htmlspecialchars($hist['data_alteracao']) . "</span>
+                                </li>
+                                <li>
+                                    <span class='textoGeral specific'>Daily value: </span>
+                                    <span class='textoGeral'>" . htmlspecialchars($hist['custodiario']) . "</span>
+                                </li>
+                                <br>
+                                <hr>
+                                <br>
+                            ";
+                    }
+                    echo "
+                            </ul>
+                        </div>
+                    </section>
+                    ";
+                } else {
+                    echo "<div class='thirdPageSC'>
+                            <h1 class='tituloGeral titutloTP'>Modifications</h1>
+                            <p class='textoGeral semReserva'>No modification made</p>
+                          </div>";
+                }
             } else {
                 echo "<p class='textoGeral erro erroCar'>Car not found</p>";
             }
