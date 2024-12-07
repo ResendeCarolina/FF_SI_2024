@@ -73,6 +73,10 @@ html {
   font-size: 16pt;
 }
 
+.none {
+  display: none;
+}
+
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;

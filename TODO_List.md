@@ -34,9 +34,9 @@
   - [x] Número de reservas e períodos de reserva para cada carro
 - [x] **Adicionar Novo Carro** ao sistema
   - [x] Formulário de criação com detalhes do carro e custo diário para novas reservas
-- [ ] **Alterar Visibilidade do Carro**
+- [x] **Alterar Visibilidade do Carro**
   - [ ] Função para ocultar carros que não estão alugados ou têm reservas futuras
-  - [ ] Função para tornar um carro oculto visível novamente
+  - [x] Função para tornar um carro oculto visível novamente
 - [x] **Alterar Custo de Reserva de um Carro**
   - [ ] Implementar histórico de preços para rastrear alterações ao longo do tempo
 

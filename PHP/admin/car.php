@@ -143,7 +143,6 @@
                                         <li>
                                             <span class='textoGeral specific'>Visible: </span>
                                             <input type='checkbox' class='editField' id='editOcult' style='display: none;'>
-                                            <button onclick='verificarCheckbox()'>Verificar Checkbox</button>
                                         </li>
                                     </ul>
                                 </div>
@@ -168,6 +167,7 @@
                 $totalReservasRow = pg_fetch_assoc($totalReservas);
                 $numeroReservas = $totalReservasRow['total_reservas'] ?? 0; //caso não haja reservas, retorna 0
 
+                // Reservas 
                 if ($reservas && pg_num_rows($reservas) > 0) {
                     echo "<section class='thirdPage'>
                                 <div class='thirdPageSC'>
@@ -210,6 +210,69 @@
                             <p class='textoGeral semReserva'>No reservations made</p>
                           </div>";
                 }
+
+
+                // Histórico de Preço Diario 
+                // //query que vai buscar a informação do preco de cada carro
+                // $queryReservas = "SELECT data_inicio, data_fim, cliente_pessoa_nome
+                //                   FROM reserva
+                //                   WHERE reserva.carro_matricula = '$matricula'";
+
+                // //query que vai buscar a informação das reservas de cada carro
+                // $queryTotalReservas = "SELECT COUNT (*) AS total_reservas
+                //                   FROM reserva
+                //                   WHERE reserva.carro_matricula = '$matricula'";
+
+                // $reservas = pg_query($connection, $queryReservas);
+                // $totalReservas = pg_query($connection, $queryTotalReservas);
+
+                // //retorna o número total de reservas
+                // $totalReservasRow = pg_fetch_assoc($totalReservas);
+                // $numeroReservas = $totalReservasRow['total_reservas'] ?? 0; //caso não haja reservas, retorna 0
+
+                // if ($reservas && pg_num_rows($reservas) > 0) {
+                //     echo "<section class='thirdPage'>
+                //                 <div class='thirdPageSC'>
+                //                     <h1 class='tituloGeral titutloTP'>Reservations</h1>
+                //                     <ul class='topicos'>
+                //                         <li>
+                //                             <span class='textoGeral specific'>Number of reservations: </span>
+                //                             <span class='textoGeral'>" . htmlspecialchars($numeroReservas) . "</span>
+                //                         </li>
+                //                         <br>
+                //                         <hr>
+                //                         <br>";
+                //     while ($reserva = pg_fetch_assoc($reservas)) {
+                //         echo "
+                //                 <li>
+                //                     <span class='textoGeral specific'>Client: </span>
+                //                     <span class='textoGeral'>" . htmlspecialchars($reserva['cliente_pessoa_nome']) . "</span>
+                //                 </li>
+                //                 <li>
+                //                     <span class='textoGeral specific'>Start Date: </span>
+                //                     <span class='textoGeral'>" . htmlspecialchars($reserva['data_inicio']) . "</span>
+                //                 </li>
+                //                 <li>
+                //                     <span class='textoGeral specific'>End Date: </span>
+                //                     <span class='textoGeral'>" . htmlspecialchars($reserva['data_fim']) . "</span>
+                //                 </li>
+                //                 <br>
+                //                 <hr>
+                //                 <br>
+                //             ";
+                //     }
+                //     echo "
+                //             </ul>
+                //         </div>
+                //     </section>
+                //     ";
+                // } else {
+                //     echo "<div class='thirdPageSC'>
+                //             <h1 class='tituloGeral titutloTP'>Reservations</h1>
+                //             <p class='textoGeral semReserva'>No reservations made</p>
+                //           </div>";
+                // }
+
             } else {
                 echo "<p class='textoGeral erro erroCar'>Car not found</p>";
             }
@@ -222,15 +285,6 @@
     <script src="/JS/car.js"></script>
     <script src="/JS/header.js"></script>
     <script>
-        function verificarCheckbox() {
-            const checkbox = document.getElementById("editOcult");
-
-            if (checkbox.checked) {
-                console.log("Valor do checkbox:", checkbox.checked);
-            } else {
-                console.log("Valor do checkbox:", checkbox.checked);
-            }
-        }
 
         document.addEventListener("DOMContentLoaded", () => {
             const editButton = document.getElementById("editButton");
@@ -265,7 +319,7 @@
                     cor: document.getElementById("editColor").value,
                     ano: document.getElementById("editYear").value,
                     custo_max_dia: document.getElementById("editCost").value,
-                    oculto: document.getElementById("editOcult").checked
+                    oculto: document.getElementById("editOcult").checked ? 'true' : 'false' // Certifique-se de enviar como string ou booleano
                 };
 
                 // Atualizar os valores exibidos
@@ -278,7 +332,7 @@
                 // Desativa o modo de edição
                 disableEditMode();
 
-                // Aqui podes fazer uma chamada AJAX para atualizar os dados no servidor
+                // Fazer a chamada AJAX
                 fetch("updateCar.php", {
                         method: "POST",
                         headers: {
@@ -291,6 +345,7 @@
                         if (data.success) {
                             alert("Car information updated successfully!");
                         } else {
+                            console.error("Error:", data.error);
                             alert("Failed to update car information.");
                         }
                     })

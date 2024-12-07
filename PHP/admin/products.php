@@ -141,7 +141,7 @@
                     $custo_max_dia = pg_escape_string($connection, $_GET['custo_max_dia'] ?? '');
                     $sort = $_GET['sort'] ?? '';
 
-                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, img
+                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, img, oculto
                     FROM carro
                     WHERE 1=1"; //seleciona todos os resultados da tabela carro
 
@@ -190,8 +190,10 @@
 
                     //cria um loop que cria o número de "cartões" com o número de produtos da base de dados
                     while ($carro = pg_fetch_assoc($resultados)) {
+                        // Verifica se o valor de 'oculto' é 't' (true) ou 'f' (false)
+                        $oculto = ($carro['oculto'] === 't'); // Converte para booleano em PHP
+                    
                         echo "
-                        
                             <div class='carro'>
                                 <div class='legenda' id='legendaP'>
                                     <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
@@ -204,13 +206,14 @@
                                     <form method='POST'>
                                         <input type='hidden' name='matricula' value='" . htmlspecialchars($carro['matricula']) . "'>
                                         <button class='olhoBtn' type='submit'>
-                                            <img class='olho' src='/IMAGENS/olhoVisivel.png') alt='Visibilidade'>
+                                            <img class='olho' src='/IMAGENS/" . ($oculto ? 'olhoVisivel.png' : 'olhoOculto.png') . "' alt='Visibilidade'>
                                         </button>
                                     </form>
                                 </div>                                
                             </div>
                         ";
                     }
+
 
                     //conexão com a base de dados fechada
                     pg_close($connection);

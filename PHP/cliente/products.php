@@ -185,9 +185,9 @@
                     $custo_max_dia = pg_escape_string($connection, $_GET['custo_max_dia'] ?? '');
                     $sort = $_GET['sort'] ?? '';
 
-                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img 
+                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img, oculto
                     FROM carro 
-                    WHERE 1=1";//seleciona todos os resultados da tabela carro
+                    WHERE 1=1"; //seleciona todos os resultados da tabela carro
 
                     //filtro por pesquisa (modelo)
                     if (!empty($search)) {
@@ -234,20 +234,24 @@
 
                     //cria um loop que cria o número de "cartões" com o número de produtos da base de dados
                     while ($carro = pg_fetch_assoc($resultados)) {
-                        echo "
-                        
-                            <div class='carro'>
-                                <div class='legenda' id='legendaP'>
-                                    <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
+                        // Verifica se o valor de 'oculto' é 't' (true) ou 'f' (false)
+                        $oculto = ($carro['oculto'] === 't'); // Converte para booleano em PHP
+
+                        if ($oculto) {
+                            echo "
+                                <div class='carro'>
+                                    <div class='legenda' id='legendaP'>
+                                        <h3 class='tituloGeral legend'>" . htmlspecialchars($carro['modelo']) . "</h3>
+                                    </div>
+                                    <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
+                                    <div class='element'>
+                                        <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
+                                            <button class='tituloGeral botaoGeral verMaisBtn'>Ver Mais</button>
+                                        </a>
+                                    </div>
                                 </div>
-                                <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
-                                <div class='element'>
-                                    <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
-                                        <button class='tituloGeral botaoGeral verMaisBtn'>Ver Mais</button>
-                                    </a>
-                                </div>
-                            </div>
-                        ";
+                            ";
+                        }
                     } //se carregar no botao sou remetida para a página car com as especificações de cada carro
 
                     // Encerra a conexão com a base de dados

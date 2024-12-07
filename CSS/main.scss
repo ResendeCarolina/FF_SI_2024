@@ -76,6 +76,10 @@ html {
   font-size: 16pt;
 }
 
+.none {
+  display: none;
+}
+
 @import './_register';
 @import './_login';
 @import './_homepage';

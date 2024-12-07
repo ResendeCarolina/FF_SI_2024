@@ -182,7 +182,7 @@
                 ?>
                 <ul class="topicos">
                     <li>
-                        <span class='textoGeral specific'>Total Cars:</span>
+                        <span class='textoGeral specific'>Total Products (cars):</span>
                         <span class='textoGeral'><?= htmlspecialchars($stats['total_carros']); ?></span>
                     </li>
                     <li>
