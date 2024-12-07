@@ -37,7 +37,7 @@
 - [ ] **Alterar Visibilidade do Carro**
   - [ ] Função para ocultar carros que não estão alugados ou têm reservas futuras
   - [ ] Função para tornar um carro oculto visível novamente
-- [ ] **Alterar Custo de Reserva de um Carro**
+- [x] **Alterar Custo de Reserva de um Carro**
   - [ ] Implementar histórico de preços para rastrear alterações ao longo do tempo
 
 ### Etapa 6: Estatísticas Administrativas

@@ -109,31 +109,43 @@
                             <h1 class='tituloGeral tituloTP'>" . htmlspecialchars($carro['modelo']) . "</h1>
                             <div class='detalhesCarro'>
                                 <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
-                                    
+
                                 <div class='specificationCont'>
                                     <h1 class='tituloGeral nomeCarro'>Specifications</h1>
+                                    <button class='editButton' id='editButton'>Edit</button>
+                                    <button class='saveButton' id='saveButton' style='display: none;'>Save</button>
                                     <ul class='tituloGeral topicos'>
                                         <li>
                                             <span class='textoGeral specific'>Registration Plate: </span>
-                                            <span class='textoGeral'>" . htmlspecialchars($carro['matricula']) . "</span>
+                                            <span class='textoGeral infoField' id='matricula'>" . htmlspecialchars($carro['matricula']) . "</span>
+                                            <input type='text' class='editField' id='editMatricula' style='display: none;' value='" . htmlspecialchars($carro['matricula']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Number of Seats: </span>
-                                            <span class='textoGeral'> " . htmlspecialchars($carro['nmr_lugares']) . "</span>
+                                            <span class='textoGeral infoField' id='nmr_lugares'>" . htmlspecialchars($carro['nmr_lugares']) . "</span>
+                                            <input type='number' class='editField' id='editSeats' style='display: none;' value='" . htmlspecialchars($carro['nmr_lugares']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Color: </span>
-                                            <span class='textoGeral'>" . htmlspecialchars($carro['cor']) . "</span>
+                                            <span class='textoGeral infoField' id='cor'>" . htmlspecialchars($carro['cor']) . "</span>
+                                            <input type='text' class='editField' id='editColor' style='display: none;' value='" . htmlspecialchars($carro['cor']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Year: </span>
-                                            <span class='textoGeral'>" . htmlspecialchars($carro['ano']) . "</span>
+                                            <span class='textoGeral infoField' id='ano'>" . htmlspecialchars($carro['ano']) . "</span>
+                                            <input type='date' class='editField' id='editYear' style='display: none;' value='" . htmlspecialchars($carro['ano']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Cost per Day: </span>
-                                            <span class='textoGeral'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
+                                            <span class='textoGeral infoField' id='custo_max_dia'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
+                                            <input type='number' class='editField' id='editCost' style='display: none;' value='" . htmlspecialchars($carro['custo_max_dia']) . "'>
                                         </li>
-                                    </ul>                        
+                                        <li>
+                                            <span class='textoGeral specific'>Visible: </span>
+                                            <input type='checkbox' class='editField' id='editOcult' style='display: none;'>
+                                            <button onclick='verificarCheckbox()'>Verificar Checkbox</button>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +155,7 @@
                 $queryReservas = "SELECT data_inicio, data_fim, cliente_pessoa_nome
                                   FROM reserva
                                   WHERE reserva.carro_matricula = '$matricula'";
-                
+
                 //query que vai buscar a informação das reservas de cada carro
                 $queryTotalReservas = "SELECT COUNT (*) AS total_reservas
                                   FROM reserva
@@ -151,11 +163,11 @@
 
                 $reservas = pg_query($connection, $queryReservas);
                 $totalReservas = pg_query($connection, $queryTotalReservas);
-                
+
                 //retorna o número total de reservas
                 $totalReservasRow = pg_fetch_assoc($totalReservas);
                 $numeroReservas = $totalReservasRow['total_reservas'] ?? 0; //caso não haja reservas, retorna 0
-                
+
                 if ($reservas && pg_num_rows($reservas) > 0) {
                     echo "<section class='thirdPage'>
                                 <div class='thirdPageSC'>
@@ -209,6 +221,83 @@
     </main>
     <script src="/JS/car.js"></script>
     <script src="/JS/header.js"></script>
+    <script>
+        function verificarCheckbox() {
+            const checkbox = document.getElementById("editOcult");
+
+            if (checkbox.checked) {
+                console.log("Valor do checkbox:", checkbox.checked);
+            } else {
+                console.log("Valor do checkbox:", checkbox.checked);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const editButton = document.getElementById("editButton");
+            const saveButton = document.getElementById("saveButton");
+            const infoFields = document.querySelectorAll(".infoField");
+            const editFields = document.querySelectorAll(".editField");
+
+            // Função para alternar para o modo de edição
+            const enableEditMode = () => {
+                infoFields.forEach(field => (field.style.display = "none"));
+                editFields.forEach(field => (field.style.display = "block"));
+                editButton.style.display = "none";
+                saveButton.style.display = "inline-block";
+            };
+
+            // Função para alternar para o modo de visualização
+            const disableEditMode = () => {
+                infoFields.forEach(field => (field.style.display = "block"));
+                editFields.forEach(field => (field.style.display = "none"));
+                editButton.style.display = "inline-block";
+                saveButton.style.display = "none";
+            };
+
+            // Listener para o botão Editar
+            editButton.addEventListener("click", enableEditMode);
+
+            // Listener para o botão Guardar
+            saveButton.addEventListener("click", () => {
+                const updatedData = {
+                    matricula: document.getElementById("editMatricula").value,
+                    nmr_lugares: document.getElementById("editSeats").value,
+                    cor: document.getElementById("editColor").value,
+                    ano: document.getElementById("editYear").value,
+                    custo_max_dia: document.getElementById("editCost").value,
+                    oculto: document.getElementById("editOcult").checked
+                };
+
+                // Atualizar os valores exibidos
+                document.getElementById("matricula").textContent = updatedData.matricula;
+                document.getElementById("nmr_lugares").textContent = updatedData.nmr_lugares;
+                document.getElementById("cor").textContent = updatedData.cor;
+                document.getElementById("ano").textContent = updatedData.ano;
+                document.getElementById("custo_max_dia").textContent = updatedData.custo_max_dia + "€";
+
+                // Desativa o modo de edição
+                disableEditMode();
+
+                // Aqui podes fazer uma chamada AJAX para atualizar os dados no servidor
+                fetch("updateCar.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(updatedData),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Car information updated successfully!");
+                        } else {
+                            alert("Failed to update car information.");
+                        }
+                    })
+                    .catch(error => console.error("Error:", error));
+            });
+        });
+    </script>
 </body>
 
 </html>
