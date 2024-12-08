@@ -18,10 +18,9 @@
 
         <div class="menuContainer">
             <nav class="menu">
-                <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
+                <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#thirdSection">STATISTICS</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
-                <a class="tituloGeral sobreEfeito" id="secao3" href="homepage.php#fourthSection">CONTACTS</a>
-                <a class="tituloGeral sobreEfeito" id="reserva">RESERVAS</a>
+                <a class="tituloGeral sobreEfeito" id="secao3" href="#fourthSection">CONTACTS</a>
             </nav>
         </div>
 
@@ -71,18 +70,6 @@
         </div>
     </header>
     <main>
-        <div class="cartBar" id="cartBar">
-            <h1 class="tituloGeral titleSC">Reservations List</h1>
-            <div class="listCart">
-                <div class="item">
-                    <div class="itemImg">
-                    </div>
-                    <div class="itemModelo">
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
         <?php
 
@@ -113,7 +100,7 @@
                                 <img class='imagem' src='" . htmlspecialchars($carro['img']) . "' alt='" . htmlspecialchars($carro['modelo']) . "'>
 
                                 <div class='specificationCont'>
-                                    <h1 class='tituloGeral nomeCarro'>Specifications</h1>
+                                    <h1 class='tituloGeral subtitulo'>Specifications</h1>
                                     <button class='editButton' id='editButton'>Edit</button>
                                     <button class='saveButton' id='saveButton' style='display: none;'>Save</button>
                                     <ul class='tituloGeral topicos'>
@@ -172,7 +159,7 @@
                 if ($reservas && pg_num_rows($reservas) > 0) {
                     echo "<section class='thirdPage'>
                                 <div class='thirdPageSC'>
-                                    <h1 class='tituloGeral titutloTP'>Reservations</h1>
+                                    <h1 class='tituloGeral subtitulo'>Reservations</h1>
                                     <ul class='topicos'>
                                         <li>
                                             <span class='textoGeral specific'>Number of reservations: </span>
@@ -207,7 +194,7 @@
                     ";
                 } else {
                     echo "<div class='thirdPageSC'>
-                            <h1 class='tituloGeral titutloTP'>Reservations</h1>
+                            <h1 class='tituloGeral subtitulo'>Reservations</h1>
                             <p class='textoGeral semReserva'>No reservations made</p>
                           </div>";
                 }
@@ -220,26 +207,31 @@
                                   WHERE hist_preco_carro_.carro_matricula = '$matricula'";
 
                 $history = pg_query($connection, $queryHist);
-        
+
                 if ($history && pg_num_rows($history) > 0) {
                     while ($hist = pg_fetch_assoc($history)) {
-                        echo "
-                                <h1 class='tituloGeral titutloTP'>Price History</h1>
-                                <li>
-                                    <span class='textoGeral specific'>Administrator: </span>
-                                    <span class='textoGeral'>" . htmlspecialchars($hist['administrador_pessoa_nome']) . "</span>
-                                </li>
-                                <li>
-                                    <span class='textoGeral specific'>Modification date: </span>
-                                    <span class='textoGeral'>" . htmlspecialchars($hist['data_alteracao']) . "</span>
-                                </li>
-                                <li>
-                                    <span class='textoGeral specific'>Daily value: </span>
-                                    <span class='textoGeral'>" . htmlspecialchars($hist['custodiario']) . "</span>
-                                </li>
-                                <br>
-                                <hr>
-                                <br>
+                        echo "<section class='thirdPage'>
+                                <div class='thirdPageSC'>
+                                    <h1 class='tituloGeral subtitulo'>Price History</h1>
+                                    <ul class='topicos'>
+                                        <li>
+                                            <span class='textoGeral specific'>Administrator: </span>
+                                            <span class='textoGeral'>" . htmlspecialchars($hist['administrador_pessoa_nome']) . "</span>
+                                        </li>
+                                        <li>
+                                            <span class='textoGeral specific'>Modification date: </span>
+                                            <span class='textoGeral'>" . htmlspecialchars($hist['data_alteracao']) . "</span>
+                                        </li>
+                                        <li>
+                                            <span class='textoGeral specific'>Daily value: </span>
+                                            <span class='textoGeral'>" . htmlspecialchars($hist['custodiario']) . "</span>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    <hr>
+                                    <br>
+                                </div>
+                            </section>
                             ";
                     }
                     echo "
@@ -249,7 +241,7 @@
                     ";
                 } else {
                     echo "<div class='thirdPageSC'>
-                            <h1 class='tituloGeral titutloTP'>Modifications</h1>
+                            <h1 class='tituloGeral subtitulo'>Modifications</h1>
                             <p class='textoGeral semReserva'>No modification made</p>
                           </div>";
                 }
@@ -265,7 +257,6 @@
     <script src="/JS/car.js"></script>
     <script src="/JS/header.js"></script>
     <script>
-
         document.addEventListener("DOMContentLoaded", () => {
             const editButton = document.getElementById("editButton");
             const saveButton = document.getElementById("saveButton");

@@ -18,10 +18,9 @@
 
         <div class="menuContainer">
             <nav class="menu">
-                <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#secondSection">ABOUT US</a>
+                <a class="tituloGeral sobreEfeito" id="secao1" href="homepage.php#thirdSection">STATISTICS</a>
                 <a class="tituloGeral sobreEfeito" id="secao2" href="products.php">PRODUCTS</a>
                 <a class="tituloGeral sobreEfeito" id="secao3" href="homepage.php#fourthSection">CONTACTS</a>
-                <a class="tituloGeral sobreEfeito" id="reserva">RESERVAS</a>
             </nav>
         </div>
 
@@ -72,19 +71,6 @@
     </header>
 
     <main>
-        <div class="cartBar" id="cartBar">
-            <h1 class="tituloGeral titleSC">Reservations List</h1>
-            <div class="listCart">
-                <div class="item">
-                    <div class="itemImg">
-                    </div>
-                    <div class=" itemModelo">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <section class="profilePage">
             <div class="profilePageContainer">
 
