@@ -69,7 +69,10 @@ input, select{
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease-in-out;
+}
+
+.searchBtn:hover{
+  background-color: darkred;
 }
 
 .searchBtn img {

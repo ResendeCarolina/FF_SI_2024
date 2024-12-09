@@ -58,6 +58,12 @@ html {
   cursor: pointer;
 }
 
+.botaoGeral:hover{
+  background-color: darkred;
+  border: 2px darkred;
+  color: white;
+}
+
 
 /*código comum às listas de características e dados do car.php e do perfil.php*/
 .topicos{

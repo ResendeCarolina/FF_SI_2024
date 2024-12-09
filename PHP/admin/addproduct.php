@@ -140,7 +140,7 @@
                     <label for="imagem" class="textoGeral">Image URL</label>
                     <input type="url" id="imagem" name="imagem" class="textoGeral inputGeral" placeholder="Insert link" required>
 
-                    <button class="tituloGeral botaoGeral botaoGeral addBtn" type="submit" class="tituloGeral botaoAddCar">ADD CAR</button>
+                    <button class="tituloGeral botaoGeral addBtn botaoAddCar" type="submit">ADD CAR</button>
                 </form>
             </div>
         </section>

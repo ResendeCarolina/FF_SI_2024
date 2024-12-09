@@ -32,26 +32,6 @@ updateButtonText('.endDate', '.endBtn');
 
 
 
-
-/*---------------------------------- função para mudar cor do botão ao carregar -----------------------------*/
-
-//para mudar a cor do botão de reservar quando se carrega
-let reservaBtn = document.querySelector('.carBtn');
-
-//quando se carrega no botão
-reservaBtn.addEventListener('mousedown', function () {
-  reservaBtn.style.backgroundColor = "darkred";
-  reservaBtn.style.border = "solid darkred";
-});
-
-//quando se deixa de carregar no botão
-reservaBtn.addEventListener('mouseup', function () {
-  reservaBtn.style.backgroundColor = "";
-  reservaBtn.style.border = "solid black";
-});
-
-
-
 /*-----------------guarda os dados submetidos pelo  form do Car para reservar datas e 
  os envia para o ficheiro PHP processar_reserva.php usando o método POST. ----------------*/
 let carroForm = document.getElementById('carForm');
