@@ -166,7 +166,7 @@
                 </div>
             </div>
         </section>
-        <section class="thirdSection" id="thirdSection">
+        <section class="thirdSection" id="thirdSectionClient">
             <div class="checkthisout">
                 <!--titleTS - titleThirdSection-->
                 <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>

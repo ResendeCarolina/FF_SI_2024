@@ -183,34 +183,6 @@
                                         </ul>                              
                                         <form class='formCar' id='carForm' method='POST'>
                                             <input type='hidden' name='matricula' id='matricula' value='" . htmlspecialchars($carro['matricula']) . "'>
-                                             <div class='calendar-container'>
-                                                <div class='calendar-header'>
-                                                    <p class='calendar-current-date'></p>
-                                                    <div class='calendar-navigation'>
-                                                        <span id='calendar-prev' 
-                                                            class='material-symbols-rounded'>
-                                                            chevron_left
-                                                        </span>
-                                                        <span id='calendar-next' 
-                                                            class='material-symbols-rounded'>
-                                                            chevron_right
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <div class='calendar-body'>
-                                                    <ul class='calendar-weekdays'>
-                                                        <li>Sun</li>
-                                                        <li>Mon</li>
-                                                        <li>Tue</li>
-                                                        <li>Wed</li>
-                                                        <li>Thu</li>
-                                                        <li>Fri</li>
-                                                        <li>Sat</li>
-                                                    </ul>
-                                                    <ul class='calendar-dates'></ul>
-                                                </div>
-                                            </div>
                                             <div class='buttonContainer'>
                                                 <div>
                                                     <button class='tituloGeral botaoGeral btn date startBtn'>START</button>
@@ -245,7 +217,6 @@
     </main>
     <script src="/JS/car.js"></script>
     <script src="/JS/header.js"></script>
-    <script src="/JS/calendar.js"></script>
 </body>
 
 </html>
