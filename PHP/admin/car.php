@@ -101,8 +101,6 @@
 
                                 <div class='specificationCont'>
                                     <h1 class='tituloGeral subtitulo'>Specifications</h1>
-                                    <button class='editButton' id='editButton'>Edit</button>
-                                    <button class='saveButton' id='saveButton' style='display: none;'>Save</button>
                                     <ul class='tituloGeral topicos'>
                                         <li>
                                             <span class='textoGeral specific'>Registration Plate: </span>
@@ -134,6 +132,10 @@
                                             <input type='checkbox' class='editField' id='editOcult' " . ($oculto ? 'checked' : '') . " style='display: none;'>
                                         </li>
                                     </ul>
+                                    <div class='buttonContainer'>
+                                        <button class='tituloGeral editButton botaoGeral btn carBtn' id='editButton'>EDIT</button>
+                                        <button class='tituloGeral saveButton botaoGeral btn carBtn' id='saveButton' style='display: none;'>SAVE</button>
+                                   </div>
                                 </div>
                             </div>
                         </div>

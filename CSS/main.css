@@ -760,9 +760,11 @@ footer {
 
 .specificationCont {
   height: 100%;
+  width: 100%;
   display: flex;
   align-items: start;
   flex-direction: column;
+  border: solid red;
   justify-content: center;
 }
 
@@ -795,6 +797,10 @@ footer {
 .carBtn {
   color: white;
   background-color: black;
+}
+
+.editButton, .saveButton {
+  width: 170px;
 }
 
 .dateInput {

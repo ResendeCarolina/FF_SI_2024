@@ -114,10 +114,6 @@
                                         <span class='textoGeral specific'>Email: </span>
                                         <span class='textoGeral'>" . htmlspecialchars($utilizador['email']) . "</span>
                                     </li>
-                                    <li>
-                                        <span class='textoGeral specific'>Password: </span>
-                                        <span class='textoGeral'>" . htmlspecialchars($utilizador['password']) . "</span>
-                                    </li>
                                 </ul>
 
                             </div>

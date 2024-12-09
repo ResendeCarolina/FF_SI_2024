@@ -249,13 +249,3 @@
 </body>
 
 </html>
-
-<!--  <div id='calendarContainer'>
-    <div id='calendarHeader'>
-        <button id='prevMonth'>←</button>
-        <span id='currentMonth'></span>
-        <button id='nextMonth'>→</button>
-    </div>
-    <div id='calendarGrid'>
-    </div>
-</div>  -->
