@@ -31,26 +31,23 @@ if ($data) {
     $carroAtual = pg_fetch_assoc($resultSelect);
     $precoAtual = $carroAtual['custo_max_dia'];
 
-/*
     //valor da data do momento presente
     //verifica se o carro tem reservas no futuro
     $currentDate = date('Y-m-d');
-    $queryCheckReservations = "SELECT * 
+    $queryCheckReservations = "SELECT data_inicio, data_fim 
                                 FROM reserva
                                 WHERE carro_matricula = '$matricula' 
                                 AND data_inicio > '$currentDate'";  // Verifica reservas futuras
+
 
     $resultCheckReservations = pg_query($connection, $queryCheckReservations);
 
     //se houver reservas no futuro
     if (pg_num_rows($resultCheckReservations) > 0) {
-        if ($oculto === 'false') {
-            //dá erro porque o carro não pode ser ocultado
-            $oculto = 'true'; // Impede que o carro seja ocultado
-        }
+        echo json_encode(['erro' => 'Já há reservas feitas']);
+        exit();
     }
 
-*/
 
     //atualiza os novos valores na tabela carro da base de dados
     $queryUpdate = "UPDATE carro
