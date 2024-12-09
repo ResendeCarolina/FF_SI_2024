@@ -2,20 +2,20 @@
 
 ## Funcionalidades Obrigatórias
 
-### Etapa 1: Configuração Inicial e Registro
+### Etapa 1: Configuração Inicial e Registro______________________________Carolina
 - [x] Configurar ambiente de desenvolvimento (PHP, PostgreSQL, PHPStorm, ONDA)
 - [x] Configurar conexão com a base de dados PostgreSQL
 - [x] Implementar o sistema de **Registro de Cliente**
   - [x] Formulário de registro com campos: Nome, Email, Senha
   - [x] Geração de saldo fictício no momento do registro
 
-### Etapa 2: Autenticação de Usuário
+### Etapa 2: Autenticação de Usuário__________________________________Carolina
 - [x] Implementar o sistema de **Login e Logout** para Clientes
   - [x] Exibir o nome do cliente em todas as páginas após o login
 - [x] Implementar o sistema de **Login e Logout** para Administradores
   - [x] Exibir o nome do administrador em todas as páginas após o login
 
-### Etapa 3: Funcionalidades do Cliente
+### Etapa 3: Funcionalidades do Cliente______________________________Maria
 - [x] **Listar Carros Disponíveis** para reserva
   - [x] Página que mostra todos os carros disponíveis com detalhes básicos
 - [x] **Reserva de Carros** para clientes
@@ -24,12 +24,12 @@
 - [x] **Visualizar Histórico de Reservas**
   - [x] Listar reservas passadas e futuras do cliente
 
-### Etapa 4: Pesquisa e Filtros
+### Etapa 4: Pesquisa e Filtros________________________________Carolina
 - [x] Implementar **Pesquisa e Filtros de Carros**
   - [x] Filtro por marca, número de lugares, custo máximo por dia, etc.
   - [x] Opção de ordenação dos resultados (por preço, marca, etc.)
 
-### Etapa 5: Funcionalidades do Administrador
+### Etapa 5: Funcionalidades do Administrador_________________________Maria
 - [x] **Visualizar todos os Carros** com detalhes e estatísticas
   - [x] Número de reservas e períodos de reserva para cada carro
 - [x] **Adicionar Novo Carro** ao sistema
@@ -40,7 +40,7 @@
 - [x] **Alterar Custo de Reserva de um Carro**
   - [x] Implementar histórico de preços para rastrear alterações ao longo do tempo
 
-### Etapa 6: Estatísticas Administrativas
+### Etapa 6: Estatísticas Administrativas__________________Maria
 - [x] **Visualizar Estatísticas Gerais do Sistema**
   - [x] Total de carros
   - [x] Total de utilizadores que já reservaram carros

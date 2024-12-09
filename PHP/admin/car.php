@@ -211,29 +211,27 @@
                 $history = pg_query($connection, $queryHist);
 
                 if ($history && pg_num_rows($history) > 0) {
-                    while ($hist = pg_fetch_assoc($history)) {
-                        echo "<section class='thirdPage'>
+                    echo "<section class='thirdPage'>
                                 <div class='thirdPageSC'>
                                     <h1 class='tituloGeral subtitulo'>Price History</h1>
-                                    <ul class='topicos'>
-                                        <li>
-                                            <span class='textoGeral specific'>Administrator: </span>
-                                            <span class='textoGeral'>" . htmlspecialchars($hist['administrador_pessoa_nome']) . "</span>
-                                        </li>
-                                        <li>
-                                            <span class='textoGeral specific'>Modification date: </span>
-                                            <span class='textoGeral'>" . htmlspecialchars($hist['data_alteracao']) . "</span>
-                                        </li>
-                                        <li>
-                                            <span class='textoGeral specific'>Daily value: </span>
-                                            <span class='textoGeral'>" . htmlspecialchars($hist['custodiario']) . "</span>
-                                        </li>
-                                    </ul>
-                                    <br>
-                                    <hr>
-                                    <br>
-                                </div>
-                            </section>
+                                    <ul class='topicos'>";
+                    while ($hist = pg_fetch_assoc($history)) {
+                        echo "
+                                <li>
+                                    <span class='textoGeral specific'>Administrator: </span>
+                                    <span class='textoGeral'>" . htmlspecialchars($hist['administrador_pessoa_nome']) . "</span>
+                                </li>
+                                <li>
+                                    <span class='textoGeral specific'>Modification date: </span>
+                                    <span class='textoGeral'>" . htmlspecialchars($hist['data_alteracao']) . "</span>
+                                </li>
+                                <li>
+                                    <span class='textoGeral specific'>Daily value: </span>
+                                    <span class='textoGeral'>" . htmlspecialchars($hist['custodiario']) . "</span>
+                                </li>
+                                <br>
+                                <hr>
+                                <br>
                             ";
                     }
                     echo "
