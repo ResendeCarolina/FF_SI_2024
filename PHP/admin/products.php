@@ -187,7 +187,7 @@
                                 <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
                                 <div class='element elementAdmin'>
                                     <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
-                                        <button class='tituloGeral botaoGeral verMaisBtn'>Ver Mais</button>
+                                        <button class='tituloGeral botaoGeral verMaisBtn'>MORE</button>
                                     </a>
                                     <form method='POST'>
                                         <input type='hidden' name='matricula' value='" . htmlspecialchars($carro['matricula']) . "'>
@@ -234,11 +234,3 @@
 
 </html>
 
-<!--$query = "SELECT carro.matricula, carro.modelo, carro.nmr_lugares, carro.cor, carro.ano, carro.custo_max_dia, carro.img, hist_preco_carro_.carro_matricula, hist_preco_carro_.oculto
-                    FROM carro, hist_preco_carro_
-                    WHERE carro.matricula = hist_preco_carro_.carro_matricula
-                    AND 1=1";//seleciona todos os resultados da tabela carro
-                    
-                    <button class='olhoBtn' type='submit'>
-                                            <img class='olho' src='/IMAGENS/" . ($carro['oculto'] ? 'olhoOculto.png' : 'olhoVisivel.png') . "' alt='Visibilidade'>
-                                        </button>-->

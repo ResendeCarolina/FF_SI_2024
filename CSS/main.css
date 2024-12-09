@@ -764,7 +764,6 @@ footer {
   display: flex;
   align-items: start;
   flex-direction: column;
-  border: solid red;
   justify-content: center;
 }
 

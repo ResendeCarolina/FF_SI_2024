@@ -246,7 +246,7 @@
                                     <img class='imgCarro' id='imgGallery' src='" . htmlspecialchars($carro['img']) . "' alt='carro1'>
                                     <div class='element'>
                                         <a href='car.php?matricula=" . urlencode($carro['matricula']) . "'>
-                                            <button class='tituloGeral botaoGeral verMaisBtn'>Ver Mais</button>
+                                            <button class='tituloGeral botaoGeral verMaisBtn'>More</button>
                                         </a>
                                     </div>
                                 </div>
