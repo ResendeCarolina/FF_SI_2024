@@ -236,6 +236,7 @@
     </main>
 
     <script src="/JS/header.js"></script>
+    <script src="/JS/cartBar.js"></script>
 </body>
 
 </html>

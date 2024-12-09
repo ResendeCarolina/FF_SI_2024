@@ -254,76 +254,9 @@
         ?>
 
     </main>
-    <script src="/JS/car.js"></script>
     <script src="/JS/header.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const editButton = document.getElementById("editButton");
-            const saveButton = document.getElementById("saveButton");
-            const infoFields = document.querySelectorAll(".infoField");
-            const editFields = document.querySelectorAll(".editField");
-
-            // Função para alternar para o modo de edição
-            const enableEditMode = () => {
-                infoFields.forEach(field => (field.style.display = "none"));
-                editFields.forEach(field => (field.style.display = "block"));
-                editButton.style.display = "none";
-                saveButton.style.display = "inline-block";
-            };
-
-            // Função para alternar para o modo de visualização
-            const disableEditMode = () => {
-                infoFields.forEach(field => (field.style.display = "block"));
-                editFields.forEach(field => (field.style.display = "none"));
-                editButton.style.display = "inline-block";
-                saveButton.style.display = "none";
-            };
-
-            // Listener para o botão Editar
-            editButton.addEventListener("click", enableEditMode);
-
-            // Listener para o botão Guardar
-            saveButton.addEventListener("click", () => {
-                const updatedData = {
-                    matricula: document.getElementById("editMatricula").value,
-                    nmr_lugares: document.getElementById("editSeats").value,
-                    cor: document.getElementById("editColor").value,
-                    ano: document.getElementById("editYear").value,
-                    custo_max_dia: document.getElementById("editCost").value,
-                    oculto: document.getElementById("editOcult").checked ? 'true' : 'false' // Certifique-se de enviar como string ou booleano
-                };
-
-                // Atualizar os valores exibidos
-                document.getElementById("matricula").textContent = updatedData.matricula;
-                document.getElementById("nmr_lugares").textContent = updatedData.nmr_lugares;
-                document.getElementById("cor").textContent = updatedData.cor;
-                document.getElementById("ano").textContent = updatedData.ano;
-                document.getElementById("custo_max_dia").textContent = updatedData.custo_max_dia + "€";
-
-                // Desativa o modo de edição
-                disableEditMode();
-
-                // Fazer a chamada AJAX
-                fetch("updateCar.php", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify(updatedData),
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert("Car information updated successfully!");
-                        } else {
-                            console.error("Error:", data.error);
-                            alert("Failed to update car information.");
-                        }
-                    })
-                    .catch(error => console.error("Error:", error));
-            });
-        });
-    </script>
+    <!-- ficheiro para onde vai a informação das alterações feitas/editadas no carro-->
+    <script src="/JS/editCar.js"></script> 
 </body>
 
 </html>

@@ -1,12 +1,3 @@
-let registationForm = document.getElementById("registationForm");
-
-/* registationForm.addEventListener("submit", () => console.log("cenas")) */
-
-let handleSubmit = () => {
-  console.log(registationForm)
-}
-
-
 //reduz suavemente a opacidade do videoInicial através do scroll
 let video = document.querySelector('.firstSection');
 

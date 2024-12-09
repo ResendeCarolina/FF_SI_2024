@@ -1,9 +1,11 @@
 <?php
+
 require('../comuns/baseDados.php');
 
-// Recebe os dados do pedido
+//o ficheiro php recebe os dados enviados através do method POST no formato json
 $data = json_decode(file_get_contents('php://input'), true);
 
+//verifica os valores retornados
 if ($data) {
     $matricula = pg_escape_string($connection, $data['matricula']);
     $nmr_lugares = pg_escape_string($connection, $data['nmr_lugares']);
@@ -29,19 +31,40 @@ if ($data) {
     $carroAtual = pg_fetch_assoc($resultSelect);
     $precoAtual = $carroAtual['custo_max_dia'];
 
-    // Atualiza a informação na base de dados
+/*
+    //valor da data do momento presente
+    //verifica se o carro tem reservas no futuro
+    $currentDate = date('Y-m-d');
+    $queryCheckReservations = "SELECT * 
+                                FROM reserva
+                                WHERE carro_matricula = '$matricula' 
+                                AND data_inicio > '$currentDate'";  // Verifica reservas futuras
+
+    $resultCheckReservations = pg_query($connection, $queryCheckReservations);
+
+    //se houver reservas no futuro
+    if (pg_num_rows($resultCheckReservations) > 0) {
+        if ($oculto === 'false') {
+            //dá erro porque o carro não pode ser ocultado
+            $oculto = 'true'; // Impede que o carro seja ocultado
+        }
+    }
+
+*/
+
+    //atualiza os novos valores na tabela carro da base de dados
     $queryUpdate = "UPDATE carro
-                        SET nmr_lugares = '$nmr_lugares',
-                            cor = '$cor',
-                            ano = '$ano',
-                            custo_max_dia = '$novo_custo_max_dia',
-                            oculto = $oculto
-                        WHERE matricula = '$matricula'";
+                    SET nmr_lugares = '$nmr_lugares',
+                        cor = '$cor',
+                        ano = '$ano',
+                        custo_max_dia = '$novo_custo_max_dia',
+                        oculto = $oculto
+                    WHERE matricula = '$matricula'";
 
     $result = pg_query($connection, $queryUpdate);
 
     if ($result) {
-        // Se o preço mudou, insere um registro na tabela hist_preco_carro_
+        //se o preço foi alterado essa informação também vai ser inserida na tabela do hirótico de preço de carros da base de dados
         if ($precoAtual != $novo_custo_max_dia) {
             $queryInsertHist = "INSERT INTO hist_preco_carro_ (custodiario, data_alteracao, oculto, administrador_pessoa_nome, carro_matricula)
                                     VALUES ('$precoAtual', NOW(), $oculto, '$admin_nome', '$matricula')";

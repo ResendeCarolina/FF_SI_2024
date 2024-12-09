@@ -112,7 +112,7 @@
                 </div>
             </div>
         </section>
-        <section class="thirdSection" id="thirdSectionAdmin">
+        <section class="thirdSection thirdSectionAdmin" id="thirdSection">
             <div class="textoGeral text">
                 <!--titleSS - titleSecondSection-->
                 <h2 class="tituloGeral title" id="titleSS">STATISTICS</h2>

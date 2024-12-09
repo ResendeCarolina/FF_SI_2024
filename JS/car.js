@@ -36,7 +36,7 @@ updateButtonText('.endDate', '.endBtn');
 /*---------------------------------- função para mudar cor do botão ao carregar -----------------------------*/
 
 //para mudar a cor do botão de reservar quando se carrega
-let reservaBtn = document.querySelector('#carBtn');
+let reservaBtn = document.querySelector('.carBtn');
 
 //quando se carrega no botão
 reservaBtn.addEventListener('mousedown', function () {
@@ -52,12 +52,11 @@ reservaBtn.addEventListener('mouseup', function () {
 
 
 
-/*----------------- função que guarda os dados submetidos pelo  form do Car e 
+/*-----------------guarda os dados submetidos pelo  form do Car para reservar datas e 
  os envia para o ficheiro PHP processar_reserva.php usando o método POST. ----------------*/
 let carroForm = document.getElementById('carForm');
 
 carroForm.addEventListener('submit', function (event) {
-  event.preventDefault(); // Evitar o envio normal do formulário e o refresh
 
   let dadosForm = new FormData(this); // Obter os dados do formulário
 
@@ -67,7 +66,6 @@ carroForm.addEventListener('submit', function (event) {
   })
     .then(response => {
       if (!response.ok) {
-        // Se o status da resposta não for 200, processar o erro
         return response.text().then(errorMessage => {
           throw new Error(errorMessage);
         });
@@ -90,5 +88,4 @@ carroForm.addEventListener('submit', function (event) {
       window.location.reload(); // Faz o refresh em caso de erro
     });
 });
-
 

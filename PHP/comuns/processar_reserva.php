@@ -36,7 +36,7 @@ if (isset($_POST['startDate'], $_POST['endDate'], $_POST['matricula'])) {
 
     //se der erro remete o utilizador
     if ($conflict) {
-        echo "The car is already booked for those dates! Please, select another dates or another car";
+        echo "The car is already booked for those dates! Please, select another date or another car";
         exit();
     }
 
@@ -57,7 +57,7 @@ if (isset($_POST['startDate'], $_POST['endDate'], $_POST['matricula'])) {
     if ($resultReserva) {
         // confirmar transação
         pg_query($connection, "COMMIT");
-        echo "Reservation made successfully";
+        echo "Reservation made successfully!";
     } else {
         // desfazer transação em caso de erro
         pg_query($connection, "ROLLBACK");

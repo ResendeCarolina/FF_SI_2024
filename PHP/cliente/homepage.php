@@ -166,7 +166,7 @@
                 </div>
             </div>
         </section>
-        <section class="thirdSection" id="thirdSectionClient">
+        <section class="thirdSection thirdSectionClient" id="thirdSection">
             <div class="checkthisout">
                 <!--titleTS - titleThirdSection-->
                 <h2 class="tituloGeral title" id="titleTS">CHECK THIS OUT</h2>
@@ -232,6 +232,7 @@
     </footer>
     <script src="/JS/homepage.js"></script>
     <script src="/JS/header.js"></script>
+    <script src="/JS/cartBar.js"></script>
 </body>
 
 </html>
