@@ -730,7 +730,8 @@ footer {
   position: relative;
 }
 
-.thirdPageSC, .thirdPageTC {
+.thirdPageSC,
+.thirdPageTC {
   width: 100%;
   padding: 0px 150px 80px 150px;
   position: relative;
@@ -756,7 +757,8 @@ footer {
 }
 
 .imagem {
-  width: 70%; /*ocupa 70% da largura total do contentor pai sempre de forma proporcional*/
+  width: 70%;
+  /*ocupa 70% da largura total do contentor pai sempre de forma proporcional*/
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
@@ -802,7 +804,8 @@ footer {
   background-color: black;
 }
 
-.editButton, .saveButton {
+.editButton,
+.saveButton {
   width: 170px;
 }
 
@@ -834,6 +837,38 @@ footer {
 
 .semReserva {
   margin-top: 20px;
+}
+
+/*-----------------Código para o formulário de edição dos detalhes------------------*/
+.topicos > li {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.topicos > li > input {
+  color: grey;
+  padding-left: 10px;
+  width: 100px;
+  font-size: 10pt;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: 17px;
+  position: relative;
+}
+
+.topicos > li > input[type=date]::-webkit-calendar-picker-indicator {
+  color: grey;
+  padding-right: 10px;
+}
+
+.topicos > li > input[type=checkbox] {
+  width: 13px;
+}
+
+.infoField {
+  color: black;
 }
 
 .profilePage {

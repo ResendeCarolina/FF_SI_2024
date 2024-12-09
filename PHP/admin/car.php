@@ -105,31 +105,32 @@
                                         <li>
                                             <span class='textoGeral specific'>Registration Plate: </span>
                                             <span class='textoGeral infoField' id='matricula'>" . htmlspecialchars($carro['matricula']) . "</span>
-                                            <input type='text' class='formEdit editField' id='editMatricula' style='display: none;' value='" . htmlspecialchars($carro['matricula']) . "'>
+                                            <input type='text' class='textoGeral editField' id='editMatricula' style='display: none;' value='" . htmlspecialchars($carro['matricula']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Number of Seats: </span>
                                             <span class='textoGeral infoField' id='nmr_lugares'>" . htmlspecialchars($carro['nmr_lugares']) . "</span>
-                                            <input type='number' class='formEdit editField' id='editSeats' style='display: none;' value='" . htmlspecialchars($carro['nmr_lugares']) . "'>
+                                            <input type='number' class='textoGeral editField' id='editSeats' style='display: none;' value='" . htmlspecialchars($carro['nmr_lugares']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Color: </span>
                                             <span class='textoGeral infoField' id='cor'>" . htmlspecialchars($carro['cor']) . "</span>
-                                            <input type='text' class='formEdit editField' id='editColor' style='display: none;' value='" . htmlspecialchars($carro['cor']) . "'>
+                                            <input type='text' class='textoGeral editField' id='editColor' style='display: none;' value='" . htmlspecialchars($carro['cor']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Year: </span>
                                             <span class='textoGeral infoField' id='ano'>" . htmlspecialchars($carro['ano']) . "</span>
-                                            <input type='date' class='formEdit editField' id='editYear' style='display: none;' value='" . htmlspecialchars($carro['ano']) . "'>
+                                            <input type='date' class='textoGeral editField' id='editYear' style='display: none;' value='" . htmlspecialchars($carro['ano']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Cost per Day: </span>
                                             <span class='textoGeral infoField' id='custo_max_dia'>" . htmlspecialchars($carro['custo_max_dia']) . "€</span>
-                                            <input type='number' class='formEdit editField' id='editCost' style='display: none;' value='" . htmlspecialchars($carro['custo_max_dia']) . "'>
+                                            <input type='number' class='textoGeral editField' id='editCost' style='display: none;' value='" . htmlspecialchars($carro['custo_max_dia']) . "'>
                                         </li>
                                         <li>
                                             <span class='textoGeral specific'>Visible: </span>
-                                            <input type='checkbox' class='formEdit editField' id='editOcult' " . ($oculto ? 'checked' : '') . " style='display: none;'>
+                                             <span class='textoGeral infoField' id='ocultText'>" . htmlspecialchars($oculto ? 'Visible' : 'Hidden') . "</span>
+                                            <input type='checkbox' class='textoGeral editField' id='editOcult' " . ($oculto ? 'checked' : '') . " style='display: none;'>
                                         </li>
                                     </ul>
                                     <div class='buttonContainer'>

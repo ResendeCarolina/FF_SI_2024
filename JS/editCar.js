@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const infoFields = document.querySelectorAll(".infoField");
   const editFields = document.querySelectorAll(".editField");
 
+  const ocultText = document.getElementById("ocultText");
+  const editOcult = document.getElementById("editOcult");
+
   //para ativar o modo de edição
   const enableEditMode = () => {
     infoFields.forEach(field => (field.style.display = "none"));
@@ -24,6 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
     saveButton.style.display = "none";//desaparece o botão editar
   };
 
+  // Atualiza o texto do span baseado no estado do checkbox
+  const updateOcultText = () => {
+    ocultText.textContent = editOcult.checked ? "Visible" : "Hidden";
+  };
+
   //adiciona um evento de click ao botão de editar ("edit")
   editButton.addEventListener("click", enableEditMode);
 
@@ -36,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ano: document.getElementById("editYear").value,
       custo_max_dia: document.getElementById("editCost").value,
       //a visibilidade do carro será alterada consoante o valor da checkbox seja retornado true ou false
-      oculto: document.getElementById("editOcult").checked ? 'true' : 'false' 
+      oculto: document.getElementById("editOcult").checked ? 'true' : 'false'
     };
 
     //atualiza os valores que foram registados
@@ -45,6 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("cor").textContent = updatedData.cor;
     document.getElementById("ano").textContent = updatedData.ano;
     document.getElementById("custo_max_dia").textContent = updatedData.custo_max_dia + "€";
+
+    // Atualiza o texto do estado de visibilidade
+    updateOcultText();
 
     //desativa o modo de edição
     disableEditMode();
@@ -64,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("Car information updated successfully!");
         } else {
           console.error("Error:", data.error);
-          alert("Failed to update car information.");
+          alert("It's not possible to hide cars with scheduled reservations");
         }
       })
       .catch(error => console.error("Error:", error));

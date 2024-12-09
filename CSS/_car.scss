@@ -9,19 +9,20 @@
   position: relative;
 }
 
-.thirdPageSC, .thirdPageTC{
+.thirdPageSC,
+.thirdPageTC {
   width: 100%;
   padding: 0px 150px 80px 150px;
   position: relative;
 }
 
-.tituloTP{
+.tituloTP {
   padding-top: 20px;
   font-size: 30pt;
   position: absolute;
 }
 
-.subtitulo{
+.subtitulo {
   padding-top: 20px;
   font-size: 20pt;
 }
@@ -33,14 +34,15 @@
   flex-direction: row;
   align-items: center;
 }
-    
+
 .imagem {
-  width: 70%;/*ocupa 70% da largura total do contentor pai sempre de forma proporcional*/
+  width: 70%;
+  /*ocupa 70% da largura total do contentor pai sempre de forma proporcional*/
   height: auto;
   object-fit: cover;
 }
 
-.specificationCont{  
+.specificationCont {
   height: 100%;
   width: 100%;
   display: flex;
@@ -53,34 +55,35 @@
   margin-top: 30px;
   width: 100%;
   display: grid;
-  grid-template-columns: 85px 85px; 
+  grid-template-columns: 85px 85px;
   grid-template-rows: 30px 30px;
   gap: 10px;
 }
 
-.buttonContainer > div {
+.buttonContainer>div {
   position: relative;
 }
 
-.buttonContainer>:nth-child(3){
+.buttonContainer>:nth-child(3) {
   grid-column: 1 / -1;
 }
 
-.btn{
+.btn {
   width: 100%;
   height: 100%;
 }
 
-.date{ 
+.date {
   background-color: transparent;
 }
 
-.carBtn{
+.carBtn {
   color: white;
   background-color: black;
 }
 
-.editButton, .saveButton{
+.editButton,
+.saveButton {
   width: 170px;
 }
 
@@ -106,12 +109,45 @@
   cursor: pointer;
 }
 
-.erroCar{
+.erroCar {
   padding: 150px 150px 0px 150px;
 }
 
-.semReserva{
+.semReserva {
   margin-top: 20px;
 }
 
 /*-----------------Código para o formulário de edição dos detalhes------------------*/
+.topicos>li {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+//inputs do formulário
+.topicos>li>input {
+  color: grey;
+  padding-left: 10px;
+  width: 100px;
+  font-size: 10pt;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: 17px;
+  position: relative;
+}
+
+//icone do calendário para o input da data
+.topicos>li>input[type="date"]::-webkit-calendar-picker-indicator {
+  color: grey;
+  padding-right: 10px;
+}
+
+//caixa checkbox
+.topicos>li>input[type="checkbox"]{
+  width: 13px;
+}
+
+.infoField{
+  color: black;
+}
