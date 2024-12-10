@@ -1,20 +1,19 @@
 <?php
-session_start(); // Inicia a sessão
+session_start(); //inicia a sessão
 
-// Verifica se a sessão existe
+//verifica se a sessão foi iniciada
 if (isset($_SESSION['user'])) {
-    // Remove todos os dados da sessão
+    //remove/apaga todos os dados da sessão
     session_unset();
 
-    // Destroi a sessão
+    //encerra a sessão
     session_destroy();
 
-    // Redireciona para a página de login
+    //depoi de fazer logout sou redirecionado para o login
     header('Location: ../comuns/login.php');
     exit();
 } else {
-    // Se não estiver logado, redireciona para a página de login diretamente
+    //se não, vou diretamente para a página do login
     header('Location: ../comuns/login.php');
     exit();
 }
-?>

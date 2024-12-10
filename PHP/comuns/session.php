@@ -1,7 +1,12 @@
+<!--guarda a informação dos dados do login do usuário-->
+
 <?php
-    session_start();
-    if(!isset($_SESSION["username"])) {
-        header("Location: registration.php"); 
-        exit();
-    }
+//inicia sessão
+session_start();
+
+//se a variável de início de sessão não estiver definida então o login não foi feito
+if (!isset($_SESSION["username"])) {
+    header("Location: registration.php");
+    exit();
+}
 ?>

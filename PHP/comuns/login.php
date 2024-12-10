@@ -13,46 +13,45 @@
 
         <?php
 
-        // Conexão à base de dados
+        //conexão à base de dados
         require('../comuns/baseDados.php');
 
-        // PHP para submeter os dados para a base de dados
+        //verifica se todos os campos de preenchimento obrigatório foram preenchidos
         if (isset($_REQUEST['mail'], $_REQUEST['pwd'])) {
-            $email = $_REQUEST['mail'];  // String fornecida pelo utilizador
-            $password = $_REQUEST['pwd'];  // Senha fornecida pelo utilizador
+            $email = $_REQUEST['mail'];
+            $password = $_REQUEST['pwd'];
 
-            // Escape o email e a senha para garantir que estão corretos e seguros
             $escaped_email = pg_escape_string($connection, $email);
             $escaped_password = pg_escape_string($connection, $password);
 
-            // Query para verificar o login na tabela pessoa
+            //verifica se na tabela pessoa já existe alguém com esta conta
             $query = "SELECT nome FROM pessoa WHERE email = '$escaped_email' AND password = '$escaped_password'";
-
-            // Executa a query
             $resultados = pg_query($connection, $query);
 
-            // Verifica se a consulta foi bem-sucedida e se encontrou resultados
+            //se existir
             if ($resultados && pg_num_rows($resultados) > 0) {
+
+                //inicia sessão
                 session_start();
                 $utilizador = pg_fetch_assoc($resultados);
 
-                // Armazena o nome e email do utilizador na sessão
+                //o nome e o email do utilizador são guardados
                 $_SESSION['nome'] = $utilizador['nome'];
                 $_SESSION['user'] = $email;
 
-                // Verifica se o utilizador é administrador
+                //se for administrador
                 $queryRole = "SELECT * FROM administrador WHERE pessoa_nome = '" . pg_escape_string($connection, $utilizador['nome']) . "'";
                 $resultRole = pg_query($connection, $queryRole);
 
                 if (pg_num_rows($resultRole) > 0) {
-                    // Redireciona para a página do administrador
+                    //redireciona para a página do administrador
                     header('Location: /PHP/admin/homepage.php');
                 } else {
-                    // Redireciona para a página do cliente
+                    //redireciona para a página do cliente
                     header('Location: /PHP/cliente/homepage.php');
                 }
                 exit();
-            } else {
+            } else { //se os dados não estiverem de acordo com os da base de dados
                 echo "<h1>Email ou senha inválidos</h1>";
             }
         } else {
@@ -96,8 +95,6 @@
         ?>
 
     </main>
-
-    <script src="../JS/script.js"></script>
 </body>
 
 </html>

@@ -29,12 +29,16 @@
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
 
                 <div class="textoGeral loginNome">
+
                     <?php
-                    // Conexão à base de dados
+
+                    //conexão à base de dados
                     require('../comuns/baseDados.php');
 
+                    //verifica se a sessão foi iniciada
                     session_start();
-                    // Verificar se o utilizador está logado
+
+                    //guarda o nome do utilizador
                     if (isset($_SESSION['nome'])) {
                         $nome = htmlspecialchars($_SESSION['nome']);
                         echo "<p>Welcome, $nome!</p>";
@@ -42,6 +46,7 @@
                         echo "<p>Please login</p>";
                     }
                     ?>
+
                 </div>
             </div>
 
@@ -51,11 +56,12 @@
                         <p>MY ACCOUNT</p>
                     </div>
                 </a>
+
                 <?php
-                // Conexão à base de dados
+                //conexão à base de dados
                 require('../comuns/baseDados.php');
 
-
+                //se clicar no botão de logout encerro sessão
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../comuns/logout.php' class='btn-logout'>
@@ -66,6 +72,7 @@
                 ";
                 }
                 ?>
+
             </div>
         </div>
     </header>
@@ -73,24 +80,24 @@
 
         <?php
 
-        // Verifica se o atributo "matricula" foi enviado
+        //verifica se o atributo "matricula" foi enviado
         if (isset($_GET['matricula'])) { //se foi enviado
             $matricula = pg_escape_string($connection, $_GET['matricula']);
 
-            // Query para buscar os detalhes do carro
+            //consulta a tabela carro
             $queryCarro = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, img, oculto
-                                FROM carro
-                                WHERE matricula = '$matricula'";
+                           FROM carro
+                           WHERE matricula = '$matricula'";
 
             $resultado = pg_query($connection, $queryCarro);
 
-            // Verificar se a consulta foi bem-sucedida
+            //verificar se a consulta foi bem-sucedida
             if ($resultado && pg_num_rows($resultado) > 0) {
                 $carro = pg_fetch_assoc($resultado);
                 // Verifica se o valor de 'oculto' é 't' (true) ou 'f' (false)
                 $oculto = ($carro['oculto'] === 't'); // Converte para booleano em PHP
 
-                // Exibir as informações do carro
+                //consoante a PK do carro (matrícula), vamos buscar todas as suas especificações
                 echo "
                     <section class='thirdPage'>
                             
@@ -203,11 +210,11 @@
                 }
 
 
-                // Historico do carro
-                //query que vai buscar a informação das reservas de cada carro
+                //HISTORICO DO CARRO
+                //consulta a tabela carro e vai buscar a informação das reservas
                 $queryHist = "SELECT custodiario, data_alteracao, administrador_pessoa_nome
-                                  FROM hist_preco_carro_
-                                  WHERE hist_preco_carro_.carro_matricula = '$matricula'";
+                              FROM hist_preco_carro_
+                              WHERE hist_preco_carro_.carro_matricula = '$matricula'";
 
                 $history = pg_query($connection, $queryHist);
 
@@ -257,7 +264,7 @@
     </main>
     <script src="/JS/header.js"></script>
     <!-- ficheiro para onde vai a informação das alterações feitas/editadas no carro-->
-    <script src="/JS/editCar.js"></script> 
+    <script src="/JS/editCar.js"></script>
 </body>
 
 </html>

@@ -12,17 +12,22 @@ if ($data) {
     $cor = pg_escape_string($connection, $data['cor']);
     $ano = pg_escape_string($connection, $data['ano']);
     $novo_custo_max_dia = pg_escape_string($connection, $data['custo_max_dia']);
-    $oculto = $data['oculto'] === 'true' ? 'true' : 'false'; // Formate o valor corretamente para PostgreSQL
+    $oculto = $data['oculto'] === 'true' ? 'true' : 'false'; //o valor da variável será true ou false consaonte o valor enviado
 
     session_start();
+
     if (isset($_SESSION['nome'])) {
         $admin_nome = htmlspecialchars($_SESSION['nome']);
     }
 
-    // Primeiro, verifica o preço atual
-    $querySelect = "SELECT custo_max_dia FROM carro WHERE matricula = '$matricula'";
+    //Consulta a tabela carro e seleciona o custo diário do carro
+    $querySelect = "SELECT custo_max_dia 
+                    FROM carro 
+                    WHERE matricula = '$matricula'";
     $resultSelect = pg_query($connection, $querySelect);
 
+    //se a consulta falhou, a função é enviada uma mensagem de erro 
+    //que é convertida para formato json 
     if (!$resultSelect) {
         echo json_encode(['success' => false, 'error' => pg_last_error($connection)]);
         exit();

@@ -29,12 +29,16 @@
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
 
                 <div class="textoGeral loginNome">
+
                     <?php
-                    // Conexão à base de dados
+
+                    //conexão à base de dados
                     require('../comuns/baseDados.php');
 
+                    //verifica se a sessão foi iniciada
                     session_start();
-                    // Verificar se o utilizador está logado
+
+                    //guarda o nome do utilizador
                     if (isset($_SESSION['nome'])) {
                         $nome = htmlspecialchars($_SESSION['nome']);
                         echo "<p>Welcome, $nome!</p>";
@@ -42,6 +46,7 @@
                         echo "<p>Please login</p>";
                     }
                     ?>
+
                 </div>
             </div>
 
@@ -51,11 +56,12 @@
                         <p>MY ACCOUNT</p>
                     </div>
                 </a>
+
                 <?php
-                // Conexão à base de dados
+                //conexão à base de dados
                 require('../comuns/baseDados.php');
 
-
+                //se clicar no botão de logout encerro sessão
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../comuns/logout.php' class='btn-logout'>
@@ -66,6 +72,7 @@
                 ";
                 }
                 ?>
+
             </div>
         </div>
     </header>
@@ -73,7 +80,7 @@
     <main>
 
         <?php
-        require('../comuns/baseDados.php'); // Conexão com a base de dados
+        require('../comuns/baseDados.php');
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Receber os dados do formulário
@@ -86,16 +93,15 @@
             $administrador_pessoa_nome = $_POST['administrador_pessoa_nome'];
             $imagem = $_POST['imagem']; // URL da imagem
 
-            // Validação básica
+            //verifica se algum dos campos obrigatórios está vazio
             if (empty($matricula) || empty($modelo) || empty($nmr_lugares) || empty($cor) || empty($ano) || empty($custo_max_dia) || empty($administrador_pessoa_nome) || empty($imagem)) {
                 die("Todos os campos são obrigatórios.");
             }
 
-            // Query de inserção
+            //insere os dados recebidos do formulário da tabela carro na base de dados
             $query = "INSERT INTO carro (matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img)
                       VALUES ('$matricula', '$modelo', $nmr_lugares, '$cor', '$ano', $custo_max_dia, '$administrador_pessoa_nome', '$imagem')";
 
-            // Executar a query
             $result = pg_query($connection, $query);
 
             if ($result) {

@@ -1,21 +1,26 @@
 <?php
+
+//conexão à base de dados
 require('../comuns/baseDados.php');
 
-// Dados para os gráficos
+//armazena os dados mandados pelo json
 $data = [];
 
-// Total de carros por modelo (para gráfico de barras)
+
+//GRAFICO DE BARRAS-----------------------------------------------------------------------------------
+//consulta a tabela carro para contar o número total de carros agrupados por modelo
 $queryModelos = "SELECT modelo, COUNT(*) AS total FROM carro GROUP BY modelo";
 $resultModelos = pg_query($connection, $queryModelos);
 $data['modelos'] = [];
-while ($row = pg_fetch_assoc($resultModelos)) {
+while ($row = pg_fetch_assoc($resultModelos)) { //percorre todos os valores retornados
     $data['modelos'][] = [
         'modelo' => $row['modelo'],
         'total' => $row['total']
     ];
 }
 
-// Total de reservas por utilizador (para gráfico de pizza)
+//GRAFICO CIRCULAR------------------------------------------------------------------------------------
+//consulta a tabela reserva para contar o número total de reservas feitas por cada cliente
 $queryReservas = "SELECT cliente_pessoa_nome, COUNT(*) AS total_reservas FROM reserva GROUP BY cliente_pessoa_nome";
 $resultReservas = pg_query($connection, $queryReservas);
 $data['reservas'] = [];
@@ -28,5 +33,5 @@ while ($row = pg_fetch_assoc($resultReservas)) {
 
 pg_close($connection);
 
-// Passar os dados para o frontend
+//retorna os dados em formato json
 echo json_encode($data);

@@ -30,12 +30,16 @@
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
 
                 <div class="textoGeral loginNome">
+
                     <?php
-                    // Conexão à base de dados
+
+                    //conexão à base de dados
                     require('../comuns/baseDados.php');
 
+                    //verifica se a sessão foi iniciada
                     session_start();
-                    // Verificar se o utilizador está logado
+
+                    //guarda o nome do utilizador
                     if (isset($_SESSION['nome'])) {
                         $nome = htmlspecialchars($_SESSION['nome']);
                         echo "<p>Welcome, $nome!</p>";
@@ -43,6 +47,7 @@
                         echo "<p>Please login</p>";
                     }
                     ?>
+
                 </div>
             </div>
 
@@ -52,11 +57,12 @@
                         <p>MY ACCOUNT</p>
                     </div>
                 </a>
+
                 <?php
-                // Conexão à base de dados
+                //conexão à base de dados
                 require('../comuns/baseDados.php');
 
-
+                //se clicar no botão de logout encerro sessão
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../comuns/logout.php' class='btn-logout'>
@@ -67,6 +73,7 @@
                 ";
                 }
                 ?>
+
             </div>
         </div>
     </header>
@@ -118,23 +125,22 @@
                 <h2 class="tituloGeral title" id="titleSS">STATISTICS</h2>
 
                 <?php
-                // Conexão à base de dados
                 require('../comuns/baseDados.php');
 
-                // Estatísticas
+                //estatísticas
                 $stats = [];
 
-                // Total de Carros
+                //consulta a tabela carro e conta o número total de carros lá presentes
                 $queryCarros = "SELECT COUNT(*) AS total_carros FROM carro";
                 $resultCarros = pg_query($connection, $queryCarros);
                 $stats['total_carros'] = pg_fetch_result($resultCarros, 0, 'total_carros');
 
-                // Total de Utilizadores
+                //consulta a tabela reserva e conta o número de clientes (apenas um de cada) que fizeram reservas
                 $queryUtilizadores = "SELECT COUNT(DISTINCT cliente_pessoa_nome) AS total_utilizadores FROM reserva";
                 $resultUtilizadores = pg_query($connection, $queryUtilizadores);
                 $stats['total_utilizadores'] = pg_fetch_result($resultUtilizadores, 0, 'total_utilizadores');
 
-                // Número Médio de Reservas por Utilizador
+                //calcula a média do número de reservas feitas por cliente
                 $queryMediaReservas = "
                     SELECT AVG(reservas_por_utilizador) AS media_reservas 
                     FROM (
@@ -145,12 +151,13 @@
                 $resultMediaReservas = pg_query($connection, $queryMediaReservas);
                 $stats['media_reservas'] = pg_fetch_result($resultMediaReservas, 0, 'media_reservas');
 
-                // Custo Médio dos Carros
+                //calcula o custo médio diário dos carros
                 $queryCustoMedio = "SELECT AVG(custo_max_dia) AS custo_medio_carro FROM carro";
                 $resultCustoMedio = pg_query($connection, $queryCustoMedio);
                 $stats['custo_medio_carro'] = pg_fetch_result($resultCustoMedio, 0, 'custo_medio_carro');
 
-                // Carro Mais Reservado
+                //ESTATÍSTICA ESCOLHIDA POR NÓS
+                //calcula qual é o carro mais reservado
                 $queryCarroPopular = "
                     SELECT carro.modelo, COUNT(reserva.carro_matricula) AS total_reservas 
                     FROM reserva
@@ -162,9 +169,9 @@
                 $carroPopular = pg_fetch_assoc($resultCarroPopular);
                 $stats['carro_popular'] = $carroPopular;
 
-                // Fechar a conexão
                 pg_close($connection);
                 ?>
+
                 <ul class="topicos">
                     <li>
                         <span class='textoGeral specific'>Total Products (cars):</span>

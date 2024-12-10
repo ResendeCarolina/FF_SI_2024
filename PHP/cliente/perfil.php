@@ -28,14 +28,17 @@
         <div class="iconesContainer">
             <div class="profileContainer">
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-
                 <div class="textoGeral loginNome">
+
                     <?php
-                    // Conexão à base de dados
+
+                    //conexão à base de dados
                     require('../comuns/baseDados.php');
 
+                    //verifica se a sessão foi iniciada
                     session_start();
-                    // Verificar se o utilizador está logado
+
+                    //guarda o nome do utilizador
                     if (isset($_SESSION['nome'])) {
                         $nome = htmlspecialchars($_SESSION['nome']);
                         echo "<p>Welcome, $nome!</p>";
@@ -52,11 +55,12 @@
                         <p>MY ACCOUNT</p>
                     </div>
                 </a>
+
                 <?php
-                // Conexão à base de dados
+
                 require('../comuns/baseDados.php');
 
-
+                //se clicar no botão de logout encerro sessão
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../comuns/logout.php' class='btn-logout'>
@@ -67,6 +71,7 @@
                 ";
                 }
                 ?>
+
             </div>
         </div>
     </header>
@@ -75,24 +80,30 @@
         <div class="cartBar" id="cartBar">
             <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
+
                 <?php
-                // Conexão à base de dados
+
                 require('../comuns/baseDados.php');
 
+                //se a sessão foi iniciada (fez login)
                 if (isset($_SESSION['nome'])) {
-                    // Query para buscar o histórico de reservas
+
+                    //consulta as tabelas reserva e carro e seleciona as reservas que o cliente fez
                     $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, carro.modelo, carro.img
-                                    FROM reserva, carro
-                                    WHERE reserva.carro_matricula = carro.matricula 
-                                    AND reserva.cliente_pessoa_nome = '$nome'
-                                    ORDER BY reserva.data_inicio DESC";
+                                      FROM reserva, carro
+                                      WHERE reserva.carro_matricula = carro.matricula 
+                                      AND reserva.cliente_pessoa_nome = '$nome'
+                                      ORDER BY reserva.data_inicio DESC"; //as datas mais recentes aparecem primeiro
 
                     $resultadosReservas = pg_query($connection, $queryReservas);
 
+
+                    //se houver resultados
                     if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
                         echo "<ul class='tituloGeral'>";
                         while ($reserva = pg_fetch_assoc($resultadosReservas)) {
-                            // Lista de Reservas do utilizador
+                            //vai ser desenhada na aba lateral todas as reservas do cliente com a imagem, 
+                            //matrícula, modelo e datas de reserva do carro
                             echo "
                                 <li>
                                     <div class='listaItem'>
@@ -123,12 +134,13 @@
                         }
                         echo "</ul>";
                     } else {
+                        //se não houver resultados, não há reservas
                         echo "<p class='textoGeral'>No reservations found</p>";
                     }
                 } else {
                     echo "<p class='textoGeral'>No reservations found</p>";
                 }
-                
+
                 ?>
             </div>
         </div>
@@ -137,25 +149,25 @@
             <div class="profilePageContainer">
 
                 <?php
-                // Conexão à base de dados
+
                 require('../comuns/baseDados.php');
 
-                // Verificar se o utilizador está logado
+                //se o login tiver sido feito
                 if (isset($_SESSION['nome'])) {
 
+                    //consulta as tabelas pessoa e cliente e vai buscar todos os dados sobre o cliente
                     $nome = pg_escape_string($connection, $_SESSION['nome']);
                     $query = "SELECT pessoa.nome, pessoa.cc, pessoa.data_nasc, pessoa.email, pessoa.password, cliente.saldo 
                              FROM pessoa, cliente 
                              WHERE pessoa.nome = cliente.pessoa_nome 
                              AND pessoa.nome = '$nome'";
 
-                    // Executa a query
                     $resultados = pg_query($connection, $query);
 
                     if ($resultados && pg_num_rows($resultados) > 0) {
-
                         $utilizador = pg_fetch_assoc($resultados);
 
+                        //são exibidos os dados do cliente 
                         echo "
                             <h2 class='tituloGeral title'>Hi, " . htmlspecialchars($utilizador['nome']) . "!</h2>
                             <div class='dados'>
@@ -183,23 +195,29 @@
                                     </li>
                                     <h3 class='tituloGeral balance'>Reservation History</h3>";
 
-                        // Query que vai buscar às duas tabelas (reserva e carro) os dados de reserva
-                        $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, carro.modelo 
-                                        FROM reserva, carro
-                                        WHERE reserva.carro_matricula = carro.matricula 
-                                        AND reserva.cliente_pessoa_nome = '$nome'
-                                        ORDER BY reserva.data_inicio DESC";
+                        //consulta as tabelas reserva e carro
+                        $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, carro.modelo, carro.matricula
+                                          FROM reserva, carro
+                                          WHERE reserva.carro_matricula = carro.matricula 
+                                          AND reserva.cliente_pessoa_nome = '$nome'
+                                          ORDER BY reserva.data_inicio DESC";
 
                         $resultadosReservas = pg_query($connection, $queryReservas);
 
+                        //se o utilizador tiver feito alguma reserva
                         if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
                             echo "<ul class='tituloGeral histReserv'>";
+
+                            //para o número de reservas que ele tiver feito é exibido o modelo, a matrícula e as datas de reserva dos carros
                             while ($reserva = pg_fetch_assoc($resultadosReservas)) {
-                                // Lista de Reservas do utilizador
                                 echo "
                                             <li>
                                                 <span class='textoGeral specific'>Car Model: </span>
                                                 <span class='textoGeral'>" . htmlspecialchars($reserva['modelo']) . "</span>
+                                            </li>
+                                            <li>
+                                                <span class='textoGeral specific'>Registation Plate: </span>
+                                                <span class='textoGeral'>" . htmlspecialchars($reserva['matricula']) . "</span>
                                             </li>
                                             <li>
                                                 <span class='textoGeral specific'>Start Date: </span>
@@ -215,6 +233,7 @@
                             }
                             echo "</ul>";
                         } else {
+                            //se não tiver reservas feitas
                             echo "<p class='textoGeral'>No reservations found.</p>";
                         }
 
@@ -229,12 +248,10 @@
                     echo "<p class='textoGeral erro'>Profile not found. Please log in</p>";
                 }
                 ?>
+
             </div>
-
         </section>
-
     </main>
-
     <script src="/JS/header.js"></script>
     <script src="/JS/cartBar.js"></script>
 </body>

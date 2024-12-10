@@ -79,7 +79,7 @@
 
                     <form class="searchForm searchFA" method="GET" action="products.php">
 
-                        <!-- Filtro para ordenar -->
+                        <!-- filtro para ordenar -->
                         <select class="filter" name="sort" id="sort">
                             <option value="">Sort by</option>
                             <option value="price_asc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'price_asc') ? 'selected' : '' ?>>Price (Low to High)</option>
@@ -88,9 +88,10 @@
                             <option value="model_desc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'model_desc') ? 'selected' : '' ?>>Model (Z-A)</option>
                         </select>
 
+                        <!-- filtro para pesquisar o modelo -->
                         <input class="filter" type="search" name="search" placeholder="Search by model...." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
 
-                        <!-- Filtro relativo ao número de lugares -->
+                        <!-- filtro para pesquisar o número de lugares -->
                         <select class="filter" name="nmr_lugares" id="nmr_lugares">
                             <option value="">Number of Seats</option>
                             <option value="2" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '2') ? 'selected' : '' ?>>2</option>
@@ -98,10 +99,10 @@
                             <option value="5" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '5') ? 'selected' : '' ?>>5</option>
                         </select>
 
-                        <!-- Filtro relativo ao custo máximo diário -->
+                        <!-- filtro para custo máximo -->
                         <input class="filter" type="number" name="custo_max_dia" id="custo_max_dia" placeholder="Max Cost...." value="<?= htmlspecialchars($_GET['custo_max_dia'] ?? '') ?>">
 
-                        <!-- Botão de pesquisa -->
+                        <!-- botão de submeter -->
                         <button type="submit" class="searchBtn">
                             <img class="lupa" src="/IMAGENS/pictogramaLupa.png" width="15" height="15" alt="Search">
                         </button>
@@ -117,11 +118,13 @@
 
 
                 <div class="gallery" id="gallery">
+
                     <?php
-                    // Conexão à base de dados
+
+
                     require('../comuns/baseDados.php');
 
-                    // Capturar os parâmetros da pesquisa e filtros
+                    //guarda os valores das variáveis selecionadas nos filtros 
                     $search = pg_escape_string($connection, $_GET['search'] ?? '');
                     $nmr_lugares = pg_escape_string($connection, $_GET['nmr_lugares'] ?? '');
                     $custo_max_dia = pg_escape_string($connection, $_GET['custo_max_dia'] ?? '');
@@ -176,9 +179,10 @@
 
                     //cria um loop que cria o número de "cartões" com o número de produtos da base de dados
                     while ($carro = pg_fetch_assoc($resultados)) {
-                        // Verifica se o valor de 'oculto' é 't' (true) ou 'f' (false)
-                        $oculto = ($carro['oculto'] === 't'); // Converte para booleano em PHP
+                        //verifica se o valor de 'oculto' é 't' (true) ou 'f' (false)
 
+                        //se oculto = t => desenhado; se oculto = f => não é desenhado;
+                        $oculto = ($carro['oculto'] === 't'); // Converte para booleano em PHP
                         echo "
                             <div class='carro'>
                                 <div class='legenda' id='legendaP'>
@@ -198,10 +202,9 @@
                                 </div>                                
                             </div>
                         ";
-                    }
+                    }  //se carregar no botao sou remetida (através da matrícula)
+                    //para a página car com as especificações de cada carro
 
-
-                    //conexão com a base de dados fechada
                     pg_close($connection);
                     ?>
                 </div>
@@ -233,4 +236,3 @@
 </body>
 
 </html>
-

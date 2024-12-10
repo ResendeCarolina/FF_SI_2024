@@ -28,14 +28,17 @@
         <div class="iconesContainer">
             <div class="profileContainer">
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-
                 <div class="textoGeral loginNome">
+
                     <?php
-                    // Conexão à base de dados
+
+                    //conexão à base de dados
                     require('../comuns/baseDados.php');
 
+                    //verifica se a sessão foi iniciada
                     session_start();
-                    // Verificar se o utilizador está logado
+
+                    //guarda o nome do utilizador
                     if (isset($_SESSION['nome'])) {
                         $nome = htmlspecialchars($_SESSION['nome']);
                         echo "<p>Welcome, $nome!</p>";
@@ -52,11 +55,12 @@
                         <p>MY ACCOUNT</p>
                     </div>
                 </a>
+
                 <?php
-                // Conexão à base de dados
+                //conexão à base de dados
                 require('../comuns/baseDados.php');
 
-
+                //se clicar no botão de logout encerro sessão
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../comuns/logout.php' class='btn-logout'>
@@ -67,6 +71,7 @@
                 ";
                 }
                 ?>
+
             </div>
         </div>
     </header>
@@ -75,24 +80,30 @@
         <div class="cartBar" id="cartBar">
             <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
+
                 <?php
-                // Conexão à base de dados
+
                 require('../comuns/baseDados.php');
 
+                //se a sessão foi iniciada (fez login)
                 if (isset($_SESSION['nome'])) {
-                    // Query para buscar o histórico de reservas
+
+                    //consulta as tabelas reserva e carro e seleciona as reservas que o cliente fez
                     $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, carro.modelo, carro.img
-                                    FROM reserva, carro
-                                    WHERE reserva.carro_matricula = carro.matricula 
-                                    AND reserva.cliente_pessoa_nome = '$nome'
-                                    ORDER BY reserva.data_inicio DESC";
+                                      FROM reserva, carro
+                                      WHERE reserva.carro_matricula = carro.matricula 
+                                      AND reserva.cliente_pessoa_nome = '$nome'
+                                      ORDER BY reserva.data_inicio DESC"; //as datas mais recentes aparecem primeiro
 
                     $resultadosReservas = pg_query($connection, $queryReservas);
 
+
+                    //se houver resultados
                     if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
                         echo "<ul class='tituloGeral'>";
                         while ($reserva = pg_fetch_assoc($resultadosReservas)) {
-                            // Lista de Reservas do utilizador
+                            //vai ser desenhada na aba lateral todas as reservas do cliente com a imagem, 
+                            //matrícula, modelo e datas de reserva do carro
                             echo "
                                 <li>
                                     <div class='listaItem'>
@@ -123,6 +134,7 @@
                         }
                         echo "</ul>";
                     } else {
+                        //se não houver resultados, não há reservas
                         echo "<p class='textoGeral'>No reservations found</p>";
                     }
                 } else {
@@ -135,13 +147,12 @@
 
         <section class="secondPage">
             <div class="secondPageContainer">
-
                 <h5 class="textoGeral subtitle">Search your dream car</h5>
-                <div class="searchBar">
 
+                <div class="searchBar">
                     <form class="searchForm" method="GET" action="products.php">
 
-                        <!-- Filtro para ordenar -->
+                        <!-- filtro para ordenar -->
                         <select class="filter" name="sort" id="sort">
                             <option value="">Sort by</option>
                             <option value="price_asc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'price_asc') ? 'selected' : '' ?>>Price (Low to High)</option>
@@ -150,9 +161,10 @@
                             <option value="model_desc" <?= (isset($_GET['sort']) && $_GET['sort'] == 'model_desc') ? 'selected' : '' ?>>Model (Z-A)</option>
                         </select>
 
+                        <!-- filtro para pesquisar o modelo -->
                         <input class="filter" type="search" name="search" placeholder="Search by model...." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
 
-                        <!-- Filtro relativo ao número de lugares -->
+                        <!-- filtro para pesquisar o número de lugares -->
                         <select class="filter" name="nmr_lugares" id="nmr_lugares">
                             <option value="">Number of Seats</option>
                             <option value="2" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '2') ? 'selected' : '' ?>>2</option>
@@ -160,34 +172,33 @@
                             <option value="5" <?= (isset($_GET['nmr_lugares']) && $_GET['nmr_lugares'] == '5') ? 'selected' : '' ?>>5</option>
                         </select>
 
-                        <!-- Filtro relativo ao custo máximo diário -->
+                        <!-- filtro para custo máximo -->
                         <input class="filter" type="number" name="custo_max_dia" id="custo_max_dia" placeholder="Max Cost...." value="<?= htmlspecialchars($_GET['custo_max_dia'] ?? '') ?>">
 
-                        <!-- Botão de pesquisa -->
+                        <!-- botão de submeter -->
                         <button type="submit" class="searchBtn">
                             <img class="lupa" src="/IMAGENS/pictogramaLupa.png" width="15" height="15" alt="Search">
                         </button>
-
                     </form>
-
                 </div>
 
 
                 <div class="gallery" id="gallery">
+
                     <?php
 
-                    // Conexão à base de dados
                     require('../comuns/baseDados.php');
 
-                    // Capturar os parâmetros da pesquisa e filtros
+                    //guarda os valores das variáveis selecionadas nos filtros 
                     $search = pg_escape_string($connection, $_GET['search'] ?? '');
                     $nmr_lugares = pg_escape_string($connection, $_GET['nmr_lugares'] ?? '');
                     $custo_max_dia = pg_escape_string($connection, $_GET['custo_max_dia'] ?? '');
                     $sort = $_GET['sort'] ?? '';
 
-                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img, oculto
-                    FROM carro 
+                    $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, img, oculto
+                    FROM carro
                     WHERE 1=1"; //seleciona todos os resultados da tabela carro
+
 
                     //filtro por pesquisa (modelo)
                     if (!empty($search)) {
@@ -219,7 +230,7 @@
                             $query .= " ORDER BY modelo DESC";
                             break;
                         default:
-                            $query .= " ORDER BY modelo ASC"; // Ordenação padrão
+                            $query .= " ORDER BY modelo ASC"; //ordenação default
                     }
 
 
@@ -234,9 +245,10 @@
 
                     //cria um loop que cria o número de "cartões" com o número de produtos da base de dados
                     while ($carro = pg_fetch_assoc($resultados)) {
-                        // Verifica se o valor de 'oculto' é 't' (true) ou 'f' (false)
-                        $oculto = ($carro['oculto'] === 't'); // Converte para booleano em PHP
+                        //verifica se o valor de 'oculto' é 't' (true) ou 'f' (false)
+                        $oculto = ($carro['oculto'] === 't');
 
+                        //se oculto = t => desenhado; se oculto = f => não é desenhado;
                         if ($oculto) {
                             echo "
                                 <div class='carro'>
@@ -252,13 +264,13 @@
                                 </div>
                             ";
                         }
-                    } //se carregar no botao sou remetida para a página car com as especificações de cada carro
+                    } //se carregar no botao sou remetida (através da matrícula)
+                    //para a página car com as especificações de cada carro
 
-                    // Encerra a conexão com a base de dados
                     pg_close($connection);
                     ?>
-                </div>
 
+                </div>
             </div>
         </section>
     </main>

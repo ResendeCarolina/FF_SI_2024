@@ -29,14 +29,17 @@
         <div class="iconesContainer">
             <div class="profileContainer">
                 <img class="icones" id="perfil" src="/IMAGENS/pictogramaPerfil.png" alt="perfil">
-
                 <div class="textoGeral loginNome">
+
                     <?php
-                    // Conexão à base de dados
+
+                    //conexão à base de dados
                     require('../comuns/baseDados.php');
 
+                    //verifica se a sessão foi iniciada
                     session_start();
-                    // Verificar se o utilizador está logado
+
+                    //guarda o nome do utilizador
                     if (isset($_SESSION['nome'])) {
                         $nome = htmlspecialchars($_SESSION['nome']);
                         echo "<p>Welcome, $nome!</p>";
@@ -44,6 +47,7 @@
                         echo "<p>Please login</p>";
                     }
                     ?>
+
                 </div>
             </div>
 
@@ -53,11 +57,12 @@
                         <p>MY ACCOUNT</p>
                     </div>
                 </a>
+
                 <?php
-                // Conexão à base de dados
+                //conexão à base de dados
                 require('../comuns/baseDados.php');
 
-
+                //se clicar no botão de logout encerro sessão
                 if (isset($_SESSION['nome'])) {
                     echo "
                 <a href='../comuns/logout.php' class='btn-logout'>
@@ -68,31 +73,39 @@
                 ";
                 }
                 ?>
+
             </div>
         </div>
     </header>
+
     <main>
         <div class="cartBar" id="cartBar">
             <h1 class="tituloGeral titleSC">Reservations List</h1>
             <div class="listCart">
+
                 <?php
-                // Conexão à base de dados
+
                 require('../comuns/baseDados.php');
 
+                //se a sessão foi iniciada (fez login)
                 if (isset($_SESSION['nome'])) {
-                    // Query para buscar o histórico de reservas
+
+                    //consulta as tabelas reserva e carro e seleciona as reservas que o cliente fez
                     $queryReservas = "SELECT reserva.data_inicio, reserva.data_fim, reserva.carro_matricula, carro.modelo, carro.img
-                                    FROM reserva, carro
-                                    WHERE reserva.carro_matricula = carro.matricula 
-                                    AND reserva.cliente_pessoa_nome = '$nome'
-                                    ORDER BY reserva.data_inicio DESC";
+                                      FROM reserva, carro
+                                      WHERE reserva.carro_matricula = carro.matricula 
+                                      AND reserva.cliente_pessoa_nome = '$nome'
+                                      ORDER BY reserva.data_inicio DESC"; //as datas mais recentes aparecem primeiro
 
                     $resultadosReservas = pg_query($connection, $queryReservas);
 
+
+                    //se houver resultados
                     if ($resultadosReservas && pg_num_rows($resultadosReservas) > 0) {
                         echo "<ul class='tituloGeral'>";
                         while ($reserva = pg_fetch_assoc($resultadosReservas)) {
-                            // Lista de Reservas do utilizador
+                            //vai ser desenhada na aba lateral todas as reservas do cliente com a imagem, 
+                            //matrícula, modelo e datas de reserva do carro
                             echo "
                                 <li>
                                     <div class='listaItem'>
@@ -123,6 +136,7 @@
                         }
                         echo "</ul>";
                     } else {
+                        //se não houver resultados, não há reservas
                         echo "<p class='textoGeral'>No reservations found</p>";
                     }
                 } else {
@@ -135,21 +149,21 @@
 
         <?php
 
-        // Verifica se o atributo "matricula" foi enviado
+        //verifica se o atributo "matricula" foi enviado
         if (isset($_GET['matricula'])) { //se foi enviado
             $matricula = pg_escape_string($connection, $_GET['matricula']);
 
-            // Query para buscar os detalhes do carro
+            //consulta a tabela carro
             $query = "SELECT matricula, modelo, nmr_lugares, cor, ano, custo_max_dia, administrador_pessoa_nome, img 
-                FROM carro 
-                WHERE matricula = '$matricula'";
+                      FROM carro 
+                      WHERE matricula = '$matricula'";
             $resultado = pg_query($connection, $query);
 
-            // Verificar se a consulta foi bem-sucedida
+            //verificar se a consulta foi bem-sucedida
             if ($resultado && pg_num_rows($resultado) > 0) {
                 $carro = pg_fetch_assoc($resultado);
 
-                // Exibir as informações do carro
+                //consoante a PK do carro (matrícula), vamos buscar todas as suas especificações
                 echo "
                         <section class='thirdPage'>
                             <div class='thirdPageFC'> 
@@ -209,7 +223,6 @@
             echo "<p class='textoGeral erro erroCar'>Not found</p>";
         }
 
-        // Fechar a conexão
         pg_close($connection);
         ?>
 
