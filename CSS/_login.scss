@@ -1,11 +1,12 @@
 /*todos os div afetados pelo contentor que envolve apenas o form*/
-.login_form form > div {
+.login_form form>div {
     margin-top: 10px;
-    margin-bottom: 20px; /* Espaço entre os campos a preencher*/
+    margin-bottom: 20px;
+    /* Espaço entre os campos a preencher*/
     width: 30vw;
-  }
+}
 
-.linkContainer{
+.linkContainer {
     display: flex;
     justify-content: center;
     margin-top: 100px;
@@ -16,6 +17,6 @@
     color: white;
 }
 
-#botaoLogin{
+#botaoLogin {
     margin-top: 50px;
 }

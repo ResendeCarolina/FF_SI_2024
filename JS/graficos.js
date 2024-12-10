@@ -1,9 +1,11 @@
-// Fetch data from PHP
+//através dos dados recebidos pelo ficheiro gráficos.php
+//cria dois gráficos mediante a biblioteca Chart.js
+
 fetch('../comuns/graficos.php')
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        
+
         //gráfico de barras para o nº total de modelos
         const carModelsCtx = document.getElementById('graficoModelos').getContext('2d');
         const carModelsData = data.modelos.map(item => item.total);
@@ -70,7 +72,7 @@ fetch('../comuns/graficos.php')
                     }
                 }
             }
-            
+
         });
     })
     .catch(error => console.error('Error loading data:', error));

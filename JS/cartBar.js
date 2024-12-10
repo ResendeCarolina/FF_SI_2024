@@ -10,7 +10,7 @@ function toggleCarrinho() {
   aba.classList.toggle("show");
 }
 
-// se carregar dentro do contentor/aba esta não se fecha
+//se carregar dentro do contentor/aba esta não se fecha
 function dentroCarrinho(event) {
   event.stopPropagation();
 }

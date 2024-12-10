@@ -86,15 +86,20 @@ html {
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;
-  margin-bottom: 20px; /* Espaço entre os campos a preencher*/
+  margin-bottom: 20px;
+  /* Espaço entre os campos a preencher*/
   width: 30vw;
 }
 
 .inline-fields {
-  display: flex; /* Alinha os elementos lado a lado */
-  justify-content: space-between; /* Espaça os campos uniformemente */
-  gap: 20px; /* Espaço entre os campos (opcional) */
-  width: 100%; /* Faz com que ocupem a largura total do formulário */
+  display: flex;
+  /* Alinha os elementos lado a lado */
+  justify-content: space-between;
+  /* Espaça os campos uniformemente */
+  gap: 20px;
+  /* Espaço entre os campos (opcional) */
+  width: 100%;
+  /* Faz com que ocupem a largura total do formulário */
 }
 
 .inline-fields div {
@@ -108,8 +113,10 @@ html {
 }
 
 .register_form input[type=checkbox] {
-  width: auto; /* Deixa o checkbox com tamanho padrão */
-  margin-right: 10px; /* Espaço entre o checkbox e o texto */
+  width: auto;
+  /* Deixa o checkbox com tamanho padrão */
+  margin-right: 10px;
+  /* Espaço entre o checkbox e o texto */
 }
 
 #botaoRegister {
@@ -119,7 +126,8 @@ html {
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .login_form form > div {
   margin-top: 10px;
-  margin-bottom: 20px; /* Espaço entre os campos a preencher*/
+  margin-bottom: 20px;
+  /* Espaço entre os campos a preencher*/
   width: 30vw;
 }
 
@@ -147,7 +155,8 @@ html {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center; /*centraliza o texto verticalmente*/
+  align-items: center;
+  /*centraliza o texto verticalmente*/
   justify-content: flex-start;
 }
 
@@ -160,15 +169,20 @@ html {
 }
 
 .sloganInicial {
-  position: absolute; /*Posiciona o slogan sobre o vídeo*/
-  top: 55%; /*Centraliza verticalmente*/
+  position: absolute;
+  /*Posiciona o slogan sobre o vídeo*/
+  top: 55%;
+  /*Centraliza verticalmente*/
   left: 150px;
-  transform: translateY(-50%); /* Centraliza verticalmente*/
-  z-index: 1; /* Garante que o slogan fique acima da imagem */
+  transform: translateY(-50%);
+  /* Centraliza verticalmente*/
+  z-index: 1;
+  /* Garante que o slogan fique acima da imagem */
 }
 
 .slogan {
-  color: white; /* Define a cor do slogan */
+  color: white;
+  /* Define a cor do slogan */
   font-size: 90pt;
   font-weight: bold;
   line-height: 100pt;
@@ -217,7 +231,8 @@ html {
   position: relative;
   justify-content: center;
   grid-template-rows: 300px;
-  grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Colunas responsivas */
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  /* Colunas responsivas */
   grid-template-areas: "primeiro segundo";
   gap: 40px;
   padding-right: 150px;
@@ -310,14 +325,17 @@ html {
   width: 170px;
   height: 100%;
   background-color: transparent;
-  border: 3px solid black; /* Borda padrão para os inputs */
-  border-radius: 15px; /* Bordas arredondadas */
+  border: 3px solid black;
+  /* Borda padrão para os inputs */
+  border-radius: 15px;
+  /* Bordas arredondadas */
   line-height: 30px;
   display: flex;
   align-items: center;
 }
 
-input, select {
+input,
+select {
   padding-left: 15px;
 }
 
@@ -344,28 +362,36 @@ input, select {
   filter: brightness(0) invert(1);
 }
 
-input:focus, select:focus {
-  outline: none; /* Remove o contorno padrão */
+input:focus,
+select:focus {
+  outline: none;
+  /* Remove o contorno padrão */
 }
 
 .gallery {
   display: grid;
   position: relative;
   justify-content: center;
-  grid-auto-rows: auto; /*a altura das imagens vai ocupar o espaço total definido*/
-  grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Colunas responsivas */
+  grid-auto-rows: auto;
+  /*a altura das imagens vai ocupar o espaço total definido*/
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  /* Colunas responsivas */
   gap: 40px;
 }
 
 .gallery > *:nth-child(3n+1) {
-  grid-column: 1/-1; /* Ocupa toda a linha (um cartão) */
-  height: 450px; /*altura da coluna*/
+  grid-column: 1/-1;
+  /* Ocupa toda a linha (um cartão) */
+  height: 450px;
+  /*altura da coluna*/
 }
 
 .gallery > *:nth-child(3n+2),
 .gallery > *:nth-child(3n+3) {
-  grid-column: span 1; /* Ocupa uma coluna (dois cartões por linha) */
-  height: 300px; /*altura da coluna*/
+  grid-column: span 1;
+  /* Ocupa uma coluna (dois cartões por linha) */
+  height: 300px;
+  /*altura da coluna*/
 }
 
 #imgGallery {
@@ -521,7 +547,8 @@ header {
   width: 350px;
   background: darkred;
   position: fixed;
-  inset: 0 auto 0 -350px; /*referente ao valor de top, right, bottom, left*/
+  inset: 0 auto 0 -350px;
+  /*referente ao valor de top, right, bottom, left*/
   padding: 50px 40px;
   display: grid;
   grid-template-rows: 70px 1fr 10px;
@@ -534,11 +561,13 @@ header {
 }
 
 .listCart {
-  overflow: auto; /*caso o número de reservas exceda a altura da janela, cria-se um scroll*/
+  overflow: auto;
+  /*caso o número de reservas exceda a altura da janela, cria-se um scroll*/
 }
 
 .listCart::-webkit-scrollbar {
-  width: 0; /*o scroll funciona na mesma, mas a barra de scroll desaparece*/
+  width: 0;
+  /*o scroll funciona na mesma, mas a barra de scroll desaparece*/
 }
 
 .listaItem {
@@ -622,13 +651,15 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 15px; /* Espaço entre os ícones */
+  gap: 15px;
+  /* Espaço entre os ícones */
   left: 150px;
 }
 
 .icoC {
   width: 15px;
-  height: auto; /* Mantém a proporção da imagem */
+  height: auto;
+  /* Mantém a proporção da imagem */
 }
 
 .iconesMedia {
@@ -642,27 +673,33 @@ footer {
 
 .icoM {
   width: 25px;
-  height: auto; /* Mantém a proporção da imagem */
+  height: auto;
+  /* Mantém a proporção da imagem */
 }
 
-.wrapper { /*contentor que engloba a imagem e o form*/
+.wrapper {
+  /*contentor que engloba a imagem e o form*/
   display: flex;
   width: 100%;
   height: 100vh;
 }
 
 .imgSignUp {
-  height: 100%; /*coloca a altura da janela do ecrã do pc*/
+  height: 100%;
+  /*coloca a altura da janela do ecrã do pc*/
   width: 50%;
   display: flex;
-  align-items: center; /*centraliza o texto verticalmente*/
+  align-items: center;
+  /*centraliza o texto verticalmente*/
   justify-content: flex-start;
   z-index: 1;
 }
 
 #imgSU {
-  width: 100%; /*o contentor terá sempre a largura de metade do valor do ecrã*/
-  height: 100%; /*o contentor terá sempre a largura de metade do valor do ecrã*/
+  width: 100%;
+  /*o contentor terá sempre a largura de metade do valor do ecrã*/
+  height: 100%;
+  /*o contentor terá sempre a largura de metade do valor do ecrã*/
   -o-object-fit: cover;
      object-fit: cover;
   z-index: 1;
@@ -685,34 +722,46 @@ footer {
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 100%; /*o contentor terá sempre a largura de metade do valor do ecrã*/
+  width: 100%;
+  /*o contentor terá sempre a largura de metade do valor do ecrã*/
   height: 100%;
   padding: 40px 30px;
 }
 
-.register_form, .login_form {
+.register_form,
+.login_form {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /*Centraliza os campos do formulário*/
-  width: 100%; /*Faz o formulário ocupar toda a largura do container*/
+  align-items: center;
+  /*Centraliza os campos do formulário*/
+  width: 100%;
+  /*Faz o formulário ocupar toda a largura do container*/
   max-width: 500px;
   max-height: 90%;
 }
 
-.register_form label, .login_form label {
+.register_form label,
+.login_form label {
   color: white;
-  display: block; /*Caixa texto ocupa toda a linha e fica acima*/
-  margin-bottom: 5px; /* Adiciona espaço entre o texto e a caixa*/
+  display: block;
+  /*Caixa texto ocupa toda a linha e fica acima*/
+  margin-bottom: 5px;
+  /* Adiciona espaço entre o texto e a caixa*/
 }
 
-.register_form input, .login_form input {
-  width: 100%; /* Faz com que os inputs ocupem toda a largura*/
+.register_form input,
+.login_form input {
+  width: 100%;
+  /* Faz com que os inputs ocupem toda a largura*/
   height: 35px;
-  padding: 10px; /* Adiciona preenchimento dentro das caixas de texto*/
+  padding: 10px;
+  /* Adiciona preenchimento dentro das caixas de texto*/
   background-color: #ededed;
-  border: 1px solid #ccc; /* Borda padrão para os inputs */
-  border-radius: 3px; /* Bordas arredondadas */
+  border: 1px solid #ccc;
+  /* Borda padrão para os inputs */
+  border-radius: 3px;
+  /* Bordas arredondadas */
 }
 
 .botao {
@@ -725,7 +774,8 @@ footer {
   background-color: darkred;
   border: none;
   padding: 10px;
-  border-radius: 3px; /* Bordas arredondadas */
+  border-radius: 3px;
+  /* Bordas arredondadas */
 }
 
 .thirdPage {

@@ -1,15 +1,20 @@
 /*todos os div afetados pelo contentor que envolve apenas o form*/
 .register_form div {
   margin-top: 10px;
-  margin-bottom: 20px; /* Espaço entre os campos a preencher*/
+  margin-bottom: 20px;
+  /* Espaço entre os campos a preencher*/
   width: 30vw;
 }
 
 .inline-fields {
-  display: flex; /* Alinha os elementos lado a lado */
-  justify-content: space-between; /* Espaça os campos uniformemente */
-  gap: 20px; /* Espaço entre os campos (opcional) */
-  width: 100%; /* Faz com que ocupem a largura total do formulário */
+  display: flex;
+  /* Alinha os elementos lado a lado */
+  justify-content: space-between;
+  /* Espaça os campos uniformemente */
+  gap: 20px;
+  /* Espaço entre os campos (opcional) */
+  width: 100%;
+  /* Faz com que ocupem a largura total do formulário */
 }
 
 .inline-fields div {
@@ -17,16 +22,18 @@
   width: 50%;
 }
 
-.checkbox{
+.checkbox {
   display: flex;
   align-items: center;
 }
 
 .register_form input[type="checkbox"] {
-  width: auto; /* Deixa o checkbox com tamanho padrão */
-  margin-right: 10px; /* Espaço entre o checkbox e o texto */
+  width: auto;
+  /* Deixa o checkbox com tamanho padrão */
+  margin-right: 10px;
+  /* Espaço entre o checkbox e o texto */
 }
 
-#botaoRegister{
+#botaoRegister {
   margin-top: 35px;
 }

@@ -50,12 +50,12 @@ carroForm.addEventListener('submit', function (event) {
           throw new Error(errorMessage);
         });
       }
-      return response.text(); // Retornar o texto da resposta em caso de sucesso
+      return response.text(); //envia o texto de resposta de sucesso
     })
     .then(data => {
-      // Verifica se a resposta do servidor contém a mensagem de sucesso
+      //verifica se tem a resposta de sucesso
       if (data.trim() === "Reservation made successfully") {
-        alert(data); // Exibe a mensagem de sucesso
+        alert(data); 
         // Recarrega a página e depois chama a função para abrir a aba lateral
         window.location.reload(); // A página será recarregada
       } else {

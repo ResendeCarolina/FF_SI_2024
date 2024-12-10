@@ -1,16 +1,16 @@
-//função responsável por mudar a cor do select
+//função responsável por mudar a cor do select na barra de filtros
 function colorChange(id) {
 
   let selectElement = document.getElementById(id);
 
-  // Define a cor inicial como cinza
+  //define a cor inicial como cinza
   selectElement.style.color = "gray";
 
   selectElement.addEventListener('change', function () {
     if (selectElement.value === "") {
-      selectElement.style.color = "gray"; // Se a opção padrão for a escolhida, mantém-se a cor cinza
+      selectElement.style.color = "gray"; //se a opção padrão for a escolhida, mantém-se a cor cinza
     } else {
-      selectElement.style.color = "black"; // Caso contrário, muda para preto
+      selectElement.style.color = "black"; //caso contrário, muda para preto
     }
   });
 }

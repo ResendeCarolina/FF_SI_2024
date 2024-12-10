@@ -12,7 +12,7 @@
   margin-bottom: 30px;
 }
 
-.subtitle{
+.subtitle {
   font-size: 15pt;
   font-weight: 400;
   padding-top: 15px;
@@ -35,11 +35,11 @@
   margin-bottom: 80px;
 }
 
-.searchFC{  
+.searchFC {
   margin-bottom: 80px;
 }
 
-.searchFA{  
+.searchFA {
   margin-bottom: 50px;
 }
 
@@ -47,14 +47,17 @@
   width: 170px;
   height: 100%;
   background-color: transparent;
-  border: 3px solid black; /* Borda padrão para os inputs */
-  border-radius: 15px; /* Bordas arredondadas */
+  border: 3px solid black;
+  /* Borda padrão para os inputs */
+  border-radius: 15px;
+  /* Bordas arredondadas */
   line-height: 30px;
   display: flex;
   align-items: center;
 }
 
-input, select{
+input,
+select {
   padding-left: 15px;
 }
 
@@ -71,7 +74,7 @@ input, select{
   align-items: center;
 }
 
-.searchBtn:hover{
+.searchBtn:hover {
   background-color: darkred;
 }
 
@@ -81,28 +84,36 @@ input, select{
   filter: brightness(0) invert(1);
 }
 
-input:focus, select:focus{
-  outline: none; /* Remove o contorno padrão */
+input:focus,
+select:focus {
+  outline: none;
+  /* Remove o contorno padrão */
 }
 
 .gallery {
   display: grid;
   position: relative;
   justify-content: center;
-  grid-auto-rows: auto; /*a altura das imagens vai ocupar o espaço total definido*/
-  grid-template-columns: repeat(2, minmax(300px, 1fr));/* Colunas responsivas */
+  grid-auto-rows: auto;
+  /*a altura das imagens vai ocupar o espaço total definido*/
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  /* Colunas responsivas */
   gap: 40px;
 }
 
 .gallery>*:nth-child(3n + 1) {
-  grid-column: 1 / -1;/* Ocupa toda a linha (um cartão) */
-  height: 450px; /*altura da coluna*/
+  grid-column: 1 / -1;
+  /* Ocupa toda a linha (um cartão) */
+  height: 450px;
+  /*altura da coluna*/
 }
 
 .gallery>*:nth-child(3n + 2),
 .gallery>*:nth-child(3n + 3) {
-  grid-column: span 1;/* Ocupa uma coluna (dois cartões por linha) */
-  height: 300px; /*altura da coluna*/
+  grid-column: span 1;
+  /* Ocupa uma coluna (dois cartões por linha) */
+  height: 300px;
+  /*altura da coluna*/
 }
 
 #imgGallery {
@@ -129,7 +140,7 @@ input:focus, select:focus{
 
 // CSS destinado apenas ao products do administrador -------------------------------------------------
 
-.adicionar{
+.adicionar {
   position: relative;
   margin-bottom: 80px;
   width: 170px;
@@ -142,7 +153,7 @@ input:focus, select:focus{
   gap: 15px;
 }
 
-.olhoBtn{
+.olhoBtn {
   position: relative;
   width: 50px;
   height: 30px;
@@ -150,7 +161,7 @@ input:focus, select:focus{
   background: none;
 }
 
-.olho{
+.olho {
   width: auto;
-  height:100%;
+  height: 100%;
 }

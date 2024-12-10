@@ -1,17 +1,18 @@
-.firstSection{
+.firstSection {
   width: 100%;
   height: 100vh;
 }
 
-.videoInicial{
+.videoInicial {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;/*centraliza o texto verticalmente*/
+  align-items: center;
+  /*centraliza o texto verticalmente*/
   justify-content: flex-start;
 }
 
-.video{
+.video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -19,30 +20,36 @@
 }
 
 .sloganInicial {
-  position: absolute; /*Posiciona o slogan sobre o vídeo*/
-  top: 55%; /*Centraliza verticalmente*/
-  left: 150px; 
-  transform: translateY(-50%); /* Centraliza verticalmente*/
-  z-index: 1; /* Garante que o slogan fique acima da imagem */
+  position: absolute;
+  /*Posiciona o slogan sobre o vídeo*/
+  top: 55%;
+  /*Centraliza verticalmente*/
+  left: 150px;
+  transform: translateY(-50%);
+  /* Centraliza verticalmente*/
+  z-index: 1;
+  /* Garante que o slogan fique acima da imagem */
 }
 
-.slogan{
-  color: white; /* Define a cor do slogan */
-  font-size: 90pt; 
+.slogan {
+  color: white;
+  /* Define a cor do slogan */
+  font-size: 90pt;
   font-weight: bold;
   line-height: 100pt;
 }
 
-#secondSection {//controla o sítio onde inicia a esta secção quando carregamos nela
-  scroll-margin-top: 130px; 
+#secondSection {
+  //controla o sítio onde inicia a esta secção quando carregamos nela
+  scroll-margin-top: 130px;
 }
 
-.secondSection{
+.secondSection {
   height: fit-content;
   margin: 100px 0;
 }
 
-.textContainer{
+.textContainer {
   width: 100%;
   height: 100%;
   display: flex;
@@ -50,57 +57,58 @@
   align-items: center;
 }
 
-.text{
+.text {
   margin-left: 150px;
   width: 580px;
   height: 100%
 }
 
-.text>p>strong{
+.text>p>strong {
   color: darkred;
 }
 
-.checkthisout{
+.checkthisout {
   width: 100%;
   height: 100%;
 }
 
-#titleTS{
+#titleTS {
   margin-left: 150px;
 }
 
-.painel{
+.painel {
   z-index: 5;
   display: grid;
   position: relative;
   justify-content: center;
   grid-template-rows: 300px;
-  grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Colunas responsivas */
-  grid-template-areas: 
-  'primeiro segundo';
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  /* Colunas responsivas */
+  grid-template-areas:
+    'primeiro segundo';
   gap: 40px;
   padding-right: 150px;
   padding-left: 150px;
 }
 
-.carro{
+.carro {
   color: inherit;
   color: black;
 }
 
-.thirdSection{
-  scroll-margin-top: 110px; 
+.thirdSection {
+  scroll-margin-top: 110px;
 }
 
-.thirdSectionAdmin{
+.thirdSectionAdmin {
   margin-bottom: 130px;
 }
 
-.thirdSectionClient{
+.thirdSectionClient {
   margin-bottom: 50px;
 }
 
-.graficos{
+.graficos {
   margin-top: 50px;
   display: flex;
   flex-direction: row;
@@ -109,13 +117,13 @@
   gap: 100px;
 }
 
-.graficoReservas{
+.graficoReservas {
   width: 200px;
   height: 200px;
-  flex-shrink: 0;  //impede que o gráfico encolha
+  flex-shrink: 0; //impede que o gráfico encolha
 }
 
-.graficoModelos{
+.graficoModelos {
   width: 400px;
-  flex-shrink: 0;  //impede que o gráfico encolha
+  flex-shrink: 0; //impede que o gráfico encolha
 }

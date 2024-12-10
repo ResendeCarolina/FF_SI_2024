@@ -6,51 +6,51 @@ html {
 }
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 //correspondem ao tipo de fonte que corresponde aos títulos e restante texto
-.textoGeral{
+.textoGeral {
   font-family: "Archivo Narrow", sans-serif;
 }
 
-.tituloGeral{
+.tituloGeral {
   font-family: "Antonio", sans-serif;
 }
 
 /*este title é comum aos títulos das secções da homepage e products*/
-.title{
-  font-size: 30pt;     
-  color: black;  
+.title {
+  font-size: 30pt;
+  color: black;
   margin-bottom: 30px;
 }
 
-.sobreEfeito:hover{
+.sobreEfeito:hover {
   color: darkred;
 }
 
 
 /*esta parte é comum aos carros expostos na homepage e no products*/
-.imgCarro{
+.imgCarro {
   position: relative;
-/*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
-  width: 100%; 
+  /*a largura e altura de cada imagem vai ser a das células da grelha onde estão inseridas*/
+  width: 100%;
   height: 100%;
 }
 
-.legenda{
+.legenda {
   position: absolute;
   margin-top: 20px;
 }
 
-.legend{
+.legend {
   font-size: 20pt;
 }
 
-.botaoGeral{
-  background-color: transparent;  
+.botaoGeral {
+  background-color: transparent;
   font-size: 14px;
   font-weight: 600;
   border: 3px solid black;
@@ -58,7 +58,7 @@ html {
   cursor: pointer;
 }
 
-.botaoGeral:hover{
+.botaoGeral:hover {
   background-color: darkred;
   border: 2px darkred;
   color: white;
@@ -66,18 +66,18 @@ html {
 
 
 /*código comum às listas de características e dados do car.php e do perfil.php*/
-.topicos{
+.topicos {
   margin-top: 20px;
   position: relative;
   list-style: none;
   line-height: 25px;
 }
 
-.specific{
+.specific {
   font-weight: 600;
 }
 
-.erro{
+.erro {
   color: black;
   font-size: 16pt;
 }
